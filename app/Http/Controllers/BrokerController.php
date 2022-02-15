@@ -15,7 +15,7 @@ class BrokerController extends Controller
      * This function fetches brokers details
      */
     protected function getBroker(){
-        $get_broker =DB::table('brokers')->get();
+        $get_broker =DB::table('brokers')->join('users','users.id','brokers.created_by')->select('brokers.*','users.name')->get();
         return view('admin.broker',compact('get_broker'));
     }
      /** 
@@ -30,7 +30,7 @@ class BrokerController extends Controller
         $broker_obj =new Broker;
         $broker_obj ->name                 =request()->name;
         $broker_obj ->email                =request()->email;
-        $broker_obj ->phone_number         =request()->phone_number;
+        $broker_obj ->contact_number         =request()->contact_number;
         $broker_obj ->current_location     =request()->current_location;
         $broker_obj ->profile_photo_path   =$broker_photo_original_name;
         $broker_obj ->created_by           =Auth::user()->id;
@@ -67,7 +67,7 @@ class BrokerController extends Controller
             return redirect()->back()->withErrors('Enter name to continue');
         }elseif(empty(request()->email)){
             return redirect()->back()->withErrors('Enter Email to continue');
-        }elseif(empty(request()->phone_number)){
+        }elseif(empty(request()->contact_number)){
             return redirect()->back()->withErrors('Enter Phone Number to continue');
         }elseif(empty(request()->current_location)){
             return redirect()->back()->withErrors('Enter Location to continue');
@@ -98,6 +98,7 @@ class BrokerController extends Controller
                'name'              =>request()->name,
                'email'             =>request()->email,
                'current_location'  =>request()->current_location,
+               'contact_number'    =>request()->contact_number,
                'created_by'=>Auth::user()->id
            ));
            return redirect()->back()->with('msg', 'You have successfully updated '. request()->name .' Information');

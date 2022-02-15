@@ -44,6 +44,11 @@
                                         <span class="text-primar">Kawempe</span>
                                     </div>
                                 </div>
+                                <div class="row row-table text-center">
+                                        <div class="col-xs-12">
+                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                         <!-- END widget-->
@@ -72,6 +77,11 @@
                                     <div class="col-xs-6">
                                         <span class="text-primar">Bwaise</span>
                                     </div>
+                                </div>
+                                <div class="row row-table text-center">
+                                        <div class="col-xs-12">
+                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -102,6 +112,11 @@
                                         <span class="text-primar">Natete</span>
                                     </div>
                                 </div>
+                                <div class="row row-table text-center">
+                                        <div class="col-xs-12">
+                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                         <!-- END widget-->
@@ -131,6 +146,11 @@
                                     <div class="col-xs-6">
                                         <span class="text-primar">Makerere</span>
                                     </div>
+                                </div>
+                                <div class="row row-table text-center">
+                                        <div class="col-xs-12">
+                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -171,6 +191,11 @@
                                         <span class="text-primar">Kawempe</span>
                                     </div>
                                 </div>
+                                <div class="row row-table text-center">
+                                        <div class="col-xs-12">
+                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                         <!-- END widget-->
@@ -199,6 +224,11 @@
                                     <div class="col-xs-6">
                                         <span class="text-primar">Bwaise</span>
                                     </div>
+                                </div>
+                                <div class="row row-table text-center">
+                                        <div class="col-xs-12">
+                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -229,6 +259,11 @@
                                         <span class="text-primar">Natete</span>
                                     </div>
                                 </div>
+                                <div class="row row-table text-center">
+                                        <div class="col-xs-12">
+                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                         <!-- END widget-->
@@ -258,6 +293,11 @@
                                     <div class="col-xs-6">
                                         <span class="text-primar">Makerere</span>
                                     </div>
+                                </div>
+                                <div class="row row-table text-center">
+                                        <div class="col-xs-12">
+                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -313,34 +353,10 @@
                                                                 <span class="text-primar">Kawempe</span>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <!-- END widget-->
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <!-- START widget-->
-                                                <div class="panel widget">
-                                                    <img src="{{ asset('front/apartments/apart4.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                    <div class="badge-overlay">
-                                                        <!-- Change Badge Position, Color, Text here-->
-                                                        <span class="top-left badge orange">New</span>
-                                                    </div>
-                                                    <div class="panel-body">
                                                         <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <p>5 Rooms</p>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <p>Status:Rent</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Ugx.250,000</span>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Bwaise</span>
-                                                            </div>
+                                                                <div class="col-xs-12">
+                                                                    <span class="btn btn-block btn-primary">Book Now</span>
+                                                                </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -371,6 +387,45 @@
                                                                 <span class="text-primar">Bwaise</span>
                                                             </div>
                                                         </div>
+                                                        <div class="row row-table text-center">
+                                                                <div class="col-xs-12">
+                                                                    <span class="btn btn-block btn-primary">Book Now</span>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END widget-->
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <!-- START widget-->
+                                                <div class="panel widget">
+                                                    <img src="{{ asset('front/apartments/apart4.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                    <div class="badge-overlay">
+                                                        <!-- Change Badge Position, Color, Text here-->
+                                                        <span class="top-left badge orange">New</span>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row row-table text-center">
+                                                            <div class="col-xs-6">
+                                                                <p>5 Rooms</p>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <p>Status:Rent</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-table text-center">
+                                                            <div class="col-xs-6">
+                                                                <span class="text-primar">Ugx.250,000</span>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <span class="text-primar">Bwaise</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-table text-center">
+                                                                <div class="col-xs-12">
+                                                                    <span class="btn btn-block btn-primary">Book Now</span>
+                                                                </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!-- END widget-->
@@ -400,34 +455,10 @@
                                                                 <span class="text-primar">Kawempe</span>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <!-- END widget-->
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <!-- START widget-->
-                                                <div class="panel widget">
-                                                    <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                    <div class="badge-overlay">
-                                                        <!-- Change Badge Position, Color, Text here-->
-                                                        <span class="top-left badge orange">New</span>
-                                                    </div>
-                                                    <div class="panel-body">
                                                         <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <p>5 Rooms</p>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <p>Status:Rent</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Ugx.250,000</span>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Kawempe</span>
-                                                            </div>
+                                                                <div class="col-xs-12">
+                                                                    <span class="btn btn-block btn-primary">Book Now</span>
+                                                                </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -457,6 +488,45 @@
                                                             <div class="col-xs-6">
                                                                 <span class="text-primar">Kawempe</span>
                                                             </div>
+                                                        </div>
+                                                        <div class="row row-table text-center">
+                                                                <div class="col-xs-12">
+                                                                    <span class="btn btn-block btn-primary">Book Now</span>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END widget-->
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <!-- START widget-->
+                                                <div class="panel widget">
+                                                    <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                    <div class="badge-overlay">
+                                                        <!-- Change Badge Position, Color, Text here-->
+                                                        <span class="top-left badge orange">New</span>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row row-table text-center">
+                                                            <div class="col-xs-6">
+                                                                <p>5 Rooms</p>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <p>Status:Rent</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-table text-center">
+                                                            <div class="col-xs-6">
+                                                                <span class="text-primar">Ugx.250,000</span>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <span class="text-primar">Kawempe</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-table text-center">
+                                                                <div class="col-xs-12">
+                                                                    <span class="btn btn-block btn-primary">Book Now</span>
+                                                                </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -490,6 +560,11 @@
                                                             <span class="text-primar">Kawempe</span>
                                                         </div>
                                                     </div>
+                                                    <div class="row row-table text-center">
+                                                                <div class="col-xs-12">
+                                                                    <span class="btn btn-block btn-primary">Book Now</span>
+                                                                </div>
+                                                        </div>
                                                 </div>
                                             </div>
                                             <!-- END widget-->
@@ -519,6 +594,11 @@
                                                             <span class="text-primar">Kawempe</span>
                                                         </div>
                                                     </div>
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-12">
+                                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!-- END widget-->
@@ -546,6 +626,11 @@
                                                         </div>
                                                         <div class="col-xs-6">
                                                             <span class="text-primar">Kawempe</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-12">
+                                                            <span class="btn btn-block btn-primary">Book Now</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -580,33 +665,9 @@
                                                             <span class="text-primar">Kawempe</span>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <!-- END widget-->
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <!-- START widget-->
-                                            <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                <div class="badge-overlay">
-                                                    <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
-                                                </div>
-                                                <div class="panel-body">
                                                     <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
+                                                        <div class="col-xs-12">
+                                                            <span class="btn btn-block btn-primary">Book Now</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -636,6 +697,45 @@
                                                         </div>
                                                         <div class="col-xs-6">
                                                             <span class="text-primar">Kawempe</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-12">
+                                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END widget-->
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <!-- START widget-->
+                                            <div class="panel widget">
+                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <div class="badge-overlay">
+                                                    <!-- Change Badge Position, Color, Text here-->
+                                                    <span class="top-left badge orange">New</span>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-6">
+                                                            <p>5 Rooms</p>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <p>Status:Rent</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-6">
+                                                            <span class="text-primar">Ugx.250,000</span>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <span class="text-primar">Kawempe</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-12">
+                                                            <span class="btn btn-block btn-primary">Book Now</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -669,33 +769,9 @@
                                                             <span class="text-primar">Kawempe</span>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <!-- END widget-->
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <!-- START widget-->
-                                            <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                <div class="badge-overlay">
-                                                    <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
-                                                </div>
-                                                <div class="panel-body">
                                                     <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
+                                                        <div class="col-xs-12">
+                                                            <span class="btn btn-block btn-primary">Book Now</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -725,6 +801,45 @@
                                                         </div>
                                                         <div class="col-xs-6">
                                                             <span class="text-primar">Kawempe</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-12">
+                                                            <span class="btn btn-block btn-primary">Book Now</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END widget-->
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <!-- START widget-->
+                                            <div class="panel widget">
+                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <div class="badge-overlay">
+                                                    <!-- Change Badge Position, Color, Text here-->
+                                                    <span class="top-left badge orange">New</span>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-6">
+                                                            <p>5 Rooms</p>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <p>Status:Rent</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-6">
+                                                            <span class="text-primar">Ugx.250,000</span>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <span class="text-primar">Kawempe</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-12">
+                                                            <span class="btn btn-block btn-primary">Book Now</span>
                                                         </div>
                                                     </div>
                                                 </div>

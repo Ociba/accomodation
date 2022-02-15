@@ -60,7 +60,9 @@
                                                         <th>Phone Number</th>
                                                         <th>Photo</th>
                                                         <th>Location</th>
+                                                        @can('isAdmin')
                                                         <th>Options</th>
+                                                        @endcan
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -74,10 +76,12 @@
                                                         <td>{{$owner->phone_number}}</td>
                                                         <td><img style="width:50px; height:50px;" src="{{ asset('property_owner_photos/'.$owner->profile_photo_path)}}"></td>
                                                         <td>{{$owner->location}}</td>
+                                                        @can('isAdmin')
                                                         <td>
                                                             <a href="/edit-owner/{{$owner->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
                                                             <a href="/delete-owner/{{$owner->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                         </td>
+                                                        @endcan
                                                     </tr>
                                                     @endforeach
                                                 </tbody>

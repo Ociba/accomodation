@@ -56,7 +56,9 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Name</th>
+                                                        @can('isAdmin')
                                                         <th>Options</th>
+                                                        @endcan
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -66,10 +68,12 @@
                                                             {{ $i + 1}}
                                                         </td>
                                                         <td>{{$category->category_name}}</td>
+                                                        @can('isAdmin')
                                                         <td>
                                                             <a href="/edit-category/{{$category->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
                                                             <a href="/delete-category/{{$category->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                         </td>
+                                                        @endcan
                                                     </tr>
                                                     @endforeach
                                                 </tbody>

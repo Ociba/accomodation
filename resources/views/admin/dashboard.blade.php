@@ -41,9 +41,9 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card  mb-4">
                                     <div class="card-body text-center">
-                                        <i class="feather icon-mail bg-primary ui-rounded-icon"></i>
-                                        <h4 class="mt-2"><span class="text-primary"> Projects</span></h4>
-                                        <p class="mb-3">Current Projects</p>
+                                        <i class="feather icon-user bg-primary ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-primary"> Clients</span></h4>
+                                        <p class="mb-3">Todays Clients</p>
                                         <a href="/project" button class="btn btn-primary btn-sm btn-round">View</button></a>
                                     </div>
                                 </div>
@@ -51,9 +51,9 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card  mb-4">
                                     <div class="card-body text-center">
-                                        <i class="feather icon-twitter bg-success ui-rounded-icon"></i>
-                                        <h4 class="mt-2"><span class="text-success"> Comments</span></h4>
-                                        <p class="mb-3">Customers Comments</p>
+                                        <i class="feather icon-briefcase bg-success ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-success"> Property</span></h4>
+                                        <p class="mb-3">Available Property</p>
                                         <a href="/get-comments" button class="btn btn-success btn-sm btn-round">Check them out</button></a>
                                     </div>
                                 </div>
@@ -61,9 +61,9 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card  mb-4">
                                     <div class="card-body text-center">
-                                        <i class="feather icon-briefcase bg-danger ui-rounded-icon"></i>
-                                        <h4 class="mt-2"><span class="text-danger">  Materials</span></h4>
-                                        <p class="mb-3">Number of materials</p>
+                                        <i class="feather icon-check-square bg-danger ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-danger">  Property</span></h4>
+                                        <p class="mb-3">Property Taken</p>
                                         <a href="/get-material" button class="btn btn-danger btn-sm btn-round">View</button></a>
                                     </div>
                                 </div>
@@ -71,13 +71,55 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card  mb-4">
                                     <div class="card-body text-center">
-                                        <i class="feather icon-shopping-cart bg-warning ui-rounded-icon"></i>
-                                        <h4 class="mt-2"><span class="text-warning"> Contacts</span></h4>
-                                        <p class="mb-3">Messages Received</p>
+                                        <i class="feather icon-users bg-warning ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-warning"> Owners</span></h4>
+                                        <p class="mb-3">Property Owners</p>
                                         <a href="/contact-messages" button class="btn btn-warning btn-sm btn-round text-white">View</button></a>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Staustic card 8 Start -->
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-pattern-3-dark mb-4">
+                                    <div class="card-body text-center">
+                                    <i class="ion ion-md-ribbon display-4"></i>
+                                        <h4 class="mt-2"><span class="text-primary">8.62k</span> Brokers</h4>
+                                        <p class="mb-3">Active Registered Brokers</p>
+                                        <button class="btn btn-primary btn-sm btn-round">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-pattern-3-dark mb-4">
+                                    <div class="card-body text-center">
+                                        <i class="lnr lnr-calendar-full mr-2 display-4"></i>
+                                        <h4 class="mt-2"><span class="text-success">+40</span> Users</h4>
+                                        <p class="mb-3">Active Users</p>
+                                        <button class="btn btn-success btn-sm btn-round">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-pattern-3-dark mb-4">
+                                    <div class="card-body text-center">
+                                    <i class="ion ion-ios-wallet display-4"></i>
+                                        <h4 class="mt-2"><span class="text-primary">+40</span> Owners Fee</h4>
+                                        <p class="mb-3">Subscription Fee</p>
+                                        <button class="btn btn-danger btn-sm btn-round">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-pattern-3-dark mb-4">
+                                    <div class="card-body text-center">
+                                    <i class="ion ion-ios-card display-4"></i>
+                                        <h4 class="mt-2"><span class="text-warning">10%</span> Brokers Fee</h4>
+                                        <p class="mb-3">Money Collected</p>
+                                        <button class="btn btn-warning btn-sm btn-round text-white">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Staustic card 8 end -->
                             <!-- Staustic card 8 end -->
                             <!-- Chart card 11 Start -->
                             <!-- Chart card 11 end -->

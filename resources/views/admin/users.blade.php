@@ -59,7 +59,9 @@
                                                         <th>Email</th>
                                                         <th>Type</th>
                                                         <th>Status</th>
+                                                        @can('isAdmin')
                                                         <th>Options</th>
+                                                        @endcan
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -72,6 +74,7 @@
                                                         <td>{{$users->email}}</td>
                                                         <td>{{$users->type}}</td>
                                                         <td>{{$users->status}}</td>
+                                                        @can('isAdmin')
                                                         <td>
                                                             {{--<a href="/edit-user/{{$users->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>--}}
                                                             @if($users->status == 'active')
@@ -81,6 +84,7 @@
                                                             @endif
                                                             <a href="/delete-user/{{$users->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                         </td>
+                                                        @endcan
                                                     </tr>
                                                     @endforeach
                                                 </tbody>

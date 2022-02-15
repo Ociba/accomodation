@@ -8,6 +8,47 @@
         <meta name="keywords" content="">
         <meta name="author" content="">
         @include('frontlayouts.css')
+        <link rel="stylesheet" type="text/css" href="{{ asset('front/owl-carousel/dist/assets/owl-carousel.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('front/owl-carousel/dist/assets/owl-theme-default.css')}}">
+        <style>
+            .image-slideshow {
+            width: 600px;
+            height: 500px;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 0;
+            position: relative;
+            }
+            .image-slideshow > div {
+            width: 600px;
+            height: 300px;
+            animation: move 15s ease-in-out 2s infinite alternate;
+            display:inline-block;
+            }
+            .image-slideshow > div div {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            width: 100%;
+            }
+            .image-slideshow h2 {
+            padding: 15px;
+            margin: 0;
+            font-size: 18px;
+            color: #f9f9f9;
+            }
+            .image-slideshow p {
+            padding: 0 15px 15px 15px;
+            margin: 0;
+            font-size: 14px;
+            color: #dddddd;
+            }
+            @keyframes move {
+            0%,30% { transform: translateX(0); }
+            40%,70% { transform: translateX(-600px); }
+            80%,100% { transform: translateX(-1200px); }
+            }
+        </style>
     </head>
     <body>
         <!-- START wrapper-->
@@ -19,12 +60,12 @@
                         <img src="{{ asset('admin/assets/img/house.ico')}}" alt="App Name" class="img-responsive">
                         </a>
                         <a href="#">
-                                <strong>JOOME PROPERTY LTD</strong>
+                        <strong>JOOME PROPERTY LTD</strong>
                         </a>
                     </div>
                     <div class="col-md-10">
                         <ul class="list-inline menuapp-buttons">
-                        <li class="mr-lg">
+                            <li class="mr-lg">
                                 <a href="/">
                                 <strong>Home</strong>
                                 </a>
@@ -38,80 +79,80 @@
                                     <li>
                                         <!-- START list group-->
                                         <div class="list-group">
-                                        <!-- list item-->
-                                        <a href="/get-room" class="list-group-item ">
-                                            <div class="media">
-                                                <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">Single Room</div>
+                                            <!-- list item-->
+                                            <a href="/get-room" class="list-group-item ">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">Single Room</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <!-- list item-->
-                                        <a href="/get-room" class="list-group-item">
-                                            <div class="media">
-                                            <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">Double Room</div>
+                                            </a>
+                                            <!-- list item-->
+                                            <a href="/get-room" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">Double Room</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <!-- list item-->
-                                        <a href="/get-hostel" class="list-group-item">
-                                            <div class="media">
-                                            <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">Hostel</div>
+                                            </a>
+                                            <!-- list item-->
+                                            <a href="/get-hostel" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">Hostel</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <!-- last list item -->
-                                        <a href="/get-house" class="list-group-item">
-                                            <div class="media">
-                                            <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">House</div>
+                                            </a>
+                                            <!-- last list item -->
+                                            <a href="/get-house" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">House</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a href="/get-apartment" class="list-group-item">
-                                            <div class="media">
-                                            <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">Apartment</div>
+                                            </a>
+                                            <a href="/get-apartment" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">Apartment</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a href="/get-plots-and-land" class="list-group-item">
-                                            <div class="media">
-                                            <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">Plots & Land</div>
+                                            </a>
+                                            <a href="/get-plots-and-land" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">Plots & Land</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a href="/get-flats-and-mansions" class="list-group-item">
-                                            <div class="media">
-                                            <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">Flats And Mansions</div>
+                                            </a>
+                                            <a href="/get-flats-and-mansions" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">Flats And Mansions</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a href="/get-store" class="list-group-item">
-                                            <div class="media">
-                                            <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">Store</div>
+                                            </a>
+                                            <a href="/get-store" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">Store</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a href="/get-office" class="list-group-item">
-                                            <div class="media">
-                                            <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">Office</div>
+                                            </a>
+                                            <a href="/get-office" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">Office</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a href="/get-shop" class="list-group-item">
-                                            <div class="media">
-                                            <div class="media-body clearfix">
-                                                    <div class="media-heading text-center">Shop</div>
+                                            </a>
+                                            <a href="/get-shop" class="list-group-item">
+                                                <div class="media">
+                                                    <div class="media-body clearfix">
+                                                        <div class="media-heading text-center">Shop</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
+                                            </a>
                                         </div>
                                         <!-- END list group-->
                                     </li>
@@ -135,7 +176,44 @@
                     <div class="row row-flush row-table">
                         <div class="col-xs-12 col-lg-6 align-middle">
                             <div data-toggle="play-animation" data-play="fadeInLeft" data-offset="0" class="app-presentation">
-                                <img src="{{ asset('front/apartments/apaart2.jpg')}}" style="height: 40%;" alt="App Name" class="img-responsive">
+                                {{--<img src="{{ asset('front/apartments/apaart2.jpg')}}" style="height: 40%;" alt="App Name" class="img-responsive">--}}
+                                <div class="image-slideshow">
+                                    <div>
+                                        <img src="{{ asset('front/apartments/apaart2.jpg')}}"  alt="">
+                                        <div>
+                                            <h2>Example Photo 1</h2>
+                                            <p>Example description for the photo...</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="{{ asset('front/apartments/hhouse1.jpg')}}" alt="">
+                                        <div>
+                                            <h2>Example Photo 2</h2>
+                                            <p>Example description for the photo...</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="{{ asset('front/apartments/hhouse2.jpg')}}"  alt="">
+                                        <div>
+                                            <h2>Example Photo 3</h2>
+                                            <p>Example description for the photo...</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="{{ asset('front/apartments/hhouse3.jpg')}}"  alt="">
+                                        <div>
+                                            <h2>Example Photo 3</h2>
+                                            <p>Example description for the photo...</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="{{ asset('front/apartments/hhouse4.jpg')}}"  alt="">
+                                        <div>
+                                            <h2>Example Photo 3</h2>
+                                            <p>Example description for the photo...</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-lg-6 align-middle">
@@ -268,11 +346,10 @@
                     <div class="col-lg-3">
                         <!-- START widget-->
                         <div class="panel widget">
-                         
-                        {{--<a href="#" class="btn btn-green">
+                            {{--<a href="#" class="btn btn-green">
                             <strong>Watch Now</strong>
                             </a>
-                        </p>--}}   <img src="{{ asset('front/apartments/apart4.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                            </p>--}}   <img src="{{ asset('front/apartments/apart4.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                             <div class="badge-overlay">
                                 <!-- Change Badge Position, Color, Text here-->
                                 <span class="top-left badge orange">New</span>
@@ -304,11 +381,30 @@
         <section class="bg-white">
             <div class="container">
                 <div class="row">
-                    <div data-toggle="play-animation" data-play="fadeInLeft" data-offset="-250" class="col-lg-6">
-                        <img src="{{ asset('front/apartments/apartment5.jpeg')}}" style="width:500px;" alt="App Name" class="img-responsive">
+                    <div data-toggle="play-animation" data-play="fadeInLeft" data-offset="-250" class="col-lg-8">
+                        <div class="col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="owl-carousel carousel-dot owl-theme">
+                                <div class="item">
+                                    <img class="d-block img-fluid"
+                                        src="{{ asset('front/apartments/apart4.jpeg')}}" style="height:300px;"
+                                        alt="Third slide">
+                                </div>
+                                <div class="item">
+                                    <img class="d-block img-fluid"
+                                        src="{{ asset('front/apartments/apart5.jpeg')}}" style="height:300px;"
+                                        alt="Third slide">
+                                </div>
+                                <div class="item">
+                                    <img class="d-block img-fluid"
+                                        src="{{ asset('front/apartments/apart6.jpeg')}}" style="height:300px;"
+                                        alt="Third slide">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <h2 class="page-header">Awesome Charts</h2>
+                    <!-- Carousel wrapper -->
+                    <div class="col-lg-4">
+                        <h2 class="page-header">Awesome Apartments</h2>
                         <p class="text-md">Present your app information in a simple and easy to understand way. Display any data set with Flot Charts.</p>
                         <p>Wintermin includes Area Charts, Simple and Stacked Bar Charts, Line Charts and Pie and Donuts Charts.</p>
                         <p>Customize the chart by simpli editing a PHP file or provide a json file on every request.</p>
@@ -866,32 +962,32 @@
                 </h2>
                 <div class="row">
                     <div class="col-lg-2 col-md-4 col-xs-6 text-center">
-                    <i class='fa fa-car' style='font-size:48px;color:#1a1a4c'></i>
+                        <i class='fa fa-car' style='font-size:48px;color:#1a1a4c'></i>
                         <h5><strong>Ample Parking</strong></h5>
                         <p>We provide ample parking space at our properties</p>
                     </div>
                     <div class="col-lg-2 col-md-4 col-xs-6">
-                    <i class='fa fa-smile-o' style='font-size:48px;color:#1a1a4c'></i>
+                        <i class='fa fa-smile-o' style='font-size:48px;color:#1a1a4c'></i>
                         <h5><strong>Confortable Rest</strong></h5>
                         <p>Your comfort comes first at our furnished apartments</p>
                     </div>
                     <div class="col-lg-2 col-md-4 col-xs-6">
-                    <i class='fa fa-eye' style='font-size:48px;color:#1a1a4c'></i>
+                        <i class='fa fa-eye' style='font-size:48px;color:#1a1a4c'></i>
                         <h5><strong>Serene Views</strong></h5>
                         <p>We have the best views of Kampala city & it’s surroundings</p>
                     </div>
                     <div class="col-lg-2 col-md-4 col-xs-6">
-                    <i class='fa fa-rocket' style='font-size:48px;color:#1a1a4c'></i>
+                        <i class='fa fa-rocket' style='font-size:48px;color:#1a1a4c'></i>
                         <h5><strong>Modern Service</strong></h5>
                         <p>We provide the best support services to all our tenants</p>
                     </div>
                     <div class="col-lg-2 col-md-4 col-xs-6">
-                    <i class='fa fa-hand-o-right' style='font-size:48px;color:#1a1a4c'></i>
+                        <i class='fa fa-hand-o-right' style='font-size:48px;color:#1a1a4c'></i>
                         <h5><strong>Laundry</strong></h5>
                         <p>We have a provision for laundry services at our apartments</p>
                     </div>
                     <div class="col-lg-2 col-md-4 col-xs-6">
-                    <i class='fa fa-lock' style='font-size:48px;color:#1a1a4c'></i>
+                        <i class='fa fa-lock' style='font-size:48px;color:#1a1a4c'></i>
                         <h5><strong>Security</strong></h5>
                         <p>Your comfort comes first at our furnished apartments</p>
                     </div>
@@ -1093,6 +1189,8 @@
         <!-- START Scripts-->
         <!-- Main vendor Scripts-->
         @include('frontlayouts.javascript')
+        <script type="text/javascript" src="{{ asset('front/owl-carousel.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('front/owl-custom.js')}}"></script>
         <!-- END Scripts-->
     </body>
 </html>

@@ -44,18 +44,19 @@ Route::get('/get-shop',[ShopController::Class,'getShop']);
 Route::get('/get-office',[OfficeController::Class,'getOffice']);
 Route::get('/contact',[ContactController::Class,'getContact']);
 Route::get('/register',function () { return redirect('/login');});
+Route::get('/chosen-property/{property_id}',[PropertyController::Class, 'getSelectedProperty'])->name('Selected Property');
+Route::get('/send-number/{property_id}',[ClientController::Class,'validateClientDetails']);
 // Route::middleware(['auth:sanctum', 'verified'])->get('/admin-dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/logout',[AuthenticationController::Class, 'logoutUser']);
+Route::middleware(['auth','can:isAdmin'])->group(function () {
     Route::get('/dashboard',[DashboardController::Class, 'getDashboard'])->name('Dashboard');
     Route::get('/category',[CategoryController::Class, 'getCategory'])->name('Category');
     Route::get('/create-category',[CategoryController::Class, 'validateCreateCategory']);
     Route::get('/edit-category/{id}',[CategoryController::Class, 'editCategory'])->name('Edit Category');
     Route::get('/update-category/{id}',[CategoryController::Class, 'updateCategory']);
-    Route::get('/delete-category/{id}',[CategoryController::Class, 'deleteCategory']);
+    Route::get('/delete-category/{id}',[CategoryController::Class, 'deleteCategory'])->middleware('can:isAdmin');
 
     Route::get('/get-property-owners',[OwnerController::Class, 'getPropertyOwners'])->name('Property Owners');
     Route::post('/create-owner',[OwnerController::Class,'validatePropertyOwner']);
@@ -63,16 +64,19 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit-owner/{id}',[OwnerController::Class,'editPropertyOwner'])->name('Edit Property Owner');
     Route::get('/update-owner/{id}',[OwnerController::Class, 'updatePropertyOwnerInfo']);
 
-    Route::get('/property',[PropertyController::Class, 'getProperty'])->name('Property');
     Route::post('/create-property',[PropertyController::Class, 'validateProperty']);
     Route::get('/edit-property/{id}',[PropertyController::Class, 'editProperty'])->name('Edit Property');
     Route::get('/update-property/{id}',[PropertyController::Class, 'updateProperty']);
     Route::get('/mark-as-taken/{id}',[PropertyController::Class, 'updatePropertyStatus']);
     Route::get('/delete-property/{id}',[PropertyController::Class, 'deleteProperty']);
     Route::get('/taken-property',[PropertyController::Class, 'getPropertyTaken'])->name('Property Taken');
+   
 
 
-    Route::get('/clients',[ClientController::Class, 'getCleintInformation'])->name('Clients');
+    
+    Route::get('/allocate-broker/{client_id}',[ClientController::Class, 'addBrokerToClient'])->name('Allocate Broker');
+    Route::get('/allocated-broker/{client_id}',[ClientController::Class, 'allocateBrokerToClient']);
+    Route::get('/view-client/{client_id}',[ClientController::Class, 'viewClientsPropertyInfo'])->name('Property Details');
 
     Route::get('/get-broker',[BrokerController::Class, 'getBroker'])->name('Company Broker');
     Route::post('/create-broker',[BrokerController::Class, 'validateBroker']);
@@ -88,7 +92,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit-user/{id}',[UserController::Class, 'editUser'])->name('Edit User');
     Route::get('/update-user/{id}',[UserController::Class, 'updateUser']);
     Route::get('/delete-user/{id}',[UserController::Class, 'deleteUser']);
-
   
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/clients',[ClientController::Class, 'getClientInformation'])->name('Clients');
+    Route::get('/logout',[AuthenticationController::Class, 'logoutUser']);
+     Route::get('/taken-property',[PropertyController::Class, 'getPropertyTaken'])->name('Property Taken');
 });
 

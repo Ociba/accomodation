@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\Category;
+use App\Http\Resources\AccomodationTypeResource;
 use DB;
 use Auth;
 
@@ -19,7 +20,7 @@ class PropertyController extends Controller
         ->join('users','properties.user_id','users.id')
         ->join('categories','properties.category_id','categories.id')
         ->select('properties.*','users.name','categories.category_name')
-        ->where('status','pending')
+        ->where('properties.status','pending')
         ->get();
         return view('admin.property', compact('get_property','get_category'));
     }
@@ -31,7 +32,7 @@ class PropertyController extends Controller
         ->join('users','properties.user_id','users.id')
         ->join('categories','properties.category_id','categories.id')
         ->select('properties.*','users.name','categories.category_name')
-        ->where('status','taken')
+        ->where('properties.status','taken')
         ->get();
         return view('admin.taken_property', compact('get_property_taken'));
     }
@@ -118,5 +119,20 @@ class PropertyController extends Controller
     protected function deleteProperty($property_id){
         Property::where('id',$property_id)->delete();
         return redirect()->back()->with('msg', 'Property has been deleted successfully');
+    }
+    /** 
+     * This function gets the property seleted by client
+    */
+    protected function getSelectedProperty($property_id){
+        $get_property =DB::table('properties')->where('id',$property_id)->get();
+        return view('frontpages.chosen_property', compact('get_property'));
+    }
+    //This function returns accomodation property type
+    public function getPropertyDetails(){
+        $get_property =AccomodationTypeResource::collection(Property:: join('users','properties.user_id','users.id')
+        ->join('categories','properties.category_id','categories.id')
+        ->select('properties.*','users.name','categories.category_name')
+        ->where('properties.status','pending')->get());
+        return response()->json(['data'=>$get_property]);
     }
 }

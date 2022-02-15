@@ -17,11 +17,10 @@ class CreateClientsTable extends Migration
             $table->id();
             $table->string('phone_number');
             $table->foreignId('property_id');
-            $table->string('client_name');
-            $table->string('email');
-            $table->string('broker_name');
-            $table->string('contact');
-            $table->foreignId('created_by');
+            $table->string('client_name')->nullable();
+            $table->string('broker_id')->nullable();
+            $table->foreignId('allocated_by')->nullable();
+            $table->enum('status',['active','pending','allocated'])->default('active');
             $table->timestamps();
         });
     }

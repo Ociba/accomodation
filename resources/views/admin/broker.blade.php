@@ -60,8 +60,10 @@
                                                         <th>Phone Number</th>
                                                         <th>Photo</th>
                                                         <th>Location</th>
-                                                        <th>Created By</th>
+                                                        <th>Status</th>
+                                                        @can('isAdmin')
                                                         <th>Options</th>
+                                                        @endcan
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -72,10 +74,11 @@
                                                         </td>
                                                         <td>{{$broker->name}}</td>
                                                         <td>{{$broker->email}}</td>
-                                                        <td>{{$broker->phone_number}}</td>
+                                                        <td>{{$broker->contact_number}}</td>
                                                         <td><img style="width:50px; height:50px;" src="{{ asset('broker_photos/'.$broker->profile_photo_path)}}"></td>
                                                         <td>{{$broker->current_location}}</td>
-                                                        <td>{{$broker->created_by}}</td>
+                                                        <td>{{$broker->status}}</td>
+                                                        @can('isAdmin')
                                                         <td>
                                                             <a href="/edit-broker/{{$broker->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
                                                             {{--@if($broker->status == 'active')
@@ -86,6 +89,7 @@
                                                             --}}
                                                             <a href="/delete-broker/{{$broker->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                         </td>
+                                                        @endcan
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -151,15 +155,15 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="floating-label" for="name">Name</label>
+                                    <label class="floating-label" for="broker_name">Name</label>
                                     <input type="text" name="name" class="form-control" id="name" placeholder="" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="floating-label" for="phone_number">Phone Number</label>
-                                    <input type="text" name="phone_number" class="form-control" id="phone_number" placeholder="" required>
+                                    <label class="floating-label" for="contact_number">Phone Number</label>
+                                    <input type="text" name="contact_number" class="form-control" id="contact_number" placeholder="" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">

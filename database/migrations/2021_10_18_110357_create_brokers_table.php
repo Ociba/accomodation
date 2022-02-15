@@ -17,10 +17,11 @@ class CreateBrokersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('phone_number');
+            $table->string('contact_number');
             $table->string('profile_photo_path');
             $table->string('current_location');
             $table->foreignId('created_by');
+            $table->enum('status',['available','allocated'])->default('available');
             $table->timestamps();
         });
     }

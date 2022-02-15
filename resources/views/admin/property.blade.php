@@ -67,7 +67,9 @@
                                                         <th>Photo</th>
                                                         <th>Property Status</th>
                                                         <th>Status</th>
+                                                        @can('isAdmin')
                                                         <th>Options</th>
+                                                        @endcan
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -88,11 +90,13 @@
                                                         <td><img style="width:50px; height:40px;" src="{{ asset('property_photos/'.$property->photo)}}"></td>
                                                         <td>{{$property->property_status}}</td>
                                                         <td>{{$property->status}}</td>
+                                                        @can('isAdmin')
                                                         <td>
                                                             <a href="/edit-property/{{$property->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
                                                             <a href="/mark-as-taken/{{$property->id}}" class="btn btn-success btn-sm"><i class="feather icon-check"></i>&nbsp;Mark as Taken </a>
                                                             <a href="/delete-property/{{$property->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                         </td>
+                                                        @endcan
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -211,7 +215,7 @@
 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="floating-label" for="price">Price</label>
+                                    <label class="floating-label" for="price">Price Per Month</label>
                                     <input type="text" name="price" class="form-control" id="price" placeholder="">
                                 </div>
                             </div>

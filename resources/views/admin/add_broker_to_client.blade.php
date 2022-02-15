@@ -36,7 +36,7 @@
                     <div class="container-fluid flex-grow-1 container-p-y">
                         @include('layouts.breadcrumb')
                         <div class="row">
-                            <!-- customar client  start -->
+                            <!-- customar broker  start -->
                             <div class="col-xl-12">
                               @include('layouts.messages')
                                 <div class="card">
@@ -49,52 +49,37 @@
                                                 
                                             </div>
                                         </div>
-                                        <div class="table-responsive">
-                                            <table id="report-table" class="table table-bordered table-striped mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Name</th>
-                                                        <th>Phone Number</th>
-                                                        <th>Property</th>
-                                                        <th>Property Location</th>
-                                                        <th>Status</th>
-                                                        @canany(['isAdmin','isPropertyOwner'])
-                                                        <th class="text-center">Options</th>
-                                                        @endcan
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach($get_client_details as $i =>$client)
-                                                    <tr>
-                                                        <td>
-                                                            {{ $i + 1}}
-                                                        </td>
-                                                        <td>{{$client->client_name}}</td>
-                                                        <td>{{$client->phone_number}}</td>
-                                                        <td><img style="width:50px; height:50px;" src="{{ asset('property_photos/'.$client->photo)}}"></td>
-                                                        <td>{{$client->location}}</td>
-                                                        <td>{{$client->status}}</td>
-                                                        <td>
-                                                            @can('isAdmin')
-                                                            <a href="allocate-broker/{{$client->id}}" class="btn btn-success btn-sm">Allocate Broker</a>
-                                                            @endcan
-                                                            @canany(['isPropertyOwner','isAdmin'])
-                                                            <a href="/view-client/{{$client->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;View </a>
-                                                            @endcan
-                                                            @can('isAdmin')
-                                                            <a href="/delete-client/{{$client->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
-                                                            @endcan
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                        <div class="row">
+                                        <div class="col-4"></div>
+                                        <div class="col-4">
+                                        @foreach($add_broker_to_client as $broker)
+                                        <form method="get" action="/allocated-broker/{{request()->route()->client_id}}">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label class="floating-label" for="broker_id">Available Broker</label>
+                                                @foreach($get_avalable_broker as $broker)
+                                                <input type="hidden" name="id" value="{{$broker->id}}">
+                                                <select name="broker_id" value="{{$broker->name}}" class="form-control" id="broker_id" required>
+                                                  <option value="{{$broker->id}}">{{$broker->name}}</option>
+                                                </select>
+                                                @endforeach
+                                            </div>
                                         </div>
+                                                <div class="form-group col-md-12">
+                                                <a href="/clients" button class="btn btn-primary btn-round">Back</button></a>
+                                                <button type="submit" class="btn btn-info btn-round">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        @endforeach
+                                    </div> <div class="col-4"></div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- customar client  end -->
+                            <!-- customar broker  end -->
                         </div>
                     </div>
                     <!-- [ content ] End -->
@@ -131,11 +116,6 @@
 
     <!-- Demo -->
     <script src="{{ asset('admin/assets/js/demo.js')}}"></script>
-    <script>
-        // DataTable start
-        $('#report-table').DataTable();
-        // DataTable end
-    </script>
 </body>
 
 </html>

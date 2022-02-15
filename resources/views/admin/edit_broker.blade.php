@@ -55,14 +55,14 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label class="floating-label" for="name">Name</label>
+                                                <label class="floating-label" for="broker_name">Name</label>
                                                 <input type="text" name="name" value="{{$broker->name}}" class="form-control" id="name" placeholder="" required>
                                             </div>
                                         </div>
                                             <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label class="floating-label" for="phone_number">Phone Number</label>
-                                                <input type="text" name="phone_number" value="{{$broker->phone_number}}" class="form-control" id="phone_number" placeholder="" required>
+                                                <label class="floating-label" for="contact_number">Phone Number</label>
+                                                <input type="text" name="contact_number" value="{{$broker->contact_number}}" class="form-control" id="phone_number" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
