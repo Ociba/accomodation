@@ -20,7 +20,7 @@ class CreateOwnersTable extends Migration
             $table->string('phone_number');
             $table->string('profile_photo_path');
             $table->string('location');
-            $table->foreignId('created_by');
+            $table->foreignId('created_by')->nullable();
             $table->timestamps();
         });
     }

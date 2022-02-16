@@ -16,6 +16,8 @@ class ClientController extends Controller
      */
     protected function getClientInformation(){
         $get_client_details =DB::table('clients')->join('properties','clients.property_id','properties.id')
+        ->where('properties.id','clients.property_id')
+        ->where('properties.user_id',auth()->user()->id)
         ->select('clients.*','properties.photo','properties.location')
         ->get();
         return view('admin.client_details', compact('get_client_details'));

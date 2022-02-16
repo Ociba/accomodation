@@ -19,8 +19,10 @@ class PropertyController extends Controller
         $get_property =DB::table('properties')
         ->join('users','properties.user_id','users.id')
         ->join('categories','properties.category_id','categories.id')
+        ->where('properties.user_id',auth()->user()->id)
+        ->orwhere('users.type',"!=","admin")
         ->select('properties.*','users.name','categories.category_name')
-        ->where('properties.status','pending')
+        ->where('properties.status','pending')->orderBy('properties.created_at',"Desc")
         ->get();
         return view('admin.property', compact('get_property','get_category'));
     }
@@ -32,7 +34,9 @@ class PropertyController extends Controller
         ->join('users','properties.user_id','users.id')
         ->join('categories','properties.category_id','categories.id')
         ->select('properties.*','users.name','categories.category_name')
+        ->where('properties.user_id',auth()->user()->id)
         ->where('properties.status','taken')
+        //->orwhere('users.type',"!=","admin")
         ->get();
         return view('admin.taken_property', compact('get_property_taken'));
     }

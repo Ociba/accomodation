@@ -26,7 +26,11 @@
                             <img src="{{ asset('property_photos/'.$single_rooms->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                             <div class="badge-overlay">
                                 <!-- Change Badge Position, Color, Text here-->
-                                <span class="top-left badge orange">New</span>
+                                @if($single_rooms->created_at < now()->subWeek()) 
+                                <span class="top-left badge primary">Old</span>
+                                @else
+                                <span class="top-left badge orange ">New</span>
+                                @endif
                             </div>
                             <div class="panel-body">
                                 <div class="row row-table text-center">
@@ -72,7 +76,11 @@
                             <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                             <div class="badge-overlay">
                                 <!-- Change Badge Position, Color, Text here-->
-                                <span class="top-left badge orange">New</span>
+                                @if($single_rooms->created_at < now()->subWeek()) 
+                                <span class="top-left badge orange">Old</span>
+                                @else
+                                <span class="top-left badge primary">New</span>
+                                @endif
                             </div>
                             <div class="panel-body">
                                 <div class="row row-table text-center">

@@ -16,6 +16,7 @@ class AccomodationTypeResource extends JsonResource
     {
         //return parent::toArray($request);
         return [
+            'id'               =>$this->id,
             'category_name'    =>$this->category_name,
             'property_size'  =>$this->property_size,
             'bedroom'        =>$this->bedroom,

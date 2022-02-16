@@ -30,9 +30,8 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('welcome');});
+Route::post('/signup',[OwnerController::Class,'signUp']);
 Route::get('/get-room',[RoomController::Class, 'getRooms'])->name('Rooms');
 Route::get('/get-hostel',[HostelController::Class, 'getHostel']);
 Route::get('/get-house',[HouseController::Class, 'getHouse']);
@@ -43,14 +42,13 @@ Route::get('/get-store',[StoreController::Class,'getStore']);
 Route::get('/get-shop',[ShopController::Class,'getShop']);
 Route::get('/get-office',[OfficeController::Class,'getOffice']);
 Route::get('/contact',[ContactController::Class,'getContact']);
-Route::get('/register',function () { return redirect('/login');});
 Route::get('/chosen-property/{property_id}',[PropertyController::Class, 'getSelectedProperty'])->name('Selected Property');
 Route::get('/send-number/{property_id}',[ClientController::Class,'validateClientDetails']);
 // Route::middleware(['auth:sanctum', 'verified'])->get('/admin-dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-Route::middleware(['auth','can:isAdmin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard',[DashboardController::Class, 'getDashboard'])->name('Dashboard');
     Route::get('/category',[CategoryController::Class, 'getCategory'])->name('Category');
     Route::get('/create-category',[CategoryController::Class, 'validateCreateCategory']);
@@ -70,6 +68,7 @@ Route::middleware(['auth','can:isAdmin'])->group(function () {
     Route::get('/mark-as-taken/{id}',[PropertyController::Class, 'updatePropertyStatus']);
     Route::get('/delete-property/{id}',[PropertyController::Class, 'deleteProperty']);
     Route::get('/taken-property',[PropertyController::Class, 'getPropertyTaken'])->name('Property Taken');
+   
    
 
 
@@ -99,5 +98,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/clients',[ClientController::Class, 'getClientInformation'])->name('Clients');
     Route::get('/logout',[AuthenticationController::Class, 'logoutUser']);
      Route::get('/taken-property',[PropertyController::Class, 'getPropertyTaken'])->name('Property Taken');
+     Route::get('/property',[PropertyController::Class, 'getProperty'])->name('Property Available');
 });
 

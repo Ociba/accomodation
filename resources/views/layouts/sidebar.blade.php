@@ -30,7 +30,7 @@
             </a>
         </li>
         @endcan
-        @can('isAdmin')
+        @can('isAdmin',"isPropertyOwner")
         <li @if(\Request::route()->getName() == "Property Owners")class="sidenav-item active" @else class="sidenav-item" @endif>
             <a href="/get-property-owners" class="sidenav-link">
                 <i class="sidenav-icon lnr lnr-license"></i>
@@ -38,8 +38,8 @@
             </a>
         </li>
         @endcan
-        @can('isAdmin','isPropertyOwner')
-        <li @if(\Request::route()->getName() == "Property")class="sidenav-item active" @else class="sidenav-item" @endif>
+        @canany(['isAdmin','isPropertyOwner'])
+        <li @if(\Request::route()->getName() == "Property Available")class="sidenav-item active" @else class="sidenav-item" @endif>
             <a href="/property" class="sidenav-link">
                 <i class="sidenav-icon  feather icon-image"></i>
                 <div>Property Available</div>

@@ -111,6 +111,11 @@
                         </a>
                     </li>
                     <li class="mr-lg">
+                        <a href="{{ route('register') }}">
+                        <strong>Login</strong>
+                        </a>
+                    </li>
+                    <li class="mr-lg">
                         <a href="{{ route('login') }}">
                         <strong>Login</strong>
                         </a>
