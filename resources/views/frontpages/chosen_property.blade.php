@@ -48,6 +48,10 @@
                             </div>
                         </div>
                         <!-- END widget-->
+                        {{--<div class="text-primary">
+                        <a href="#" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> View Contact</a>
+                        </div>
+                        --}}
                     </div>
                     <div class="col-lg-3">
                         @include('layouts.messages')

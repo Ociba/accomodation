@@ -10,6 +10,18 @@ class DashboardController extends Controller
      * This function gets admin dashboard
      */
     protected function getDashboard(){
-        return view('admin.dashboard');
+        if(auth()->user()->type == 'admin'){
+            return view('admin.dashboard');
+        }elseif(auth()->user()->type == 'broker'){
+            return redirect("/clients");
+        }else{
+            if(auth()->user()->type == 'property_owner' && (auth()->user()->amount != null)){
+                return redirect('/property');
+            }elseif(auth()->user()->type == 'property_owner' && (auth()->user()->payment_date == 'payment_date')){
+                return redirect('/payment-methods');
+            }else{
+                return redirect('/payment-methods');
+        }
     }
+}
 }

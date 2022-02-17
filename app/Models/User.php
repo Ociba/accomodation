@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use DB;
 
 class User extends Authenticatable
 {
@@ -28,6 +29,8 @@ class User extends Authenticatable
         'email',
         'type',
         'password',
+        'amount',
+        'payment_date',
     ];
 
     /**
@@ -59,4 +62,11 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    /** 
+     * This function gets all property types available
+    */
+    public function allProperties(){
+        $get_all_the_property =DB::table('properties')->where('status','pending')->orderBy('created_at',"Desc")->get();
+        return $get_all_the_property;
+    }
 }

@@ -1,4 +1,4 @@
-<title>JOOME | Accomadation Company ltd</title>
+<title>JJOOME | Accomadation Company ltd</title>
 <link rel="icon" type="image/x-icon" href="{{ asset('admin/assets/img/house.ico')}}">
 <!-- Bootstrap CSS-->
 <link rel="stylesheet" href="{{ asset('front/app/css/bootstrap.css')}}">

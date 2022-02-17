@@ -73,7 +73,8 @@
 
 <body>
    <!-- START wrapper-->
-   <div class="row row-table page-wrapper">
+   <div class="row row-table page-wrapper" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.50)),
+    url('admin/assets/img/bg/soroti5.jpg'); background-size:cover;">
       <div class="col-lg-3 col-md-6 col-sm-8 col-xs-12 align-middle">
          <!-- START panel-->
          <div data-toggle="play-animation" data-play="fadeIn" data-offset="0" class="panel panel-dark panel-flat">

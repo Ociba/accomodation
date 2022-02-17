@@ -85,7 +85,8 @@
 
 <body>
    <!-- START wrapper-->
-   <div class="row row-table page-wrapper">
+   <div class="row row-table page-wrapper" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.50)),
+    url('admin/assets/img/bg/estates.jpg'); background-size:cover;">
    <div class="row pull-center">
   @include('layouts.messages')
   </div>
@@ -93,11 +94,11 @@
          <!-- START panel-->
          <div data-toggle="play-animation" data-play="fadeIn" data-offset="0" class="panel panel-dark panel-flat">
             <div class="panel-heading text-center">
-               <a href="#">
+               {{--<a href="#">
                   <img src="{{ asset('admin/assets/img/house.ico')}}" alt="Image" class="block-center img-rounded"> <br>JJOOME
-               </a>
-               <p class="text-center mt-lg">
-                  <strong>SIGN UP TO YOUR CREDENTIALS</strong>
+               </a>--}}
+               <p class="text-center mt-lg" style="height:10px;">
+                  <strong>ENTER YOUR CREDENTIALS</strong>
                </p>
             </div>
             <div class="panel-body">

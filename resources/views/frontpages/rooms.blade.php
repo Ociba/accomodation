@@ -70,13 +70,14 @@
                     <small class="text-muted text-center">JOOME makes your life easier. The best choice for your Affordable and Comfortable Accomodation.</small>
                 </h2>
                 <div class="row">
-                    <div class="col-lg-3">
+                    @foreach($double_rooms as $double)
+                    <div class="col-lg-3 text-center">
                         <!-- START widget-->
                         <div class="panel widget">
-                            <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                            <img src="{{ asset('property_photos/'.$double->photo)}}" style="width:318px; height:190px;"alt="Image" class="img-responsive">
                             <div class="badge-overlay">
                                 <!-- Change Badge Position, Color, Text here-->
-                                @if($single_rooms->created_at < now()->subWeek()) 
+                                @if($double->created_at < now()->subWeek()) 
                                 <span class="top-left badge orange">Old</span>
                                 @else
                                 <span class="top-left badge primary">New</span>
@@ -85,126 +86,23 @@
                             <div class="panel-body">
                                 <div class="row row-table text-center">
                                     <div class="col-xs-6">
-                                        <p>{{$single_rooms->property_size}}</p>
+                                        <p>{{$double->property_size}}</p>
                                     </div>
                                     <div class="col-xs-6">
-                                        <p>Status:{{$single_rooms->property_status}}</p>
+                                        <p>Status:{{$double->property_status}}</p>
                                     </div>
                                 </div>
                                 <div class="row row-table text-center">
                                     <div class="col-xs-6">
-                                        <span class="text-primar">Ugx.{{ number_format($single_rooms->price)}}</span>
+                                        <span class="text-primary">Ugx.{{ number_format($double->price)}}</span>
                                     </div>
                                     <div class="col-xs-6">
-                                        <span class="text-primar">{{$single_rooms->location}}</span>
-                                    </div>
-                                </div>
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-12">
-                                       <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END widget-->
-                    </div>
-                    <div class="col-lg-3">
-                        <!-- START widget-->
-                        <div class="panel widget">
-                            <img src="{{ asset('front/apartments/apart4.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                            <div class="badge-overlay">
-                                <!-- Change Badge Position, Color, Text here-->
-                                <span class="top-left badge orange">New</span>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-6">
-                                        <p>5 Rooms</p>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <p>Status:Rent</p>
-                                    </div>
-                                </div>
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-6">
-                                        <span class="text-primar">Ugx.250,000</span>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <span class="text-primar">Bwaise</span>
+                                        <span class="text-primar">{{$double->location}}</span>
                                     </div>
                                 </div>
                                 <div class="row row-table text-center">
                                     <div class="col-xs-12">
-                                       <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END widget-->
-                    </div>
-                    <div class="col-lg-3">
-                        <!-- START widget-->
-                        <div class="panel widget">
-                            <img src="{{ asset('front/apartments/apart6.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                            <div class="badge-overlay">
-                                <!-- Change Badge Position, Color, Text here-->
-                                <span class="top-left badge orange">New</span>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-6">
-                                        <p>5 Rooms</p>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <p>Status:Rent</p>
-                                    </div>
-                                </div>
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-6">
-                                        <span class="text-primar">Ugx.250,000</span>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <span class="text-primar">Natete</span>
-                                    </div>
-                                </div>
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-12">
-                                       <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END widget-->
-                    </div>
-                    <!-- END row-->
-                    <div class="col-lg-3">
-                        <!-- START widget-->
-                        <div class="panel widget">
-                            <img src="{{ asset('front/apartments/apart4.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                            <div class="badge-overlay">
-                                <!-- Change Badge Position, Color, Text here-->
-                                <span class="top-left badge orange">New</span>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-6">
-                                        <p>5 Rooms</p>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <p>Status:Rent</p>
-                                    </div>
-                                </div>
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-6">
-                                        <span class="text-primar">Ugx.250,000</span>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <span class="text-primar">Makerere</span>
-                                    </div>
-                                </div>
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-12">
-                                       <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                       <a href="/chosen-property/{{$double->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -212,6 +110,7 @@
                         <!-- END widget-->
                     </div>
                 </div>
+                @endforeach
             </div>
         </section>
         <section>
@@ -219,541 +118,193 @@
                 <div class="row">
                     <div data-toggle="play-animation" data-play="fadeInRight" data-offset="-250" class="col-lg-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading text-center">More Apartments</div>
+                            <div class="panel-heading text-center">More properties</div>
                             <div class="panel-body">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-pills text-center">
-                                    <li class="active"><a href="#home-pills" data-toggle="tab">All</a>
+                                    <li class="active"><a href="#all-pills" data-toggle="tab">All</a>
                                     </li>
-                                    <li><a href="#profile-pills" data-toggle="tab">Furnished</a>
+                                    <li><a href="#hostels-pills" data-toggle="tab">Hostels</a>
                                     </li>
-                                    <li><a href="#messages-pills" data-toggle="tab">Unfurnished</a>
+                                    <li><a href="#houses-pills" data-toggle="tab">Houses</a>
                                     </li>
-                                    <li><a href="#settings-pills" data-toggle="tab">Residence</a>
+                                    <li><a href="#plots-pills" data-toggle="tab">Plots and Land</a>
                                     </li>
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
-                                    <div id="home-pills" class="tab-pane fade in active">
+                                    <div id="all-pills" class="tab-pane fade in active">
                                         <div>
+                                            @foreach($get_all_the_property as $all)
                                             <div class="col-lg-4">
                                                 <!-- START widget-->
                                                 <div class="panel widget">
-                                                    <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                    <img src="{{ asset('property_photos/'.$all->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                     <div class="badge-overlay">
                                                         <!-- Change Badge Position, Color, Text here-->
-                                                        <span class="top-left badge orange">New</span>
+                                                    @if($all->created_at < now()->subWeek()) 
+                                                    <span class="top-left badge primary">Old</span>
+                                                    @else
+                                                    <span class="top-left badge orange ">New</span>
+                                                    @endif
                                                     </div>
                                                     <div class="panel-body">
                                                         <div class="row row-table text-center">
+                                                            <div class="col-xs-12 font-weight-bold" style="color:black;">{{$all->category_name}}</div>
+                                                        </div>
+                                                        <div class="row row-table text-center">
                                                             <div class="col-xs-6">
-                                                                <p>5 Rooms</p>
+                                                                <p>{{$all->property_size}}</p>
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                <p>Status:Rent</p>
+                                                                <p>Status:{{$all->property_status}}</p>
                                                             </div>
                                                         </div>
                                                         <div class="row row-table text-center">
                                                             <div class="col-xs-6">
-                                                                <span class="text-primar">Ugx.250,000</span>
+                                                                <span class="text-primary">Ugx.{{$all->price}}</span>
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                <span class="text-primar">Kawempe</span>
+                                                                <span class="text-primar">{{$all->location}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$all->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <!-- END widget-->
                                             </div>
-                                            <div class="col-lg-4">
-                                                <!-- START widget-->
-                                                <div class="panel widget">
-                                                    <img src="{{ asset('front/apartments/apart4.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                    <div class="badge-overlay">
-                                                        <!-- Change Badge Position, Color, Text here-->
-                                                        <span class="top-left badge orange">New</span>
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <p>5 Rooms</p>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <p>Status:Rent</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Ugx.250,000</span>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Bwaise</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- END widget-->
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <!-- START widget-->
-                                                <div class="panel widget">
-                                                    <img src="{{ asset('front/apartments/apart4.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                    <div class="badge-overlay">
-                                                        <!-- Change Badge Position, Color, Text here-->
-                                                        <span class="top-left badge orange">New</span>
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <p>5 Rooms</p>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <p>Status:Rent</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Ugx.250,000</span>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Bwaise</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- END widget-->
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <!-- START widget-->
-                                                <div class="panel widget">
-                                                    <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                    <div class="badge-overlay">
-                                                        <!-- Change Badge Position, Color, Text here-->
-                                                        <span class="top-left badge orange">New</span>
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <p>5 Rooms</p>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <p>Status:Rent</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Ugx.250,000</span>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Kawempe</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- END widget-->
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <!-- START widget-->
-                                                <div class="panel widget">
-                                                    <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                    <div class="badge-overlay">
-                                                        <!-- Change Badge Position, Color, Text here-->
-                                                        <span class="top-left badge orange">New</span>
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <p>5 Rooms</p>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <p>Status:Rent</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Ugx.250,000</span>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Kawempe</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- END widget-->
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <!-- START widget-->
-                                                <div class="panel widget">
-                                                    <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                    <div class="badge-overlay">
-                                                        <!-- Change Badge Position, Color, Text here-->
-                                                        <span class="top-left badge orange">New</span>
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <p>5 Rooms</p>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <p>Status:Rent</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Ugx.250,000</span>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">Kawempe</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- END widget-->
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <div id="profile-pills" class="tab-pane fade">
+                                    <div id="hostels-pills" class="tab-pane fade">
+                                        @foreach($hostels as $hostel)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('property_photos/'.$hostel->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
+                                                    @if($hostel->created_at < now()->subWeek()) 
+                                                    <span class="top-left badge primary">Old</span>
+                                                    @else
+                                                    <span class="top-left badge orange ">New</span>
+                                                    @endif
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
+                                                            <p>{{$hostel->property_size}}</p>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
+                                                            <p>Status:{{$hostel->property_status}}</p>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
+                                                            <span class="text-primary">Ugx.{{$hostel->price}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
+                                                            <span class="text-primar">{{$hostel->location}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$hostel->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- END widget-->
                                         </div>
-                                        <div class="col-lg-4">
-                                            <!-- START widget-->
-                                            <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                <div class="badge-overlay">
-                                                    <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END widget-->
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <!-- START widget-->
-                                            <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                <div class="badge-overlay">
-                                                    <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END widget-->
-                                        </div>
+                                        @endforeach
                                     </div>
-                                    <div id="messages-pills" class="tab-pane fade">
-                                        <h4>Messages Tab</h4>
+                                    <div id="houses-pills" class="tab-pane fade">
+                                        @foreach($houses as $house)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('property_photos/'.$house->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
+                                                    @if($house->created_at < now()->subWeek()) 
+                                                    <span class="top-left badge primary">Old</span>
+                                                    @else
+                                                    <span class="top-left badge orange ">New</span>
+                                                    @endif
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
+                                                            <p>{{$house->property_size}}</p>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
+                                                            <p>Status:{{$house->property_status}}</p>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
+                                                            <span class="text-primary">Ugx.{{$house->price}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
+                                                            <span class="text-primar">{{$house->location}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$house->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- END widget-->
                                         </div>
-                                        <div class="col-lg-4">
-                                            <!-- START widget-->
-                                            <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                <div class="badge-overlay">
-                                                    <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END widget-->
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <!-- START widget-->
-                                            <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                <div class="badge-overlay">
-                                                    <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END widget-->
-                                        </div>
+                                        @endforeach
                                     </div>
-                                    <div id="settings-pills" class="tab-pane fade">
+                                    <div id="plots-pills" class="tab-pane fade">
+                                       @foreach($plots as $plot)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('property_photos/'.$plot->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
+                                                    @if($plot->created_at < now()->subWeek()) 
+                                                    <span class="top-left badge primary">Old</span>
+                                                    @else
+                                                    <span class="top-left badge orange ">New</span>
+                                                    @endif
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
+                                                            <p>{{$plot->property_size}}</p>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
+                                                            <p>Status:{{$plot->property_status}}</p>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
+                                                            <span class="text-primary">Ugx.{{$plot->price}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
+                                                            <span class="text-primar">{{$plot->location}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$plot->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- END widget-->
                                         </div>
-                                        <div class="col-lg-4">
-                                            <!-- START widget-->
-                                            <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                <div class="badge-overlay">
-                                                    <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END widget-->
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <!-- START widget-->
-                                            <div class="panel widget">
-                                                <img src="{{ asset('front/apartments/apart5.jpeg')}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
-                                                <div class="badge-overlay">
-                                                    <!-- Change Badge Position, Color, Text here-->
-                                                    <span class="top-left badge orange">New</span>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <p>5 Rooms</p>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <p>Status:Rent</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Ugx.250,000</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">Kawempe</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/chosen-property"><span class="btn btn-block btn-primary">Book Now</span></a>
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END widget-->
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

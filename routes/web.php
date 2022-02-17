@@ -19,6 +19,8 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +32,8 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', function () { return view('welcome');});
+//Route::get('/', function () { return view('welcome');});
+Route::get('/',[HomeController::Class,'frontPage']);
 Route::post('/signup',[OwnerController::Class,'signUp']);
 Route::get('/get-room',[RoomController::Class, 'getRooms'])->name('Rooms');
 Route::get('/get-hostel',[HostelController::Class, 'getHostel']);
@@ -44,6 +47,7 @@ Route::get('/get-office',[OfficeController::Class,'getOffice']);
 Route::get('/contact',[ContactController::Class,'getContact']);
 Route::get('/chosen-property/{property_id}',[PropertyController::Class, 'getSelectedProperty'])->name('Selected Property');
 Route::get('/send-number/{property_id}',[ClientController::Class,'validateClientDetails']);
+Route::get('/payment-methods',[PaymentController::Class,'getPaymentMethods']);
 // Route::middleware(['auth:sanctum', 'verified'])->get('/admin-dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
@@ -68,11 +72,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mark-as-taken/{id}',[PropertyController::Class, 'updatePropertyStatus']);
     Route::get('/delete-property/{id}',[PropertyController::Class, 'deleteProperty']);
     Route::get('/taken-property',[PropertyController::Class, 'getPropertyTaken'])->name('Property Taken');
+    Route::get('/properties-available',[PropertyController::Class, 'getPropertyForAdmin'])->name('Properties Available');
    
    
 
 
-    
+    Route::get('/all-client-info',[ClientController::Class,'getAdminClientInformation'])->name("Clients");
     Route::get('/allocate-broker/{client_id}',[ClientController::Class, 'addBrokerToClient'])->name('Allocate Broker');
     Route::get('/allocated-broker/{client_id}',[ClientController::Class, 'allocateBrokerToClient']);
     Route::get('/view-client/{client_id}',[ClientController::Class, 'viewClientsPropertyInfo'])->name('Property Details');
@@ -99,5 +104,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout',[AuthenticationController::Class, 'logoutUser']);
      Route::get('/taken-property',[PropertyController::Class, 'getPropertyTaken'])->name('Property Taken');
      Route::get('/property',[PropertyController::Class, 'getProperty'])->name('Property Available');
+     Route::get('/pay-with-mtn',[PaymentController::Class, 'payWithMtn']);
+     Route::get('/pay-with-airtel',[PaymentController::Class, 'payWithAirtel']);
 });
 

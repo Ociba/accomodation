@@ -6,7 +6,7 @@
                 <img src="{{ asset('admin/assets/img/house.ico')}}" alt="App Name" class="img-responsive">
                 </a>
                 <a href="#">
-                        <strong>JOOME PROPERTY LTD</strong>
+                        <strong><em>JJOOME PROPERTY LTD</em></strong>
                 </a>
             </div>
             <div class="col-md-10">
@@ -112,7 +112,7 @@
                     </li>
                     <li class="mr-lg">
                         <a href="{{ route('register') }}">
-                        <strong>Login</strong>
+                        <strong>Sign Up</strong>
                         </a>
                     </li>
                     <li class="mr-lg">

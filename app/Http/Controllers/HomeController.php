@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 
-class ShopController extends Controller
+class HomeController extends Controller
 {
-    /** 
-     * This function gets the shop available
-    */
-    protected function getShop(){
+    protected function frontPage(){
         $get_rooms =DB::table('properties')->join('categories','categories.id','properties.category_id')
         ->where('properties.category_id',1)->orwhere('properties.category_id',2)
         ->where('properties.status','pending')->orderBy('properties.created_at',"Desc")
@@ -38,7 +35,7 @@ class ShopController extends Controller
         $offices =DB::table('properties')->where('category_id',9)->where('status','pending')->orderBy('created_at',"Desc")->get();
 
         $shops =DB::table('properties')->where('category_id',10)->where('status','pending')->orderBy('created_at',"Desc")->get();
-        return view('frontpages.shop',compact('hostels','get_rooms','houses','plots','get_all_the_property','apartments','flats_and_mansions','stores',
+        return view('welcome',compact('hostels','get_rooms','houses','plots','get_all_the_property','apartments','flats_and_mansions','stores',
                     'offices','shops'));
     }
 }

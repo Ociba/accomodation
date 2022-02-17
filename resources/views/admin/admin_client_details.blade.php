@@ -57,7 +57,7 @@
                                                         <th>Name</th>
                                                         <th>Phone Number</th>
                                                         <th>Property</th>
-                                                        <th>Request Date</th>
+                                                        <th>Property Location</th>
                                                         <th>Status</th>
                                                         @canany(['isAdmin','isPropertyOwner'])
                                                         <th class="text-center">Options</th>
@@ -73,7 +73,7 @@
                                                         <td>{{$client->client_name}}</td>
                                                         <td>{{$client->phone_number}}</td>
                                                         <td><img style="width:50px; height:50px;" src="{{ asset('property_photos/'.$client->photo)}}"></td>
-                                                        <td>{{$client->created_at}}</td>
+                                                        <td>{{$client->location}}</td>
                                                         <td>{{$client->status}}</td>
                                                         <td>
                                                             @can('isAdmin')

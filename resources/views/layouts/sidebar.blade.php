@@ -38,7 +38,15 @@
             </a>
         </li>
         @endcan
-        @canany(['isAdmin','isPropertyOwner'])
+        @can('isAdmin')
+        <li @if(\Request::route()->getName() == "Properties Available")class="sidenav-item active" @else class="sidenav-item" @endif>
+            <a href="/properties-available" class="sidenav-link">
+                <i class="sidenav-icon  feather icon-image"></i>
+                <div>Properties Available</div>
+            </a>
+        </li>
+        @endcan
+        @can('isPropertyOwner')
         <li @if(\Request::route()->getName() == "Property Available")class="sidenav-item active" @else class="sidenav-item" @endif>
             <a href="/property" class="sidenav-link">
                 <i class="sidenav-icon  feather icon-image"></i>
@@ -54,7 +62,16 @@
             </a>
         </li>
         @endcan
-        @canany(['isAdmin','isPropertyOwner'])
+        @can('isAdmin')
+        <li  @if(\Request::route()->getName() == "Clients")class="sidenav-item active" @else class="sidenav-item" @endif>
+            <a href="/all-client-info" class="sidenav-link">
+                <i class="sidenav-icon feather icon-mail"></i>
+                <div>All Clients</div>
+            </a>
+        </li>
+        @endcan
+
+        @canany(['isPropertyOwner','isBroker'])
         <li  @if(\Request::route()->getName() == "Clients")class="sidenav-item active" @else class="sidenav-item" @endif>
             <a href="/clients" class="sidenav-link">
                 <i class="sidenav-icon feather icon-mail"></i>

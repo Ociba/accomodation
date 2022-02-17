@@ -43,21 +43,6 @@
                                     <div class="card-body">
                                         <div class="row align-items-center m-l-0">
                                             <div class="col-sm-6">
-                                            <div class="card-body media align-items-center text-dark">
-                                                <i class="lnr lnr-clock display-4 d-block text-warning"></i>
-                                                <span class="media-body d-block ml-3">
-                                                    <span class="text-big"><span class="mr-1 text-warning">
-                                                    @php
-                                                    $date_paid = \DB::table('users')->where('id',auth()->user()->id)->get();
-                                                    @endphp
-                                                   @foreach($date_paid as $i =>$days) 
-                                                    {{\Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($days->payment_date))}}
-                                                    @endforeach
-                                                    </span>Days Remaining</span>
-                                                    <br>
-                                                    <small class="text-success font-weight-bold">Subscription Time</small>
-                                                </span>
-                                            </div>
                                             </div>
                                             <div class="col-sm-6 text-right">
                                                 <button class="btn btn-success btn-sm btn-round mb-3" data-toggle="modal" data-target="#propertys"><i class="feather icon-plus"></i> Add property</button>
@@ -71,6 +56,7 @@
                                                         <th>#</th>
                                                         <th>Category Name</th>
                                                         <th>Owner</th>
+                                                        <th>Subscription </th>
                                                         <th>Property Size</th>
                                                         <th>Bedroom</th>
                                                         <th>Bathroom</th>
@@ -87,6 +73,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                       
                                                     @foreach($get_property as $i =>$property)
                                                     <tr>
                                                         <td>
@@ -94,6 +81,9 @@
                                                         </td>
                                                         <td>{{$property->category_name}}</td>
                                                         <td>{{$property->name}}</td>
+                                                        <td style="color:red;">
+                                                            {{\Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($property->payment_date));}} Days Left
+                                                        </td>
                                                         <td>{{$property->property_size}}</td>
                                                         <td>{{$property->bedroom}}</td>
                                                         <td>{{$property->bathroom}}</td>
@@ -229,7 +219,7 @@
 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="floating-label" for="price">Price </label>
+                                    <label class="floating-label" for="price">Price Per Month</label>
                                     <input type="text" name="price" class="form-control" id="price" placeholder="">
                                 </div>
                             </div>

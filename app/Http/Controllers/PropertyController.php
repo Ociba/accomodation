@@ -20,11 +20,23 @@ class PropertyController extends Controller
         ->join('users','properties.user_id','users.id')
         ->join('categories','properties.category_id','categories.id')
         ->where('properties.user_id',auth()->user()->id)
-        ->orwhere('users.type',"!=","admin")
         ->select('properties.*','users.name','categories.category_name')
         ->where('properties.status','pending')->orderBy('properties.created_at',"Desc")
         ->get();
         return view('admin.property', compact('get_property','get_category'));
+    }
+    /**
+     * This function gets property for admin
+     */
+    protected function getPropertyForAdmin(){
+        $get_category =Category::select('category_name','id')->get();
+        $get_property =DB::table('properties')
+        ->join('users','properties.user_id','users.id')
+        ->join('categories','properties.category_id','categories.id')
+        ->select('properties.*','users.name','users.payment_date','categories.category_name')
+        ->where('properties.status','pending')->orderBy('properties.created_at',"Desc")
+        ->get();
+        return view('admin.properties', compact('get_property','get_category'));
     }
      /**
      * This function fetches the property  already takendetails 
