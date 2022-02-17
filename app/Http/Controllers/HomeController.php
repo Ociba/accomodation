@@ -35,7 +35,8 @@ class HomeController extends Controller
         $offices =DB::table('properties')->where('category_id',9)->where('status','pending')->orderBy('created_at',"Desc")->get();
 
         $shops =DB::table('properties')->where('category_id',10)->where('status','pending')->orderBy('created_at',"Desc")->get();
+        $properties_with_discount=DB::table('properties')->where('discount','!=',null)->get();
         return view('welcome',compact('hostels','get_rooms','houses','plots','get_all_the_property','apartments','flats_and_mansions','stores',
-                    'offices','shops'));
+                    'offices','shops','properties_with_discount'));
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnPaymentDateToUsersTable extends Migration
+class CreateSuperMarketItemCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddColumnPaymentDateToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('payment_date')->nullable()->after('amount');
+        Schema::create('super_market_item_categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('item_category');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddColumnPaymentDateToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('payment_date');
-        });
+        Schema::dropIfExists('super_market_item_categories');
     }
 }

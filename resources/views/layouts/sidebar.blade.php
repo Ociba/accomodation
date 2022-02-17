@@ -96,25 +96,38 @@
         </li>
         @endcan
         @can('isAdmin')
-        <li class="sidenav-item open">
+        <li class="sidenav-item">
             <a href="javascript:" class="sidenav-link sidenav-toggle">
-                  <i class="lnr lnr-apartment"></i>
+                <i class="sidenav-icon fa fa-balance-scale"></i>
                 <div>Revenue</div>
             </a>
             <ul class="sidenav-menu">
-                <li class="sidenav-item">
-                    <a href="w-simple.html" class="sidenav-link">
-                        <div>Clients</div>
-                    </a>
-                </li>
-                <li class="sidenav-item">
-                    <a href="w-simple.html" class="sidenav-link">
-                        <div>Brokers</div>
-                    </a>
-                </li>
-        </ul>
+                <li class="sidenav-item"><a href="hospital-dashboard.html" class="sidenav-link"><div>Dashboard</div></a></li>
+                <li class="sidenav-item"><a href="hospital-department.html" class="sidenav-link"><div>Department</div></a></li>
+                <li class="sidenav-item"><a href="hospital-doctor.html" class="sidenav-link"><div>Doctor</div></a></li>
+                <li class="sidenav-item"><a href="hospital-patient.html" class="sidenav-link"><div>Patient</div></a></li>
+                <li class="sidenav-item"><a href="hospital-nurse.html" class="sidenav-link"><div>Nurse</div></a></li>
+                <li class="sidenav-item"><a href="hospital-pharmacist.html" class="sidenav-link"><div>Pharmacist</div></a></li>
+                <li class="sidenav-item"><a href="hospital-laboratorie.html" class="sidenav-link"><div>Laboratory</div></a></li>
+            </ul>
         </li>
         @endcan
-       
+        @can('isAdmin')
+        <li class="sidenav-item">
+            <a href="javascript:" class="sidenav-link sidenav-toggle">
+                <i class="sidenav-icon fa fa-cart-plus"></i>
+                <div>Supermarket</div>
+            </a>
+            <ul class="sidenav-menu">
+                <li class="sidenav-item"><a href="/supermarket-items" class="sidenav-link"><div>Items</div></a></li>
+                <li class="sidenav-item"><a href="hospital-department.html" class="sidenav-link"><div>Department</div></a></li>
+                <li class="sidenav-item"><a href="hospital-doctor.html" class="sidenav-link"><div>Doctor</div></a></li>
+                <li class="sidenav-item"><a href="hospital-patient.html" class="sidenav-link"><div>Patient</div></a></li>
+                <li class="sidenav-item"><a href="hospital-nurse.html" class="sidenav-link"><div>Nurse</div></a></li>
+                <li class="sidenav-item"><a href="hospital-pharmacist.html" class="sidenav-link"><div>Pharmacist</div></a></li>
+                <li class="sidenav-item"><a href="hospital-laboratorie.html" class="sidenav-link"><div>Laboratory</div></a></li>
+            </ul>
+        </li>
+        @endcan
     </ul>
 </div>

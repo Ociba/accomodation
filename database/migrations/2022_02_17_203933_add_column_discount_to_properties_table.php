@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnPaymentDateToUsersTable extends Migration
+class AddColumnDiscountToPropertiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnPaymentDateToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('payment_date')->nullable()->after('amount');
+        Schema::table('properties', function (Blueprint $table) {
+            $table->string('discount')->nullable()->after('price');
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnPaymentDateToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('payment_date');
+        Schema::table('properties', function (Blueprint $table) {
+            $table->dropColumn('discount');
         });
     }
 }

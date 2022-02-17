@@ -52,85 +52,8 @@
     </head>
     <body>
         <!-- START wrapper-->
-        <header>
-            <div class="container">
-            @include('frontlayouts.menu')
-                <div class="header-content">
-                    <div class="row row-flush row-table">
-                        <div class="col-xs-12 col-lg-6 align-middle">
-                            <div data-toggle="play-animation" data-play="fadeInLeft" data-offset="0" class="app-presentation">
-                                {{--<img src="{{ asset('front/apartments/apaart2.jpg')}}" style="height: 40%;" alt="App Name" class="img-responsive">--}}
-                                <div class="image-slideshow">
-                                    <div>
-                                        <img src="{{ asset('front/apartments/apaart2.jpg')}}"  alt="">
-                                        <div>
-                                            <h2>Affordable,Conducive and Large Parking Space</h2>
-                                            <p class="font-weight-bold" ><em><strong><h3 style="color:#ff6600">Linking you with the right person</h3></em></strong></p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="{{ asset('front/apartments/hhouse1.jpg')}}" alt="">
-                                        <div>
-                                            <h2>Affordable,Conducive and Large Parking Space</h2>
-                                            <p class="font-weight-bold" ><em><strong><h3 style="color:#ff6600">Linking you with the right person</h3></em></strong></p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="{{ asset('front/apartments/hhouse2.jpg')}}"  alt="">
-                                        <div>
-                                            <h2>Affordable,Conducive and Large Parking Space</h2>
-                                            <p class="font-weight-bold" ><em><strong><h3 style="color:#ff6600">Linking you with the right person</h3></em></strong></p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="{{ asset('front/apartments/hhouse3.jpg')}}"  alt="">
-                                        <div>
-                                            <h2>Affordable,Conducive and Large Parking Space</h2>
-                                            <p class="font-weight-bold" ><em><strong><h3 style="color:#ff6600">Linking you with the right person</h3></em></strong></p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="{{ asset('front/apartments/hhouse4.jpg')}}"  alt="">
-                                        <div>
-                                            <h2>Affordable,Conducive and Large Parking Space</h2>
-                                            <p class="font-weight-bold" ><em><strong><h3 style="color:#ff6600">Linking you with the right person</h3></em></strong></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-lg-6 align-middle">
-                            <div class="side-presentation">
-                                <div class="h2 header-title">Better &amp; Affordable Accomodation & Supermarket</div>
-                                <br>
-                                <p class="header-subtitle">Get your Accomodation now comfortable, Affordable , Standard Space both Rooms & Parking and self contained.</p>
-                                <br>
-                                <div class="header-button">
-                                    <a href="#" class="btn btn-primary btn-lg btn-fw">
-                                    <strong>Discover Now</strong>
-                                    </a>
-                                </div>
-                                <br>
-                                <br>
-                                <p>Available on</p>
-                                <ul class="list-inline store-list">
-                                    <li>
-                                        <a href="#">
-                                        <img src="{{ asset('front/app/img/landing/store-apple.png')}}" alt="App Name" class="img-responsive">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                        <img src="{{ asset('front/app/img/landing/store-google.png')}}" alt="App Name" class="img-responsive">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        @include('frontlayouts.menu')
+        @include('frontlayouts.social-links')
         <section>
             <div class="container">
                 <h2 class="section-header">Our Current Available Accomodations & Properties With Discount
@@ -176,7 +99,7 @@
                                 </div>
                                 <div class="row row-table text-center">
                                     <div class="col-xs-12">
-                                        <a href="/chosen-property/{{$discount->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                        <a href="/chosen-property/{{$discount->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -257,7 +180,7 @@
                                                         </div>
                                                         <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$all->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$all->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -303,7 +226,7 @@
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$room->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$room->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -345,7 +268,7 @@
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$house->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$house->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -387,7 +310,7 @@
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$hostel->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$hostel->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -429,7 +352,7 @@
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$apartment->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$apartment->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -474,7 +397,7 @@
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$plot->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$plot->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -516,7 +439,7 @@
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$flat->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$flat->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -558,7 +481,7 @@
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$store->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$store->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -600,7 +523,7 @@
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$office->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$office->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -642,7 +565,7 @@
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$shop->id}}"><span class="btn btn-block btn-primary">Book Now</span></a>
+                                                               <a href="/chosen-property/{{$shop->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>

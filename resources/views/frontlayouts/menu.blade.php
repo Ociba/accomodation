@@ -1,13 +1,15 @@
 <header>
     <div class="container">
         <nav class="row navbar navbar-default navbar-top navbar-fixed-top">
-            <div class="col-md-2 app-logo">
+        <div class="col-md-2 app-logo">
                 <a href="#" class="logo-wrapper">
                 <img src="{{ asset('admin/assets/img/house.ico')}}" alt="App Name" class="img-responsive">
                 </a>
                 <a href="#">
-                        <strong><em>JJOOME PROPERTY LTD</em></strong>
+                <strong><em>JJOOME PROPERTY LTD</em></strong>
                 </a>
+                
+                
             </div>
             <div class="col-md-10">
                 <ul class="list-inline menuapp-buttons">
@@ -18,7 +20,7 @@
                     </li>
                     <li class="mr-lg dropdown dropdown-list">
                         <a href="#" data-toggle="dropdown" data-play="fadeIn" class="dropdown-toggle">
-                        <strong>Accomodation</strong>
+                        <strong>Accomodation & Property</strong>
                         </a>
                         <!-- START Dropdown menu-->
                         <ul class="dropdown-menu">
@@ -104,6 +106,11 @@
                             </li>
                         </ul>
                         <!-- END Dropdown menu-->
+                    </li>
+                    <li class="mr-lg">
+                        <a href="/supermarket">
+                        <strong>SuperMarket</strong>
+                        </a>
                     </li>
                      <li class="mr-lg">
                         <a href="/contact">

@@ -43,7 +43,7 @@
                                     <div class="card-body">
                                         <div class="row align-items-center m-l-0">
                                             <div class="col-sm-6">
-                                            <div class="card-body media align-items-center text-dark">
+                                            {{--<div class="card-body media align-items-center text-dark">
                                                 <i class="lnr lnr-clock display-4 d-block text-warning"></i>
                                                 <span class="media-body d-block ml-3">
                                                     <span class="text-big"><span class="mr-1 text-warning">
@@ -57,10 +57,11 @@
                                                     <br>
                                                     <small class="text-success font-weight-bold">Subscription Time</small>
                                                 </span>
-                                            </div>
+                                            </div>--}}
+                                            <button class="btn btn-primary btn-sm btn-round mb-3" data-toggle="modal" data-target="#items"><i class="feather icon-plus"></i> Add Item Group</button>
                                             </div>
                                             <div class="col-sm-6 text-right">
-                                                <button class="btn btn-success btn-sm btn-round mb-3" data-toggle="modal" data-target="#propertys"><i class="feather icon-plus"></i> Add property</button>
+                                                <button class="btn btn-success btn-sm btn-round mb-3" data-toggle="modal" data-target="#propertys"><i class="feather icon-plus"></i> Add Item</button>
                                                 
                                             </div>
                                         </div>
@@ -69,47 +70,39 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Category Name</th>
-                                                        <th>Owner</th>
-                                                        <th>Property Size</th>
-                                                        <th>Bedroom</th>
-                                                        <th>Bathroom</th>
-                                                        <th>Garage</th>
+                                                        <th>Category</th>
+                                                        <th>Contact</th>
                                                         <th>Location</th>
                                                         <th>Description</th>
                                                         <th>Price</th>
+                                                        <th>Discount</th>
                                                         <th>Photo</th>
-                                                        <th>Property Status</th>
                                                         <th>Status</th>
-                                                        @canany(['isAdmin','isPropertyOwner'])
+                                                        <th>Created By</th>
+                                                        @can('isAdmin')
                                                         <th>Options</th>
                                                         @endcan
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($get_property as $i =>$property)
+                                                @foreach($get_items as $i =>$items)
                                                     <tr>
+                                                        <td>{{$i + 1}}</td>
+                                                        <td>{{$items->item_category}}</td>
+                                                        <td>{{$items->contact}}</td>
+                                                        <td>{{$items->location}}</td>
+                                                        <td>{{$items->description}}</td>
+                                                        <td>{{$items->price}}</td>
+                                                        <td>{{$items->discount}}</td>
+                                                        <td><img style="width:50px; height:40px;" src="{{ asset('super_market_photos/'.$items->photo)}}"></td>
+                                                        <td>{{$items->status}}</td>
+                                                        <td>{{$items->name}}</td>
                                                         <td>
-                                                            {{ $i + 1}}
-                                                        </td>
-                                                        <td>{{$property->category_name}}</td>
-                                                        <td>{{$property->name}}</td>
-                                                        <td>{{$property->property_size}}</td>
-                                                        <td>{{$property->bedroom}}</td>
-                                                        <td>{{$property->bathroom}}</td>
-                                                        <td>{{$property->garage}}</td>
-                                                        <td>{{$property->location}}</td>
-                                                        <td>{{$property->description}}</td>
-                                                        <td>{{$property->price}}</td>
-                                                        <td><img style="width:50px; height:40px;" src="{{ asset('property_photos/'.$property->photo)}}"></td>
-                                                        <td>{{$property->property_status}}</td>
-                                                        <td>{{$property->status}}</td>
-                                                        <td>
-                                                          <a href="/add-property-discount-form/{{$property->id}}" class="btn btn-info btn-sm"><i class="fa fa-cut"></i>&nbsp; Discount </a>
+                                                          <a href="/add-property-discount-form/" class="btn btn-warning btn-sm"><i class="fa fa-cut"></i>&nbsp; Discount </a>
                                                           @can('isAdmin')
-                                                            <a href="/edit-property/{{$property->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
-                                                            <a href="/mark-as-taken/{{$property->id}}" class="btn btn-success btn-sm"><i class="feather icon-check"></i>&nbsp;Mark as Taken </a>
-                                                            <a href="/delete-property/{{$property->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
+                                                            <a href="/edit-property/" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
+                                                            <a href="/mark-as-taken/" class="btn btn-success btn-sm"><i class="feather icon-check"></i>&nbsp;Mark as Taken </a>
+                                                            <a href="/delete-property/" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                             @endcan
                                                         </td>
                                                     </tr>
@@ -172,79 +165,49 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="/create-property" enctype="multipart/form-data">
+                    <form method="post" action="/create-supermarket-item" enctype="multipart/form-data">
                     @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="floating-label" for="name">Category</label>
-                                    {{--<input type="text" name="category_id" class="form-control" id="category_id" placeholder="" required>--}}
-                                    <select class="custom-select is-valid" name="category_id" class="form-control" id="category_id">
-                                    @foreach($get_category as $category)
-                                        <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                    <select class="custom-select is-valid" name="item_group_id" class="form-control" id="item_group_id">
+                                    @foreach($category as $category)
+                                        <option value="{{$category->id}}">{{$category->item_category}}</option>
                                     @endforeach
+                                    
                                    </select>
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="floating-label" for="property_size">Property size</label>
-                                    <input type="text" name="property_size" class="form-control" id="property_size" placeholder="" required>
+                                    <label class="floating-label" for="contact">Contact</label>
+                                    <input type="text" name="contact" class="form-control" id="contact" placeholder="" required>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class="floating-label" for="bedroom">Bedroom</label>
-                                    <input type="text" name="bedroom" class="form-control" id="bedroom" placeholder="">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class="floating-label" for="bathroom">BatheRoom</label>
-                                    <input type="text" name="bathroom" class="form-control" id="bathroom" placeholder="">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class="floating-label" for="garage">Garage</label>
-                                    <input type="text" name="garage" class="form-control" id="garage" placeholder="">
-                                </div>
-                            </div>
-
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="floating-label" for="location">Location</label>
-                                    <input type="text" name="location" class="form-control" id="location" placeholder="" required>
+                                    <input type="text" name="location" class="form-control" id="location" placeholder="">
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="floating-label" for="description">Description</label>
-                                    <input type="text" name="description" class="form-control" id="description" placeholder="" required>
+                                    <input type="text" name="description" class="form-control" id="description" placeholder="">
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="floating-label" for="price">Price </label>
+                                    <label class="floating-label" for="price">Price</label>
                                     <input type="text" name="price" class="form-control" id="price" placeholder="">
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class="floating-label" for="property_status">Property Status</label>
-                                    <select class="custom-select" name="property_status" class="form-control" id="property_status">
-                                        <option value="For sale">Sell</option>
-                                        <option value="Hire">Hire</option>
-                                        <option value="Rent">Rent</option>
-                                    </select>
-                                </div>
-                                </div>
+
 
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -252,6 +215,37 @@
                                     <input type="file" name="photo" class="form-control" id="photo" placeholder="" required>
                                 </div>
                             </div>
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-round">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal for adding categories-->
+    <div class="modal fade" id="items" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Item Group</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="get" action="/create-item-group">
+                    @csrf
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="floating-label" for="item_category">Name</label>
+                                    <input type="text" name="item_category" class="form-control" id="item_category" placeholder="" required>
+                                </div>
+                            </div>
+                           
                             <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-round">Submit</button>
                             </div>

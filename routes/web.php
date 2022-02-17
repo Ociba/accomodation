@@ -21,6 +21,7 @@ use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SuperMarketController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,6 +49,7 @@ Route::get('/contact',[ContactController::Class,'getContact']);
 Route::get('/chosen-property/{property_id}',[PropertyController::Class, 'getSelectedProperty'])->name('Selected Property');
 Route::get('/send-number/{property_id}',[ClientController::Class,'validateClientDetails']);
 Route::get('/payment-methods',[PaymentController::Class,'getPaymentMethods']);
+Route::get('/supermarket',[SuperMarketController::Class,'superMarket']);
 // Route::middleware(['auth:sanctum', 'verified'])->get('/admin-dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
@@ -73,9 +75,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/delete-property/{id}',[PropertyController::Class, 'deleteProperty']);
     Route::get('/taken-property',[PropertyController::Class, 'getPropertyTaken'])->name('Property Taken');
     Route::get('/properties-available',[PropertyController::Class, 'getPropertyForAdmin'])->name('Properties Available');
+    Route::get('/add-property-discount-form/{property_id}',[PropertyController::Class, 'addDiscountForm'])->name('Discount Form');
+    Route::get('/add-discount/{property_id}',[PropertyController::Class, 'saveDiscount']); 
    
-   
-
+    
+    Route::get('/supermarket-items',[SuperMarketController::Class,'superMarketItems'])->name('Supermarket Items');
+    Route::get('/create-item-group',[SuperMarketController::Class,'createItemCategory']);
+    Route::post('/create-supermarket-item',[SuperMarketController::Class,'createSupermarketItem']);
 
     Route::get('/all-client-info',[ClientController::Class,'getAdminClientInformation'])->name("Clients");
     Route::get('/allocate-broker/{client_id}',[ClientController::Class, 'addBrokerToClient'])->name('Allocate Broker');

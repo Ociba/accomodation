@@ -151,4 +151,20 @@ class PropertyController extends Controller
         ->where('properties.status','pending')->get());
         return response()->json(['data'=>$get_property]);
     }
+    /** 
+     * This function gets form for adding discount
+    */
+    protected function addDiscountForm($property_id){
+        $get_form =Property::where('id',$property_id)->get();
+        return view('admin.add_discount', compact('get_form'));
+    }
+    /**
+     * This function creates discount
+     */
+    public function saveDiscount($property_id){
+        Property::where('id',$property_id)->update(array(
+            'discount'  =>request()->discount
+        ));
+        return redirect('/property')->with('msg','Operations Successful');
+    }
 }
