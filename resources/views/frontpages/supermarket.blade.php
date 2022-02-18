@@ -8,6 +8,133 @@
         <meta name="keywords" content="">
         <meta name="author" content="">
         @include('frontlayouts.css')
+        <style>
+            .store-area {
+  background: #6cbe03;
+  position: relative; }
+  .store-area::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/store-pattern.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .store-area .store-content {
+      margin-bottom: 30px; } }
+  @media (max-width: 767px) {
+    .store-area .store-content {
+      margin-bottom: 30px; } }
+  .store-area .store-content span {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #fff;
+    padding-left: 65px;
+    position: relative; }
+    .store-area .store-content span::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 3px;
+      width: 45px;
+      background: #fff; }
+  .store-area .store-content .title {
+    font-size: 50px;
+    line-height: 55px;
+    color: #fff;
+    letter-spacing: -1px;
+    padding-top: 25px;
+    padding-bottom: 21px; }
+    @media only screen and (min-width: 992px) and (max-width: 1200px) {
+      .store-area .store-content .title {
+        font-size: 40px;
+        line-height: 46px; } }
+  .store-area .store-content p {
+    color: #fff;
+    padding-right: 5px; }
+    @media only screen and (min-width: 992px) and (max-width: 1200px) {
+      .store-area .store-content p {
+        font-size: 15px; } }
+  .store-area .store-item {
+    padding-top: 50px;
+    border-radius: 15px; }
+    .store-area .store-item img {
+      display: inline-block; }
+    .store-area .store-item .store-title {
+      padding: 44px 35px 8px; }
+      .store-area .store-item .store-title .title {
+        font-size: 24px; }
+        @media only screen and (min-width: 992px) and (max-width: 1200px) {
+          .store-area .store-item .store-title .title {
+            font-size: 20px; } }
+        @media (max-width: 767px) {
+          .store-area .store-item .store-title .title {
+            font-size: 20px; } }
+        @media only screen and (min-width: 576px) and (max-width: 767px) {
+          .store-area .store-item .store-title .title {
+            font-size: 24px; } }
+      .store-area .store-item .store-title span {
+        font-size: 14px;
+        color: #989898; }
+        .store-area .store-item .store-title span i {
+          color: #f4a700;
+          padding-right: 5px; }
+    .store-area .store-item .store-price {
+      padding-left: 35px;
+      padding-right: 35px;
+      padding-bottom: 45px; }
+      .store-area .store-item .store-price p {
+        font-size: 18px;
+        font-weight: 700;
+        color: #fe2000; }
+      .store-area .store-item .store-price ul li {
+        display: inline-block; }
+        .store-area .store-item .store-price ul li i {
+          color: #f4a700;
+          font-size: 14px;
+          padding-left: 4px; }
+  .store-area .store-active .slick-arrow {
+    position: absolute;
+    bottom: 29px;
+    z-index: 9;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 54px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    -webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -ms-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s; }
+    @media only screen and (min-width: 992px) and (max-width: 1200px) {
+      .store-area .store-active .slick-arrow {
+        bottom: 35px; } }
+    .store-area .store-active .slick-arrow:hover {
+      background: #fff;
+      color: #6cbe03; }
+    .store-area .store-active .slick-arrow.prev {
+      left: -385px; }
+      @media only screen and (min-width: 992px) and (max-width: 1200px) {
+        .store-area .store-active .slick-arrow.prev {
+          left: -310px; } }
+    .store-area .store-active .slick-arrow.next {
+      left: -315px; }
+      @media only screen and (min-width: 992px) and (max-width: 1200px) {
+        .store-area .store-active .slick-arrow.next {
+          left: -230px; } }
+        </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('front/owl-carousel/dist/assets/owl-carousel.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('front/owl-carousel/dist/assets/owl-theme-default.css')}}">
         <style>
@@ -111,6 +238,170 @@
                 </div>
             </div>
         </section>
+        <section class="store-area pt-130 pb-130">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-7">
+                    <div class="store-content">
+                        <span>Our Markets</span>
+                        <h3 class="title">Visit Our Markets</h3>
+                        {{--<p>Please check on in any Market for food Products at affordable Prices and pocket friendly.</p>--}}
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row store-active">
+                        <div class="col-lg-6">
+                            <div class="store-item text-center bg-white">
+                                <img src="{{asset('assets/images/veg.png')}}" alt="store">
+                                <div class="store-title d-flex justify-content-between align-items-center">
+                                    <a href="#"><h5 class="title">Fresh Vegetables</h5></a>
+                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
+                                </div>
+                                {{--
+                                <div class="store-price d-flex justify-content-between align-items-center">
+                                    <p>Kg $89.00</p>
+                                    <ul>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                --}}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="store-item text-center bg-white">
+                                <img src="{{asset('assets/images/fruits.png')}}" alt="store">
+                                <div class="store-title d-flex justify-content-between align-items-center">
+                                    <a href="#"><h5 class="title">Fresh Fruits</h5></a>
+                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
+                                </div>
+                                {{--
+                                <div class="store-price d-flex justify-content-between align-items-center">
+                                    <p>Kg $89.00</p>
+                                    <ul>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                --}}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="store-item text-center bg-white">
+                                <img src="{{asset('assets/images/honey.jpg')}}" height="120" alt="store">
+                                <div class="store-title d-flex justify-content-between align-items-center">
+                                    <a href="#"><h5 class="title">Natural Honey</h5></a>
+                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
+                                </div>
+                                {{--
+                                <div class="store-price d-flex justify-content-between align-items-center">
+                                    <p>Kg $89.00</p>
+                                    <ul>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                --}}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="store-item text-center bg-white">
+                                <img src="{{asset('assets/images/cassava.jpg')}}" height="120" height="120" alt="store">
+                                <div class="store-title d-flex justify-content-between align-items-center">
+                                    <a href="#"><h5 class="title">Tubers</h5></a>
+                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
+                                </div>
+                                {{--
+                                <div class="store-price d-flex justify-content-between align-items-center">
+                                    <p>Kg $89.00</p>
+                                    <ul>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                --}}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="store-item text-center bg-white">
+                                <img src="{{asset('assets/images/eggs.jpg')}}" height="120" alt="store">
+                                <div class="store-title d-flex justify-content-between align-items-center">
+                                    <a href="#"><h5 class="title">Chicken & Eggs</h5></a>
+                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
+                                </div>
+                                {{--
+                                <div class="store-price d-flex justify-content-between align-items-center">
+                                    <p>Kg $89.00</p>
+                                    <ul>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                --}}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="store-item text-center bg-white">
+                                <img src="{{asset('assets/images/services-3.png')}}" height="120" alt="store">
+                                <div class="store-title d-flex justify-content-between align-items-center">
+                                    <a href="#"><h5 class="title">All Meat</h5></a>
+                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
+                                </div>
+                                {{--
+                                <div class="store-price d-flex justify-content-between align-items-center">
+                                    <p>Kg $89.00</p>
+                                    <ul>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                --}}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="store-item text-center bg-white">
+                                <img src="{{asset('assets/images/milk.png')}}" alt="store">
+                                <div class="store-title d-flex justify-content-between align-items-center">
+                                    <a href="#"><h5 class="title">Fresh Milk</h5></a>
+                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
+                                </div>
+                                {{--
+                                <div class="store-price d-flex justify-content-between align-items-center">
+                                    <p>Kg $89.00</p>
+                                    <ul>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
         <section class="bg-white">
             <div class="container">
                 <div class="row">

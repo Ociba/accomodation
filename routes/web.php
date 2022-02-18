@@ -80,8 +80,8 @@ Route::middleware(['auth'])->group(function () {
    
     
     Route::get('/supermarket-items',[SuperMarketController::Class,'superMarketItems'])->name('Supermarket Items');
-    Route::get('/create-item-group',[SuperMarketController::Class,'createItemCategory']);
-    Route::post('/create-supermarket-item',[SuperMarketController::Class,'createSupermarketItem']);
+    Route::get('/create-item-group',[SuperMarketController::Class,'validateitemCategory']);
+    Route::post('/create-supermarket-item',[SuperMarketController::Class,'validatecreateSupermarketItem']);
 
     Route::get('/all-client-info',[ClientController::Class,'getAdminClientInformation'])->name("Clients");
     Route::get('/allocate-broker/{client_id}',[ClientController::Class, 'addBrokerToClient'])->name('Allocate Broker');

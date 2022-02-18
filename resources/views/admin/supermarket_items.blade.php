@@ -71,6 +71,7 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Category</th>
+                                                        <th>Item</th>
                                                         <th>Contact</th>
                                                         <th>Location</th>
                                                         <th>Description</th>
@@ -89,6 +90,7 @@
                                                     <tr>
                                                         <td>{{$i + 1}}</td>
                                                         <td>{{$items->item_category}}</td>
+                                                        <td>{{$items->item}}</td>
                                                         <td>{{$items->contact}}</td>
                                                         <td>{{$items->location}}</td>
                                                         <td>{{$items->description}}</td>
@@ -182,8 +184,8 @@
 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="floating-label" for="contact">Contact</label>
-                                    <input type="text" name="contact" class="form-control" id="contact" placeholder="" required>
+                                    <label class="floating-label" for="item">Name of Item</label>
+                                    <input type="text" name="item" class="form-control" id="item" placeholder="" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
