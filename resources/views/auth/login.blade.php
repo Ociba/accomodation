@@ -115,6 +115,9 @@
                   </div>
                   <button type="submit" class="btn btn-block btn-success">Login</button>
                </form>
+               <p class="text-center">
+               <a href="/supermarket-account-creation" class="text-primary">create shopping account</a>
+               </p>
             </div>
          </div>
          <!-- END panel-->

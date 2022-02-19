@@ -52,12 +52,15 @@ Route::get('/chosen-property/{property_id}',[PropertyController::Class, 'getSele
 Route::get('/send-number/{property_id}',[ClientController::Class,'validateClientDetails']);
 Route::get('/payment-methods',[PaymentController::Class,'getPaymentMethods']);
 Route::get('/supermarket',[SuperMarketController::Class,'superMarket']);
+Route::get('/get-supermarket-items/{item_id}',[ViewMoreItemsController::Class,'ViewSupermarketItems'])->name('More Supermarket Items');
+Route::get('/selected-item/{item_id}',[CartController::Class,'ViewCart']);  
+Route::get('/supermarket-account-creation',[CartController::Class,'createAccountForm']);
 // Route::middleware(['auth:sanctum', 'verified'])->get('/admin-dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard',[DashboardController::Class, 'getDashboard'])->name('Dashboard');
+    Route::get('/dashboard',[DashboardController::Class, 'getDashboard'])->middleware('can:isAdmin');
     Route::get('/category',[CategoryController::Class, 'getCategory'])->name('Category');
     Route::get('/create-category',[CategoryController::Class, 'validateCreateCategory']);
     Route::get('/edit-category/{id}',[CategoryController::Class, 'editCategory'])->name('Edit Category');
@@ -86,12 +89,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/create-supermarket-item',[SuperMarketController::Class,'validatecreateSupermarketItem']);
     Route::get('/add-supermarket-item-discount/{item_id}',[SuperMarketController::Class,'addDiscount'])->name('Discount Form');
     Route::get('/save-supermarket-item-discount/{item_id}',[SuperMarketController::Class,'saveDiscount']);
-    Route::get('/get-supermarket-items/{item_id}',[ViewMoreItemsController::Class,'ViewSupermarketItems'])->name('More Supermarket Items');
     
-    Route::get('/selected-item/{item_id}',[CartController::Class,'ViewCart']);
-    Route::get('/supermarket-account-creation',[CartController::Class,'createAccountForm']);
+   
+  
     Route::post('/register-account',[CartController::Class,'createAccount']);
-    Route::get('/add-to-cart/{item_id}',[CartController::Class,'saveItemSelected']);
+    Route::get('/add-my-cart/{item_id}',[CartController::Class,'saveItemSelected']);
     Route::get('/view-cart',[CartController::Class,'viewMyShoppingCart']);
 
     Route::get('/all-client-info',[ClientController::Class,'getAdminClientInformation'])->name("Clients");

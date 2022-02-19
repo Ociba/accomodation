@@ -8,15 +8,16 @@
         <meta name="keywords" content="">
         <meta name="author" content="">
         @include('frontlayouts.css')
+        <style>
+         .mb-1 {
+             margin-bottom:3px;
+         }
+        </style>
     </head>
     <body>
         <!-- START wrapper-->
-        @if(auth()->user()->staketype=='supermarket'){
-            @include('frontlayouts.logged-in-menu')
-        }@else(
+      
         @include('frontlayouts.menu')
-        )
-        @endif
         <section class="bg-white">
             <div class="container  margintop">
                 <h2 class="section-header">Thank You For Choosing This Item
@@ -28,7 +29,7 @@
                     <div class="col-lg-9">
                         <!-- START widget-->
                         <div class="panel widget">
-                            <img src="{{ asset('super_market_photos/'.$cart->photo)}}" style="width:1000px; height:475px;" alt="Image" class="img-responsive">
+                            <img src="{{ asset('super_market_photos/'.$cart->photo)}}" style="width:1000px; height:300px;" alt="Image" class="img-responsive">
                             <div class="badge-overlay">
                                 <!-- Change Badge Position, Color, Text here-->
                                 {{--<span class="top-left badge orange">New</span>--}}
@@ -49,14 +50,14 @@
                                 </div>
                                 <div class="row row-table text-center mt-4">
                                     <div class="col-xs-12">
-                                    <form action="/add-to-cart/{{request()->route()->item_id}}" method="get">
+                                    <form action="/add-my-cart/{{request()->route()->item_id}}" method="get">
                                     @csrf
                                     <input type="hidden" name="item_id" value="{{request()->route()->item_id}}">
                                     <div class="panel-body">
                                     <div class="row row-table mb-3">
                                         <div class="col-xs-12">
-                                           <a href="/supermarket-account-creation" class="btn btn-success mb-5 form-contro">Proceed To Login</a>
-                                            <button type="submit" class="btn btn-warning mb-5 form-contro">Add To Cart</button>
+                                           {{--<a href="/supermarket-account-creation" class="btn btn-success mb-1">Proceed To Login</a>--}}
+                                            <button type="submit" class="btn btn-warning mb-1">Add To Cart</button>
                                             <a href="/view-cart" class="btn btn-primary mb-5 form-contro">View Cart</a>
                                             
                                         </div>
@@ -78,16 +79,17 @@
                     <div class="col-lg-3">
                         @include('layouts.messages')
                         <!-- START widget-->
-                        <div class="panel widget" style="height:590px;" >
+                        <div class="panel widget" style="height:450px;" >
                             <p style="text-align:center; color:blue;">Joome  Property Limited</p>
                             <p class="text-center">We provide you with accomodation at cheap and affordable prices, we deal with single roooms, Double,House, Hostels, Apartments, Stores, Shops, Land and Plots in all sizes.</p>
+                            <p class="text-center">We provide you with a platform for buying your favaourate  product at your convinience time</p>
                             <p class="text-center font-weight-9000"><strong>Our Location</strong></p>
                             <p class="text-center">Soroti Municipality</p>
                             <p class="text-center">Opposite Soroti University</p>
                             <p class="text-center">Main Gate</p>
                             <p class="text-center">0775401793</p>
                             <p class="text-center">ocibajames@gmail.com</p>
-                                <form action="/add-to-cart/{{request()->route()->property_id}}" method="get">
+                                {{--<form action="/add-to-cart/{{request()->route()->property_id}}" method="get">
                                 @csrf
                                 <input type="hidden" name="property_id" value="{{request()->route()->property_id}}">
                                 <div class="panel-body">
@@ -110,7 +112,7 @@
                                         <button type="submit" class="btn btn-primary mb-5 form-control">Submit Now</button>
                                     </div>
                             </div>
-                          </form>
+                          </form>--}}
                         </div>
                         <!-- END widget-->
                     </div>
@@ -118,6 +120,7 @@
                 @endforeach
             </div>
         </section>
+        @include('frontlayouts.slider')
         @include('frontlayouts.testimonial')
         @include('frontlayouts.offer')
         @include('frontlayouts.link')

@@ -16,7 +16,9 @@ class CartController extends Controller
         ->join('users','users.id','super_markets.created_by')
         ->where('super_markets.id',$item_id)
         ->select('super_markets.*','super_market_item_categories.item_category','users.name')->get();
-        return view('frontpages.cart', compact('get_cart_item'));
+        //Supermarkets items slider
+        $get_supermarket_items =SuperMarket::where('discount',null)->where('status','active')->get(); 
+        return view('frontpages.cart', compact('get_cart_item','get_supermarket_items'));
     }
     /**
      * This function gets form for creating supermartket account
@@ -72,15 +74,16 @@ class CartController extends Controller
         $supermarket_obj->item_id     = request()->item_id;
         $supermarket_obj->user_id     =auth()->user()->id;
         $supermarket_obj->save();
-        return Redirect()->back();
+        return Redirect('/view-cart');
     }
 
     protected function viewMyShoppingCart(){
         $my_cart =Cart::join('super_markets','super_markets.id','carts.item_id')
         ->join('users','users.id','carts.user_id')
         ->where('carts.user_id',auth()->user()->id)
-        ->select('super_markets.*','users.name')->get();
-        return view('frontpages.my_cart_details', compact('my_cart'));
+        ->select('super_markets.*','users.name','carts.created_at')->get();
+        $get_supermarket_items =SuperMarket::where('discount',null)->where('status','active')->get(); 
+        return view('frontpages.my_cart_details', compact('my_cart','get_supermarket_items'));
         }
 
 }

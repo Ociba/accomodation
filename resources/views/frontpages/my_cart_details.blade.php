@@ -17,8 +17,8 @@
         @include('frontlayouts.menu')
         )
         @endif
-        <section class="bg-white">
-            <div class="container  margintop">
+        <section class="bg-white" style="margin-top:-30px;">
+            <div class="container">
                 <h2 class="section-header">Thank You For Choosing This Item
                     <br>
                     <small class="text-muted text-center">We Request You give Us Your Contact So that We get In Touch Soon</small>
@@ -27,18 +27,24 @@
                 <div class="col-lg-12">
                   <!-- START panel-->
                   <div class="panel panel-default">
-                     <div class="panel-heading">Shopping Cart Items</div>
+                     <div class="panel-heading text-center">Shopping Cart Items</div>
                      <div class="panel-body">
                         <!-- START table-responsive-->
                         <div class="table-responsive">
                             
                            <table class="table table-striped table-bordered table-hover">
                               <thead>
+                              @php
+                              $my_cart_total =\DB::table('carts')->join('super_markets','super_markets.id','carts.item_id')
+                              ->where('carts.user_id',auth()->user()->id)
+                              ->sum('price');
+                              @endphp
                                  <tr>
                                     <th>#</th>
                                     <th>Name of Item</th>
-                                    <th>Price</th>
                                     <th>Photo</th>
+                                    <th>Date</th>
+                                    <th>Price</th>
                                  </tr>
                               </thead>
                               <tbody>
@@ -46,11 +52,15 @@
                                  <tr>
                                     <td>{{$i + 1}}</td>
                                     <td>{{$cart->item}}</td>
-                                    <td>Ugx:{{$cart->price}}</td>
                                     <td><img src="{{ asset('super_market_photos/'.$cart->photo)}}" style="width:50px; height:40px;" alt="Image" class="img-responsive"></td>
-                                    
+                                    <td>{{$cart->created_at}}</td>
+                                    <td>Ugx:{{ number_format($cart->price)}}</td>
                                  </tr>
                                  @endforeach
+                                 <tr>
+                                 <td colspan="4"  style="color:black; font-weight:bold;">Total Amount</td>
+                                 <td style="color:black; font-weight:bold;">Ugx: {{ number_format($my_cart_total)}}</td>
+                                 </tr>
                               </tbody>
                            </table>
                            
@@ -63,6 +73,7 @@
                 </div>
             </div>
         </section>
+        @include('frontlayouts.more-items')
         @include('frontlayouts.testimonial')
         @include('frontlayouts.offer')
         @include('frontlayouts.link')
