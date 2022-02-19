@@ -14,5 +14,6 @@
 <script src="{{ asset('front/vendor/modernizr/modernizr.js')}}" type="application/javascript"></script>
 <!-- FastClick for mobiles-->
 <script src="{{ asset('front/vendor/fastclick/fastclick.js')}}" type="application/javascript"></script>
-<script src="ga.js" type="application/javascript"></script>
+{{--<script src="ga.js" type="application/javascript"></script>--}}
 <link rel="stylesheet" href="{{ asset('front/app/css/landing.css')}}">
+

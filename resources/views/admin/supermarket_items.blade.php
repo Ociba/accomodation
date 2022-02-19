@@ -100,11 +100,11 @@
                                                         <td>{{$items->status}}</td>
                                                         <td>{{$items->name}}</td>
                                                         <td>
-                                                          <a href="/add-property-discount-form/" class="btn btn-warning btn-sm"><i class="fa fa-cut"></i>&nbsp; Discount </a>
+                                                          <a href="/add-supermarket-item-discount/{{$items->id}}" class="btn btn-warning btn-sm"><i class="fa fa-cut"></i>&nbsp; Discount </a>
                                                           @can('isAdmin')
-                                                            <a href="/edit-property/" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
-                                                            <a href="/mark-as-taken/" class="btn btn-success btn-sm"><i class="feather icon-check"></i>&nbsp;Mark as Taken </a>
-                                                            <a href="/delete-property/" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
+                                                            <a href="/edit-item/{{$items->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
+                                                            <a href="/mark-as-taken/{{$items->id}}" class="btn btn-success btn-sm"><i class="feather icon-check"></i>&nbsp;Mark as Taken </a>
+                                                            <a href="/delete-item/{{$items->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                             @endcan
                                                         </td>
                                                     </tr>

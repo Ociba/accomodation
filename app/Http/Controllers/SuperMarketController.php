@@ -11,36 +11,77 @@ use App\Models\SuperMarket;
 class SuperMarketController extends Controller
 {
     protected function superMarket(){
-        $get_rooms =DB::table('properties')->join('categories','categories.id','properties.category_id')
-        ->where('properties.category_id',1)->orwhere('properties.category_id',2)
-        ->where('properties.status','pending')->orderBy('properties.created_at',"Desc")
-        ->select('properties.*','categories.category_name')->get();
+        $get_clothes =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',1)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
 
-        $get_all_the_property =DB::table('properties')->join('categories','categories.id','properties.category_id')
-        ->where('status','pending')->orderBy('properties.created_at',"Desc")
-        ->select('properties.*','categories.category_name')->get();
+
+        $get_all_the_supermarket_items =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
          
-        $hostels =DB::table('properties')->where('category_id',3)->where('status','pending')->orderBy('created_at',"Desc")->get();
+        $phones =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',3)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
 
-        $houses =DB::table('properties')->where('category_id',4)->where('status','pending')->orderBy('created_at',"Desc")->get();
+        $shoes =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',2)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
 
-        $apartments =DB::table('properties')->where('category_id',5)->where('status','pending')->orderBy('created_at',"Desc")->get();
+        $fruits =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',4)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
 
-        $plots=DB::table('properties')->join('categories','categories.id','properties.category_id')
-        ->where('properties.category_id',6)->orwhere('properties.category_id',13)
-        ->where('properties.status','pending')->orderBy('properties.created_at',"Desc")     
-        ->select('properties.*','categories.category_name')->get();
+        $vegetables=DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',5)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
 
-        $flats_and_mansions =DB::table('properties')->where('category_id',7)->where('status','pending')->orderBy('created_at',"Desc")->get();
+        $utensils =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',6)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
 
-        $stores =DB::table('properties')->where('category_id',8)->where('status','pending')->orderBy('created_at',"Desc")->get();
+        $beddings =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',7)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
 
-        $offices =DB::table('properties')->where('category_id',9)->where('status','pending')->orderBy('created_at',"Desc")->get();
+        $electronics =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',8)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
 
-        $shops =DB::table('properties')->where('category_id',10)->where('status','pending')->orderBy('created_at',"Desc")->get();
-        $properties_with_discount=DB::table('properties')->where('discount','!=',null)->get();
-        return view('frontpages.supermarket',compact('hostels','get_rooms','houses','plots','get_all_the_property','apartments','flats_and_mansions','stores',
-                    'offices','shops','properties_with_discount'));
+        $computers =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',9)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
+
+        $bags =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',10)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
+
+        $saloon_products =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',11)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
+
+        $scholastic_materials =DB::table('super_markets')->join('super_market_item_categories','super_market_item_categories.id','super_markets.item_group_id')
+        ->where('super_markets.item_group_id',12)
+        ->where('super_markets.status','active')->orderBy('super_markets.created_at',"Desc")
+        ->select('super_markets.*','super_market_item_categories.item_category')->get();
+
+        $supermarket_items_with_discount=SuperMarket::where('discount','!=',null)->get();
+        //supermarket items
+        $get_supermarket_items =SuperMarket::where('discount',null)->where('status','active')->get(); 
+
+        return view('frontpages.supermarket',compact('phones','get_clothes','shoes','vegetables','get_all_the_supermarket_items','fruits','utensils','beddings',
+                    'electronics','computers','bags','saloon_products','scholastic_materials','supermarket_items_with_discount','get_supermarket_items'));
     }
     /**
      * This function gets all the items of supermarket
@@ -112,5 +153,21 @@ class SuperMarketController extends Controller
         }else{
             return $this-> createSupermarketItem();
         }
+    }
+        /** 
+     * This function gets form for adding discount
+    */
+    protected function addDiscount($item_id){
+        $get_form_to_add_discount =SuperMarket::where('id',$item_id)->get();
+        return view('admin.add_supermarket_item_discount', compact('get_form_to_add_discount'));
+    }
+    /**
+     * This function creates discount
+     */
+    public function saveDiscount($item_id){
+        SuperMarket::where('id',$item_id)->update(array(
+            'discount'  =>request()->discount
+        ));
+        return redirect('/supermarket-items')->with('msg','Operations Successful');
     }
 }

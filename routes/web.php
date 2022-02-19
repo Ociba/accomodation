@@ -22,6 +22,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperMarketController;
+use App\Http\Controllers\ViewMoreItemsController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,6 +84,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/supermarket-items',[SuperMarketController::Class,'superMarketItems'])->name('Supermarket Items');
     Route::get('/create-item-group',[SuperMarketController::Class,'validateitemCategory']);
     Route::post('/create-supermarket-item',[SuperMarketController::Class,'validatecreateSupermarketItem']);
+    Route::get('/add-supermarket-item-discount/{item_id}',[SuperMarketController::Class,'addDiscount'])->name('Discount Form');
+    Route::get('/save-supermarket-item-discount/{item_id}',[SuperMarketController::Class,'saveDiscount']);
+    Route::get('/get-supermarket-items/{item_id}',[ViewMoreItemsController::Class,'ViewSupermarketItems'])->name('More Supermarket Items');
+    
+    Route::get('/selected-item/{item_id}',[CartController::Class,'ViewCart']);
+    Route::get('/supermarket-account-creation',[CartController::Class,'createAccountForm']);
+    Route::post('/register-account',[CartController::Class,'createAccount']);
+    Route::get('/add-to-cart/{item_id}',[CartController::Class,'saveItemSelected']);
+    Route::get('/view-cart',[CartController::Class,'viewMyShoppingCart']);
 
     Route::get('/all-client-info',[ClientController::Class,'getAdminClientInformation'])->name("Clients");
     Route::get('/allocate-broker/{client_id}',[ClientController::Class, 'addBrokerToClient'])->name('Allocate Broker');

@@ -9,34 +9,34 @@
         <meta name="author" content="">
         @include('frontlayouts.css')
         <style>
-            .store-area {
+            .beddings-area {
   background: #6cbe03;
   position: relative; }
-  .store-area::before {
+  .beddings-area::before {
     position: absolute;
     content: '';
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
-    background-image: url(../images/store-pattern.png);
+    background-image: url(../images/beddings-pattern.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .store-area .store-content {
+    .beddings-area .beddings-content {
       margin-bottom: 30px; } }
   @media (max-width: 767px) {
-    .store-area .store-content {
+    .beddings-area .beddings-content {
       margin-bottom: 30px; } }
-  .store-area .store-content span {
+  .beddings-area .beddings-content span {
     font-size: 20px;
     font-weight: 700;
     text-transform: capitalize;
     color: #fff;
     padding-left: 65px;
     position: relative; }
-    .store-area .store-content span::before {
+    .beddings-area .beddings-content span::before {
       position: absolute;
       content: '';
       left: 0;
@@ -45,7 +45,7 @@
       height: 3px;
       width: 45px;
       background: #fff; }
-  .store-area .store-content .title {
+  .beddings-area .beddings-content .title {
     font-size: 50px;
     line-height: 55px;
     color: #fff;
@@ -53,54 +53,54 @@
     padding-top: 25px;
     padding-bottom: 21px; }
     @media only screen and (min-width: 992px) and (max-width: 1200px) {
-      .store-area .store-content .title {
+      .beddings-area .beddings-content .title {
         font-size: 40px;
         line-height: 46px; } }
-  .store-area .store-content p {
+  .beddings-area .beddings-content p {
     color: #fff;
     padding-right: 5px; }
     @media only screen and (min-width: 992px) and (max-width: 1200px) {
-      .store-area .store-content p {
+      .beddings-area .beddings-content p {
         font-size: 15px; } }
-  .store-area .store-item {
+  .beddings-area .beddings-item {
     padding-top: 50px;
     border-radius: 15px; }
-    .store-area .store-item img {
+    .beddings-area .beddings-item img {
       display: inline-block; }
-    .store-area .store-item .store-title {
+    .beddings-area .beddings-item .beddings-title {
       padding: 44px 35px 8px; }
-      .store-area .store-item .store-title .title {
+      .beddings-area .beddings-item .beddings-title .title {
         font-size: 24px; }
         @media only screen and (min-width: 992px) and (max-width: 1200px) {
-          .store-area .store-item .store-title .title {
+          .beddings-area .beddings-item .beddings-title .title {
             font-size: 20px; } }
         @media (max-width: 767px) {
-          .store-area .store-item .store-title .title {
+          .beddings-area .beddings-item .beddings-title .title {
             font-size: 20px; } }
         @media only screen and (min-width: 576px) and (max-width: 767px) {
-          .store-area .store-item .store-title .title {
+          .beddings-area .beddings-item .beddings-title .title {
             font-size: 24px; } }
-      .store-area .store-item .store-title span {
+      .beddings-area .beddings-item .beddings-title span {
         font-size: 14px;
         color: #989898; }
-        .store-area .store-item .store-title span i {
+        .beddings-area .beddings-item .beddings-title span i {
           color: #f4a700;
           padding-right: 5px; }
-    .store-area .store-item .store-price {
+    .beddings-area .beddings-item .beddings-price {
       padding-left: 35px;
       padding-right: 35px;
       padding-bottom: 45px; }
-      .store-area .store-item .store-price p {
+      .beddings-area .beddings-item .beddings-price p {
         font-size: 18px;
         font-weight: 700;
         color: #fe2000; }
-      .store-area .store-item .store-price ul li {
+      .beddings-area .beddings-item .beddings-price ul li {
         display: inline-block; }
-        .store-area .store-item .store-price ul li i {
+        .beddings-area .beddings-item .beddings-price ul li i {
           color: #f4a700;
           font-size: 14px;
           padding-left: 4px; }
-  .store-area .store-active .slick-arrow {
+  .beddings-area .beddings-active .slick-arrow {
     position: absolute;
     bottom: 29px;
     z-index: 9;
@@ -119,20 +119,20 @@
     -o-transition: all 0.3s ease-out 0s;
     transition: all 0.3s ease-out 0s; }
     @media only screen and (min-width: 992px) and (max-width: 1200px) {
-      .store-area .store-active .slick-arrow {
+      .beddings-area .beddings-active .slick-arrow {
         bottom: 35px; } }
-    .store-area .store-active .slick-arrow:hover {
+    .beddings-area .beddings-active .slick-arrow:hover {
       background: #fff;
       color: #6cbe03; }
-    .store-area .store-active .slick-arrow.prev {
+    .beddings-area .beddings-active .slick-arrow.prev {
       left: -385px; }
       @media only screen and (min-width: 992px) and (max-width: 1200px) {
-        .store-area .store-active .slick-arrow.prev {
+        .beddings-area .beddings-active .slick-arrow.prev {
           left: -310px; } }
-    .store-area .store-active .slick-arrow.next {
+    .beddings-area .beddings-active .slick-arrow.next {
       left: -315px; }
       @media only screen and (min-width: 992px) and (max-width: 1200px) {
-        .store-area .store-active .slick-arrow.next {
+        .beddings-area .beddings-active .slick-arrow.next {
           left: -230px; } }
         </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('front/owl-carousel/dist/assets/owl-carousel.css')}}">
@@ -188,20 +188,22 @@
                     <small class="text-muted text-center">Wintermin makes your life easier. The best choice for your next project.</small>
                 </h2>
                 <div class="row">
-                    @foreach($properties_with_discount as $discount)
+                    @foreach($supermarket_items_with_discount as $discount)
                     <div class="col-lg-3">
                         @php
-                        $percentage_discount =\DB::table('properties')->where('id',$discount->id)->value('discount');
-                        $original_price =\DB::table('properties')->where('id',$discount->id)->value('price');
+                        $percentage_discount =\DB::table('super_markets')->where('id',$discount->id)->value('discount');
+                        $original_price =\DB::table('super_markets')->where('id',$discount->id)->value('price');
                         $actual_percentage_discount =($percentage_discount * 0.01);
 
                         $calculate_discount =$original_price * $actual_percentage_discount;
 
                         $new_price =$original_price-$calculate_discount;
+
+                        $item_category_id =\DB::table('super_markets')->where('id',$discount->id)->value('discount');
                         @endphp
                         <!-- START widget-->
                         <div class="panel widget">
-                            <img src="{{ asset('property_photos/'.$discount->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                            <img src="{{ asset('super_market_photos/'.$discount->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                             <div class="badge-overlay">
                                 <!-- Change Badge Position, Color, Text here-->
                                 <button type="button" class="btn btn-pill-left btn-warning">{{$percentage_discount}} %</button>
@@ -209,16 +211,16 @@
                             <div class="panel-body">
                                 <div class="row row-table text-center">
                                     <div class="col-xs-6">
-                                        <p>Rooms: {{$discount->bedroom}}</p>
+                                        <p>{{$discount->item}}</p>
                                     </div>
                                     <div class="col-xs-6">
-                                        <p>Status:{{$discount->property_status}}</p>
+                                        <p><strong>{{$discount->status}}</strong></p>
                                     </div>
                                 </div>
                                 <div class="row row-table text-center">
                                     <div class="col-xs-6">
-                                        <span class="text-primary"><del>Ugx.{{$discount->price}}</del></span>
-                                        <span class="text-warning font-weight-bold"><strong>Ugx:{{$new_price}}</strong></span>
+                                        <span class="text-primary"><del>Ugx.{{ number_format($discount->price)}}</del></span>
+                                        <span class="text-warning font-weight-bold"><strong>Ugx:{{ number_format($new_price)}}</strong></span>
                                     </div>
                                     <div class="col-xs-6">
                                         <span class="text-primar">{{$discount->location}}</span>
@@ -226,7 +228,7 @@
                                 </div>
                                 <div class="row row-table text-center">
                                     <div class="col-xs-12">
-                                        <a href="/chosen-property/{{$discount->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                        <a href="/selected-item/{{$discount->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -238,170 +240,7 @@
                 </div>
             </div>
         </section>
-        <section class="store-area pt-130 pb-130">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-7">
-                    <div class="store-content">
-                        <span>Our Markets</span>
-                        <h3 class="title">Visit Our Markets</h3>
-                        {{--<p>Please check on in any Market for food Products at affordable Prices and pocket friendly.</p>--}}
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="row store-active">
-                        <div class="col-lg-6">
-                            <div class="store-item text-center bg-white">
-                                <img src="{{asset('assets/images/veg.png')}}" alt="store">
-                                <div class="store-title d-flex justify-content-between align-items-center">
-                                    <a href="#"><h5 class="title">Fresh Vegetables</h5></a>
-                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
-                                </div>
-                                {{--
-                                <div class="store-price d-flex justify-content-between align-items-center">
-                                    <p>Kg $89.00</p>
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                </div>
-                                --}}
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="store-item text-center bg-white">
-                                <img src="{{asset('assets/images/fruits.png')}}" alt="store">
-                                <div class="store-title d-flex justify-content-between align-items-center">
-                                    <a href="#"><h5 class="title">Fresh Fruits</h5></a>
-                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
-                                </div>
-                                {{--
-                                <div class="store-price d-flex justify-content-between align-items-center">
-                                    <p>Kg $89.00</p>
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                </div>
-                                --}}
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="store-item text-center bg-white">
-                                <img src="{{asset('assets/images/honey.jpg')}}" height="120" alt="store">
-                                <div class="store-title d-flex justify-content-between align-items-center">
-                                    <a href="#"><h5 class="title">Natural Honey</h5></a>
-                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
-                                </div>
-                                {{--
-                                <div class="store-price d-flex justify-content-between align-items-center">
-                                    <p>Kg $89.00</p>
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                </div>
-                                --}}
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="store-item text-center bg-white">
-                                <img src="{{asset('assets/images/cassava.jpg')}}" height="120" height="120" alt="store">
-                                <div class="store-title d-flex justify-content-between align-items-center">
-                                    <a href="#"><h5 class="title">Tubers</h5></a>
-                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
-                                </div>
-                                {{--
-                                <div class="store-price d-flex justify-content-between align-items-center">
-                                    <p>Kg $89.00</p>
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                </div>
-                                --}}
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="store-item text-center bg-white">
-                                <img src="{{asset('assets/images/eggs.jpg')}}" height="120" alt="store">
-                                <div class="store-title d-flex justify-content-between align-items-center">
-                                    <a href="#"><h5 class="title">Chicken & Eggs</h5></a>
-                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
-                                </div>
-                                {{--
-                                <div class="store-price d-flex justify-content-between align-items-center">
-                                    <p>Kg $89.00</p>
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                </div>
-                                --}}
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="store-item text-center bg-white">
-                                <img src="{{asset('assets/images/services-3.png')}}" height="120" alt="store">
-                                <div class="store-title d-flex justify-content-between align-items-center">
-                                    <a href="#"><h5 class="title">All Meat</h5></a>
-                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
-                                </div>
-                                {{--
-                                <div class="store-price d-flex justify-content-between align-items-center">
-                                    <p>Kg $89.00</p>
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                </div>
-                                --}}
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="store-item text-center bg-white">
-                                <img src="{{asset('assets/images/milk.png')}}" alt="store">
-                                <div class="store-title d-flex justify-content-between align-items-center">
-                                    <a href="#"><h5 class="title">Fresh Milk</h5></a>
-                                    {{--<span><i class="fas fa-heart"></i> (1k)</span>--}}
-                                </div>
-                                {{--
-                                <div class="store-price d-flex justify-content-between align-items-center">
-                                    <p>Kg $89.00</p>
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                </div>
-                                --}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        @include('frontlayouts.slider')
         <section class="bg-white">
             <div class="container">
                 <div class="row">
@@ -413,34 +252,40 @@
                                 <ul class="nav nav-pills text-center">
                                     <li class="active"><a href="#all-pills" data-toggle="tab">All</a>
                                     </li>
-                                    <li><a href="#rooms-pills" data-toggle="tab">Rooms</a>
+                                    <li><a href="#clothes-pills" data-toggle="tab">Clothes</a>
                                     </li>
-                                    <li><a href="#houses-pills" data-toggle="tab">Houses</a>
+                                    <li><a href="#shoes-pills" data-toggle="tab">Shoes</a>
                                     </li>
-                                    <li><a href="#hostels-pills" data-toggle="tab">Hostels</a>
+                                    <li><a href="#phones-pills" data-toggle="tab">Phones</a>
                                     </li>
-                                    <li><a href="#apartments-pills" data-toggle="tab">Apartments</a>
+                                    <li><a href="#fruits-pills" data-toggle="tab">Fruits</a>
                                     </li>
-                                    <li><a href="#land-pills" data-toggle="tab">Plots and Land</a>
+                                    <li><a href="#veges-pills" data-toggle="tab">Vegetables</a>
                                     </li>
-                                    <li><a href="#flat-pills" data-toggle="tab">Flats and Mansions</a>
+                                    <li><a href="#utensils-pills" data-toggle="tab">Utensils</a>
                                    </li>
-                                   <li><a href="#store-pills" data-toggle="tab">Stores</a>
+                                   <li><a href="#beddings-pills" data-toggle="tab">Beddings</a>
                                     </li>
-                                    <li><a href="#offices-pills" data-toggle="tab">Offices</a>
+                                    <li><a href="#electronics-pills" data-toggle="tab">Electronics</a>
                                     </li>
-                                    <li><a href="#shops-pills" data-toggle="tab">Shops</a>
+                                    <li><a href="#computers-pills" data-toggle="tab">Computers</a>
+                                    </li>
+                                    <li><a href="#bags-pills" data-toggle="tab">Bags</a>
+                                    </li>
+                                    <li><a href="#saloons-pills" data-toggle="tab">Saloons</a>
+                                    </li>
+                                    <li><a href="#schools-pills" data-toggle="tab">Schools</a>
                                     </li>
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div id="all-pills" class="tab-pane fade in active">
                                         <div>
-                                            @foreach($get_all_the_property as $all)
+                                            @foreach($get_all_the_supermarket_items as $all)
                                             <div class="col-lg-4">
                                                 <!-- START widget-->
                                                 <div class="panel widget">
-                                                    <img src="{{ asset('property_photos/'.$all->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                    <img src="{{ asset('super_market_photos/'.$all->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                     <div class="badge-overlay">
                                                         <!-- Change Badge Position, Color, Text here-->
                                                     @if($all->created_at < now()->subWeek()) 
@@ -451,27 +296,16 @@
                                                     </div>
                                                     <div class="panel-body">
                                                         <div class="row row-table text-center">
-                                                            <div class="col-xs-12 font-weight-bold" style="color:black;">{{$all->category_name}}</div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
                                                             <div class="col-xs-6">
-                                                                <p>{{$all->property_size}}</p>
+                                                                <span style="color:black;">{{$all->item}}</span>
                                                             </div>
-                                                            <div class="col-xs-6">
-                                                                <p>Status:{{$all->property_status}}</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row row-table text-center">
                                                             <div class="col-xs-6">
                                                                 <span class="text-primary">Ugx.{{$all->price}}</span>
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                <span class="text-primar">{{$all->location}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$all->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$all->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -481,43 +315,32 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                    <div id="rooms-pills" class="tab-pane fade">
-                                        @foreach($get_rooms as $room)
+                                    <div id="clothes-pills" class="tab-pane fade">
+                                        @foreach($get_clothes as $clothes)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('property_photos/'.$room->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('super_market_photos/'.$clothes->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    @if($room->created_at < now()->subWeek()) 
+                                                    @if($clothes->created_at < now()->subWeek()) 
                                                     <span class="top-left badge primary">Old</span>
                                                     @else
                                                     <span class="top-left badge orange ">New</span>
                                                     @endif
                                                 </div>
-                                                <div class="panel-body">
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-12 font-weight-bold" style="color:black;">{{$room->category_name}}</div>
-                                                    </div>
+                                                <div class="panel-body"> 
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>{{$room->property_size}}</p>
+                                                            <span style="color:black;">{{$clothes->item}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:{{$room->property_status}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primary">Ugx.{{$room->price}}</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">{{$room->location}}</span>
+                                                            <span class="text-primary">Ugx.{{$clothes->price}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$room->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$clothes->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -526,15 +349,15 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <div id="houses-pills" class="tab-pane fade">
-                                        @foreach($houses as $house)
+                                    <div id="shoes-pills" class="tab-pane fade">
+                                        @foreach($shoes as $shoe)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('property_photos/'.$house->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('super_market_photos/'.$shoe->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    @if($house->created_at < now()->subWeek()) 
+                                                    @if($shoe->created_at < now()->subWeek()) 
                                                     <span class="top-left badge primary">Old</span>
                                                     @else
                                                     <span class="top-left badge orange ">New</span>
@@ -543,23 +366,15 @@
                                                 <div class="panel-body">
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>{{$house->property_size}}</p>
+                                                            <span style="color:black">Ugx.{{$shoe->price}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:{{$house->property_status}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primary">Ugx.{{$house->price}}</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">{{$house->location}}</span>
+                                                            <span class="text-primary">Ugx:{{$shoe->price}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$house->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$shoe->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -568,15 +383,15 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <div id="hostels-pills" class="tab-pane fade">
-                                        @foreach($hostels as $hostel)
+                                    <div id="phones-pills" class="tab-pane fade">
+                                        @foreach($phones as $phones)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('property_photos/'.$hostel->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('super_market_photos/'.$phones->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    @if($hostel->created_at < now()->subWeek()) 
+                                                    @if($phones->created_at < now()->subWeek()) 
                                                     <span class="top-left badge primary">Old</span>
                                                     @else
                                                     <span class="top-left badge orange ">New</span>
@@ -585,23 +400,15 @@
                                                 <div class="panel-body">
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>{{$hostel->property_size}}</p>
+                                                            <span style="color:black">Ugx.{{$phones->item}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:{{$hostel->property_status}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primary">Ugx.{{$hostel->price}}</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">{{$hostel->location}}</span>
+                                                            <span class="text-primary">Ugx:{{$phones->price}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$hostel->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$phones->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -610,15 +417,15 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <div id="apartments-pills" class="tab-pane fade">
-                                       @foreach($apartments as $apartment)
+                                    <div id="fruits-pills" class="tab-pane fade">
+                                       @foreach($fruits as $fruit)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('property_photos/'.$apartment->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('super_market_photos/'.$fruit->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    @if($apartment->created_at < now()->subWeek()) 
+                                                    @if($fruit->created_at < now()->subWeek()) 
                                                     <span class="top-left badge primary">Old</span>
                                                     @else
                                                     <span class="top-left badge orange ">New</span>
@@ -627,23 +434,15 @@
                                                 <div class="panel-body">
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>{{$apartment->property_size}}</p>
+                                                            <span style="color:black;">Ugx.{{$fruit->item}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:{{$apartment->property_status}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primary">Ugx.{{$apartment->price}}</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">{{$apartment->location}}</span>
+                                                            <span class="text-primary">Ugx:{{$fruit->price}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$apartment->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$fruit->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -652,43 +451,32 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <div id="land-pills" class="tab-pane fade">
-                                       @foreach($plots as $plot)
+                                    <div id="veges-pills" class="tab-pane fade">
+                                       @foreach($vegetables as $veges)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('property_photos/'.$plot->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('super_market_photos/'.$veges->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    @if($plot->created_at < now()->subWeek()) 
+                                                    @if($veges->created_at < now()->subWeek()) 
                                                     <span class="top-left badge primary">Old</span>
                                                     @else
                                                     <span class="top-left badge orange ">New</span>
                                                     @endif
                                                 </div>
                                                 <div class="panel-body">
-                                                 <div class="row row-table text-center">
-                                                    <div class="col-xs-12 font-weight-bold" style="color:black;">{{$plot->category_name}}</div>
-                                                </div>
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>{{$plot->property_size}}</p>
+                                                            <span style="color:black;">{{$veges->item}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:{{$plot->property_status}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primary">Ugx.{{$plot->price}}</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">{{$plot->location}}</span>
+                                                            <span class="text-primary">Ugx:{{$veges->price}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$plot->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$veges->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -697,40 +485,33 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <div id="flat-pills" class="tab-pane fade">
-                                       @foreach($flats_and_mansions as $flat)
+                                    <div id="utensils-pills" class="tab-pane fade">
+                                       @foreach($utensils as $utensil)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('property_photos/'.$flat->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('super_market_photos/'.$utensil->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    @if($flat->created_at < now()->subWeek()) 
+                                                    @if($utensil->created_at < now()->subWeek()) 
                                                     <span class="top-left badge primary">Old</span>
                                                     @else
                                                     <span class="top-left badge orange ">New</span>
                                                     @endif
                                                 </div>
                                                 <div class="panel-body">
+                                                    
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>Rooms :{{$flat->bedroom}}</p>
+                                                            <span style="color:black;">{{$utensil->item}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:{{$flat->property_status}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primary">Ugx.{{$flat->price}}</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">{{$flat->location}}</span>
+                                                            <span class="text-primary">Ugx:{{$utensil->price}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$flat->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$utensil->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -739,15 +520,15 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <div id="store-pills" class="tab-pane fade">
-                                       @foreach($stores as $store)
+                                    <div id="beddings-pills" class="tab-pane fade">
+                                       @foreach($beddings as $beddings)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('property_photos/'.$store->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('super_market_photos/'.$beddings->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    @if($store->created_at < now()->subWeek()) 
+                                                    @if($beddings->created_at < now()->subWeek()) 
                                                     <span class="top-left badge primary">Old</span>
                                                     @else
                                                     <span class="top-left badge orange ">New</span>
@@ -756,23 +537,15 @@
                                                 <div class="panel-body">
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>Size :{{$store->property_size}}</p>
+                                                            <span style="color:black">{{$beddings->item}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:{{$store->property_status}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primary">Ugx.{{$store->price}}</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">{{$store->location}}</span>
+                                                            <span class="text-primary">Ugx:{{$beddings->price}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$store->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$beddings->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -781,15 +554,15 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <div id="offices-pills" class="tab-pane fade">
-                                       @foreach($offices as $office)
+                                    <div id="electronics-pills" class="tab-pane fade">
+                                       @foreach($electronics as $electronic)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('property_photos/'.$office->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('super_market_photos/'.$electronic->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    @if($office->created_at < now()->subWeek()) 
+                                                    @if($electronic->created_at < now()->subWeek()) 
                                                     <span class="top-left badge primary">Old</span>
                                                     @else
                                                     <span class="top-left badge orange ">New</span>
@@ -798,23 +571,15 @@
                                                 <div class="panel-body">
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>Size :{{$office->property_size}}</p>
+                                                            <span style="color:black;">Ugx.{{$office->item}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:{{$office->property_status}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primary">Ugx.{{$office->price}}</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">{{$office->location}}</span>
+                                                            <span class="text-primary">Ugx:{{$electronic->price}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$office->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$electronic->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -823,15 +588,15 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <div id="shops-pills" class="tab-pane fade">
-                                       @foreach($shops as $shop)
+                                    <div id="computers-pills" class="tab-pane fade">
+                                       @foreach($computers as $computer)
                                         <div class="col-lg-4">
                                             <!-- START widget-->
                                             <div class="panel widget">
-                                                <img src="{{ asset('property_photos/'.$shop->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <img src="{{ asset('super_market_photos/'.$computer->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
                                                 <div class="badge-overlay">
                                                     <!-- Change Badge Position, Color, Text here-->
-                                                    @if($shop->created_at < now()->subWeek()) 
+                                                    @if($computer->created_at < now()->subWeek()) 
                                                     <span class="top-left badge primary">Old</span>
                                                     @else
                                                     <span class="top-left badge orange ">New</span>
@@ -840,23 +605,117 @@
                                                 <div class="panel-body">
                                                     <div class="row row-table text-center">
                                                         <div class="col-xs-6">
-                                                            <p>Size :{{$shop->property_size}}</p>
+                                                            <span style="color:black;">Ugx.{{$computer->item}}</span>
                                                         </div>
                                                         <div class="col-xs-6">
-                                                            <p>Status:{{$shop->property_status}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-table text-center">
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primary">Ugx.{{$shop->price}}</span>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <span class="text-primar">{{$shop->location}}</span>
+                                                            <span class="text-primary">{{$computer->price}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row row-table text-center">
                                                             <div class="col-xs-12">
-                                                               <a href="/chosen-property/{{$shop->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                               <a href="/selected-item/{{$computer->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END widget-->
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <div id="bags-pills" class="tab-pane fade">
+                                       @foreach($bags as $bag)
+                                        <div class="col-lg-4">
+                                            <!-- START widget-->
+                                            <div class="panel widget">
+                                                <img src="{{ asset('super_market_photos/'.$bag->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <div class="badge-overlay">
+                                                    <!-- Change Badge Position, Color, Text here-->
+                                                    @if($bag->created_at < now()->subWeek()) 
+                                                    <span class="top-left badge primary">Old</span>
+                                                    @else
+                                                    <span class="top-left badge orange ">New</span>
+                                                    @endif
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-6">
+                                                            <span style="color:black;">Ugx.{{$bag->item}}</span>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <span class="text-primary">{{$bag->price}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                            <div class="col-xs-12">
+                                                               <a href="/selected-item/{{$bag->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END widget-->
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <div id="saloons-pills" class="tab-pane fade">
+                                       @foreach($saloon_products as $saloon)
+                                        <div class="col-lg-4">
+                                            <!-- START widget-->
+                                            <div class="panel widget">
+                                                <img src="{{ asset('super_market_photos/'.$saloon->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <div class="badge-overlay">
+                                                    <!-- Change Badge Position, Color, Text here-->
+                                                    @if($saloon->created_at < now()->subWeek()) 
+                                                    <span class="top-left badge primary">Old</span>
+                                                    @else
+                                                    <span class="top-left badge orange ">New</span>
+                                                    @endif
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-6">
+                                                            <span style="color:black;">Ugx.{{$saloon->item}}</span>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <span class="text-primary">{{$saloon->price}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                            <div class="col-xs-12">
+                                                               <a href="/selected-item/{{$saloon->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END widget-->
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <div id="schools-pills" class="tab-pane fade">
+                                       @foreach($scholastic_materials as $schools)
+                                        <div class="col-lg-4">
+                                            <!-- START widget-->
+                                            <div class="panel widget">
+                                                <img src="{{ asset('super_market_photos/'.$schools->photo)}}" style="width:318px; height:190px;" alt="Image" class="img-responsive">
+                                                <div class="badge-overlay">
+                                                    <!-- Change Badge Position, Color, Text here-->
+                                                    @if($schools->created_at < now()->subWeek()) 
+                                                    <span class="top-left badge primary">Old</span>
+                                                    @else
+                                                    <span class="top-left badge orange ">New</span>
+                                                    @endif
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row row-table text-center">
+                                                        <div class="col-xs-6">
+                                                            <span style="color:black;">Ugx.{{$schools->item}}</span>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <span class="text-primary">{{$schools->price}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-table text-center">
+                                                            <div class="col-xs-12">
+                                                               <a href="/selected-item/{{$schools->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -877,7 +736,7 @@
             <div class="container">
                 <div class="row">
                 <div class="text-center">
-                        <h2 class="page-header">Discover the most luxurious apartments & vacation rentals in Kampala</h2>
+                        <h2 class="page-header">Discover the most luxurious fruits & vacation rentals in Kampala</h2>
                         <p>Wintermin comes with a full set of utility classes ready to create widgets for your app.</p>
                         <p>Compress your user information in a single panel y customize the elements inside.</p>
                         <p>All components are responsive and ready for mobile devices.</p>
@@ -991,7 +850,7 @@
                     <div class="col-lg-2 col-md-4 col-xs-6">
                         <i class='fa fa-smile-o' style='font-size:48px;color:#1a1a4c'></i>
                         <h5><strong>Confortable Rest</strong></h5>
-                        <p>Your comfort comes first at our furnished apartments</p>
+                        <p>Your comfort comes first at our furnished fruits</p>
                     </div>
                     <div class="col-lg-2 col-md-4 col-xs-6">
                         <i class='fa fa-eye' style='font-size:48px;color:#1a1a4c'></i>
@@ -1006,12 +865,12 @@
                     <div class="col-lg-2 col-md-4 col-xs-6">
                         <i class='fa fa-hand-o-right' style='font-size:48px;color:#1a1a4c'></i>
                         <h5><strong>Laundry</strong></h5>
-                        <p>We have a provision for laundry services at our apartments</p>
+                        <p>We have a provision for laundry services at our fruits</p>
                     </div>
                     <div class="col-lg-2 col-md-4 col-xs-6">
                         <i class='fa fa-lock' style='font-size:48px;color:#1a1a4c'></i>
                         <h5><strong>Security</strong></h5>
-                        <p>Your comfort comes first at our furnished apartments</p>
+                        <p>Your comfort comes first at our furnished fruits</p>
                     </div>
                 </div>
             </div>
@@ -1033,7 +892,7 @@
                             </li>
                             <li data-toggle="play-animation" data-play="fadeInUp" data-offset="0">
                                 <h4>
-                                    <span class="point point-primary point-lg"></span>Apartments
+                                    <span class="point point-primary point-lg"></span>fruits
                                 </h4>
                                 <p>Cras dolor ligula, laoreet ac vestibulum sed, molestie id odio. Donec convallis arcu sit amet tortor sagittis in convallis metus facilisis.</p>
                             </li>
@@ -1089,15 +948,15 @@
             <div data-toggle="play-animation" data-play="fadeInLeftBig" data-offset="-200" class="container text-center">
                 <h1>Ready to start? Try this App today</h1>
                 <h4>And see why people around the world choose this APP to create great cross-platform websites</h4>
-                <ul class="list-inline store-list">
+                <ul class="list-inline beddings-list">
                     <li>
                         <a href="#">
-                        <img src="{{ asset('front/app/img/landing/store-apple.png')}}" alt="App Name" class="img-responsive">
+                        <img src="{{ asset('front/app/img/landing/beddings-apple.png')}}" alt="App Name" class="img-responsive">
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                        <img src="{{ asset('front/app/img/landing/store-google.png')}}" alt="App Name" class="img-responsive">
+                        <img src="{{ asset('front/app/img/landing/beddings-google.png')}}" alt="App Name" class="img-responsive">
                         </a>
                     </li>
                 </ul>

@@ -14,6 +14,8 @@ class DashboardController extends Controller
             return view('admin.dashboard');
         }elseif(auth()->user()->type == 'broker'){
             return redirect("/clients");
+        }elseif(auth()->user()->type == 'supermarket'){
+            return redirect("/selected-item");
         }else{
             if(auth()->user()->type == 'property_owner' && (auth()->user()->amount != null)){
                 return redirect('/property');

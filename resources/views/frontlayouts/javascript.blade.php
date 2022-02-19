@@ -23,3 +23,5 @@
    <script src="{{ asset('front/vendor/flot/jquery.flot.time.min.js')}}"></script>
    <script src="{{ asset('front/vendor/flot/jquery.flot.categories.min.js')}}"></script>
    <script src="{{ asset('front/app/js/app.js')}}"></script>
+
+  
