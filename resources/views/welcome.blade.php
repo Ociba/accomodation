@@ -135,6 +135,7 @@
         </header>
         <section>
             <div class="container">
+                 @include('frontlayouts.search')
                 <h2 class="section-header">Our Current Available Accomodations & Properties With Discount
                     <br>
                     <small class="text-muted text-center">Wintermin makes your life easier. The best choice for your next project.</small>
