@@ -62,12 +62,12 @@
                 </nav>
             </div>
             <div class="col-lg-4 col-xs-12">
-                <form action="#" method="post">
+                <form action="/subscribe-now" method="get">
                     <h5>SUBSCRIBE TO OUR NEWSLETTER!</h5>
                     <div class="input-group">
-                        <input type="email" name="email" placeholder="mail@example.com" required="" class="form-control">
+                        <input type="email" name="emails" placeholder="mail@example.com" required="" class="form-control">
                         <span class="input-group-btn">
-                        <button type="submit" class="btn btn-info">Join</button>
+                           <button type="submit" class="btn btn-info">Join</button>
                         </span>
                     </div>
                     <!--/input-group -->
@@ -83,14 +83,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <p>Copyright {{ date('Y')}} | <a href="#">Terms of Service </a>| <a href="#">Privacy Policy</a>
+                <p>Copyright 2021 - {{ date('Y')}} | <a href="#">Terms of Service </a>| <a href="#">Privacy Policy</a>
                 </p>
             </div>
             <div class="col-lg-4"></div>
             <div class="col-lg-4">
                 <p>Designed By
                     <em class="fa fa-check text-danger fa-fw"></em>
-                    <span>Jits</span>
+                    <span>jjoome property limited</span>
                 </p>
             </div>
         </div>

@@ -24,6 +24,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperMarketController;
 use App\Http\Controllers\ViewMoreItemsController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\SubscriptionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,17 +56,20 @@ Route::get('/supermarket',[SuperMarketController::Class,'superMarket']);
 Route::get('/get-supermarket-items/{item_id}',[ViewMoreItemsController::Class,'ViewSupermarketItems'])->name('More Supermarket Items');
 Route::get('/selected-item/{item_id}',[CartController::Class,'ViewCart']);  
 Route::get('/supermarket-account-creation',[CartController::Class,'createAccountForm']);
+Route::get('/subscribe-now',[SubscriptionController::Class,'subscribeUsers']);
 // Route::middleware(['auth:sanctum', 'verified'])->get('/admin-dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard',[DashboardController::Class, 'getDashboard'])->middleware('can:isAdmin');
+    Route::get('/dashboard',[DashboardController::Class, 'getDashboard']);
     Route::get('/category',[CategoryController::Class, 'getCategory'])->name('Category');
     Route::get('/create-category',[CategoryController::Class, 'validateCreateCategory']);
     Route::get('/edit-category/{id}',[CategoryController::Class, 'editCategory'])->name('Edit Category');
     Route::get('/update-category/{id}',[CategoryController::Class, 'updateCategory']);
     Route::get('/delete-category/{id}',[CategoryController::Class, 'deleteCategory'])->middleware('can:isAdmin');
+
+    Route::get('/subscribers',[SubscriptionController::Class,'getSubscriptions'])->name('Subscribers');
 
     Route::get('/get-property-owners',[OwnerController::Class, 'getPropertyOwners'])->name('Property Owners');
     Route::post('/create-owner',[OwnerController::Class,'validatePropertyOwner']);
@@ -91,10 +95,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/save-supermarket-item-discount/{item_id}',[SuperMarketController::Class,'saveDiscount']);
     
    
-  
+    
     Route::post('/register-account',[CartController::Class,'createAccount']);
     Route::get('/add-my-cart/{item_id}',[CartController::Class,'saveItemSelected']);
-    Route::get('/view-cart',[CartController::Class,'viewMyShoppingCart']);
+    Route::get('/view-cart',[CartController::Class,'viewMyShoppingCart']);  
+    Route::get('/update-cart/{items_id}',[CartController::Class,'updateSelectedItemsQuantity']);
+    Route::get('/remove-from-cart-list/{items_id}',[CartController::Class,'removeItem']);
 
     Route::get('/all-client-info',[ClientController::Class,'getAdminClientInformation'])->name("Clients");
     Route::get('/allocate-broker/{client_id}',[ClientController::Class, 'addBrokerToClient'])->name('Allocate Broker');

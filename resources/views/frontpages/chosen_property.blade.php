@@ -45,6 +45,9 @@
                                         <span class="text-primar"><strong>Location:</strong> {{$property->location}}</span>
                                     </div>
                                 </div>
+                                <div class="row row-table text-center">
+                                    <em>{{$property->description}}</em>
+                                </div>
                             </div>
                         </div>
                         <!-- END widget-->

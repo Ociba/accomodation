@@ -45,8 +45,10 @@
             }
             @keyframes move {
             0%,30% { transform: translateX(0); }
-            40%,70% { transform: translateX(-600px); }
-            80%,100% { transform: translateX(-1200px); }
+            40%,60% { transform: translateX(-600px); }
+            70%,80% { transform: translateX(-1200px); }
+            80%,90% { transform: translateX(-1400px); }
+            90%,100% { transform: translateX(-1600px); }
             }
         </style>
     </head>
@@ -959,14 +961,15 @@
                         </nav>
                     </div>
                     <div class="col-lg-4 col-xs-12">
-                        <form action="#" method="post">
+                        <form action="/subscribe-now" method="get">
                             <h5>SUBSCRIBE TO OUR NEWSLETTER!</h5>
                             <div class="input-group">
-                                <input type="email" name="email" placeholder="mail@example.com" required="" class="form-control">
+                                <input type="email" name="emails" placeholder="mail@example.com" required="" class="form-control">
                                 <span class="input-group-btn">
                                 <button type="submit" class="btn btn-info">Join</button>
-                                </span>
+                            </span>
                             </div>
+                            
                             <!--/input-group -->
                         </form>
                         <p class="text-muted">

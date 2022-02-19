@@ -30,6 +30,14 @@
             </a>
         </li>
         @endcan
+        @can('isAdmin')
+        <li @if(\Request::route()->getName() == "Subscribers")class="sidenav-item active" @else  class="sidenav-item" @endif>
+            <a href="/subscribers" class="sidenav-link">
+                <i class="sidenav-icon feather icon-layers"></i>
+                <div>Subscribers</div>
+            </a>
+        </li>
+        @endcan
         @can('isAdmin',"isPropertyOwner")
         <li @if(\Request::route()->getName() == "Property Owners")class="sidenav-item active" @else class="sidenav-item" @endif>
             <a href="/get-property-owners" class="sidenav-link">

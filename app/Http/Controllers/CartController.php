@@ -76,14 +76,34 @@ class CartController extends Controller
         $supermarket_obj->save();
         return Redirect('/view-cart');
     }
-
+    /**
+     * This functions gets the cart list for the items selected
+     */
     protected function viewMyShoppingCart(){
         $my_cart =Cart::join('super_markets','super_markets.id','carts.item_id')
         ->join('users','users.id','carts.user_id')
         ->where('carts.user_id',auth()->user()->id)
-        ->select('super_markets.*','users.name','carts.created_at')->get();
+        ->select('super_markets.*','users.name','carts.created_at','carts.id','carts.quantity')->get();
         $get_supermarket_items =SuperMarket::where('discount',null)->where('status','active')->get(); 
         return view('frontpages.my_cart_details', compact('my_cart','get_supermarket_items'));
         }
+    /**
+     * This function updates carts table
+     */
+      
+    protected function updateSelectedItemsQuantity($items_id){
+        Cart::where('id',$items_id)->update(array(
+            'quantity'=>request()->quantity,
+        ));
+        return Redirect('/view-cart');
+    
+    }
+    /** 
+     * This function removes item from cart
+    */
+    protected function removeItem($items_id){
+        Cart::where('id',$items_id)->delete();
+        return Redirect('/view-cart');
 
+    }
 }

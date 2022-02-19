@@ -120,7 +120,7 @@
                 @endforeach
             </div>
         </section>
-        @include('frontlayouts.slider')
+        @include('frontlayouts.more-items')
         @include('frontlayouts.testimonial')
         @include('frontlayouts.offer')
         @include('frontlayouts.link')
