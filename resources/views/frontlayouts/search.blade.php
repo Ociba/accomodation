@@ -5,6 +5,7 @@
             <div class="form-group">
                 <label for="input-password" class="sr-only">Password</label>
                     <select name="quantity"  class="form-control col-sm-6">
+                        <option>Location</option>
                         @foreach($get_property_info as $searc_info)
                         <option value="{{$searc_info->id}}">{{$searc_info->location}}</option>
                         @endforeach
@@ -17,6 +18,7 @@
             <div class="form-group">
             <label for="input-password" class="sr-only">Password</label>
                <select name="quantity"  class="form-control">
+                   <option>Category</option>
                     @foreach($get_property_info as $searc_info)
                     <option value="{{$searc_info->id}}">{{$searc_info->category_name}}</option>
                     @endforeach

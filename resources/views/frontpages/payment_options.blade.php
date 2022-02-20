@@ -39,7 +39,7 @@
                </p>
                <form method="get" action="/pay-with-mtn" role="form"  class="mb-lg">
                  @csrf
-                 <input type="text" name="id" style="color:red;" value="{{auth()->user()->id}}">
+                 {{--<input type="text" name="id" style="color:red;" value="{{auth()->user()->id}}">--}}
                  <div class="form-group has-feedback">
                      <input id="amount" placeholder="UGX:50,000" for="amount" type="text" name="amount" class="form-control">
                      {{--<span class="fa fa-user form-control-feedback text-muted"></span>--}}
@@ -59,7 +59,7 @@
                </p>
                <form method="get" action="/pay-with-airtel" role="form"  class="mb-lg">
                  @csrf
-                 <input type="text" name="id" style="color:red;" value="{{auth()->user()->id}}">
+                 {{--<input type="text" name="id" style="color:red;" value="{{auth()->user()->id}}">--}}
                  <div class="form-group has-feedback">
                      <input id="amount" placeholder="UGX:50,000" for="amount" type="text" name="amount" class="form-control">
                      {{--<span class="fa fa-user form-control-feedback text-muted"></span>--}}
