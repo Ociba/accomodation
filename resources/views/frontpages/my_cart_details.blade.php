@@ -31,83 +31,57 @@
                      <div class="panel-body">
                         <!-- START table-responsive-->
                         <div class="table-responsive">
-                           <table class="table table-striped table-bordered table-hover" style="margin-bottom:5px;">
-                              <thead>
-                              @php
-                              $my_cart_total =\DB::table('carts')->join('super_markets','super_markets.id','carts.item_id')
-                              ->where('carts.user_id',auth()->user()->id)
-                              ->sum('price');
-                               
-                               $price=\DB::table('carts')->join('super_markets','super_markets.id','carts.item_id')
-                              ->where('carts.user_id',auth()->user()->id)
-                              ->value('price');
-                              @endphp
-                                 <tr>
-                                    <th>#</th>
-                                    <th>Name of Item</th>
-                                    <th>Photo</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                    <th>Unit Price</th>
-                                    <th>Remove</th>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                              @foreach($my_cart as $i=>$cart)
-                              <form action="/update-cart/{{$cart->id}}" method="get">
-                                 <tr>
-                                    <td>{{$i + 1}}</td>
-                                    <td>{{$cart->item}}</td>
-                                    <td><img src="{{ asset('super_market_photos/'.$cart->photo)}}" style="width:50px; height:40px;" alt="Image" class="img-responsive"></td>
-                       
-                                    <td>
-                                    <fieldset class="last-child">
-                                       <div class="form-group">
-                                          <label class="col-sm-2 control-label">Select</label>
-                                          <div class="col-sm-10">
-                                             <select name="quantity" value="{{$cart->quantity}}" class="form-control m-b">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
-                                                <option value="15">15</option>
-                                                <option value="16">16</option>
-                                                <option value="17">17</option>
-                                                <option value="18">18</option>
-                                                <option value="19">19</option>
-                                                <option value="20">20</option>
-                                                <option value="21">21</option>
-                                             </select>
-                                          </div>
-                                       </div>
-                                    </fieldset>  {{$cart->quantity}}
-                                    </td>
-                                    <td>Ugx:{{ number_format($cart->price)}}</td>
-                                    <td style="color:black; font-weight:bold;">Ugx: {{ number_format($cart->price * $cart->quantity)}}</td>
-                                    <td><a href="/remove-from-cart-list/{{$cart->id}}" class="text-danger" style="text-align:center;"><i class="fa fa-times"></i></td>
-                                 </tr>
-                                 @endforeach
-                                 <tr>
-                                 <td colspan="4"  style="color:black; font-weight:bold;">Total Amount</td>
-                                 <td style="font-weight:bold;">Ugx: {{number_format($my_cart_total)}}</td>
-                                 <td style="color:black; font-weight:bold;">Ugx: {{ number_format($my_cart_total)}}</td>
-                                 </tr>
-                              </tbody>
-                           </table>
-                           <div class="row pull-right" style="margin-right:4px;">
-                              <button type="submit" class="btn btn-sm btn-primary">Update Cart</button>
-                           </div>
-                           </form>
-                        </div>
+        <table class="table table-striped table-bordered table-hover" style="margin-bottom:5px;">
+            <thead>
+            @php
+            $my_cart_total =\DB::table('carts')->join('super_markets','super_markets.id','carts.item_id')
+            ->where('carts.user_id',auth()->user()->id)
+            ->sum('price');
+            
+            $price=\DB::table('carts')->join('super_markets','super_markets.id','carts.item_id')
+            ->where('carts.user_id',auth()->user()->id)
+            ->value('price');
+            @endphp
+                <tr>
+                <th>#</th>
+                <th>Name of Item</th>
+                <th>Photo</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Unit Price</th>
+                <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach($cart_details as $i=> $item)
+                <tr>
+                <td>{{$i + 1}}</td>
+                <td>{{$item['item']}}</td>
+                <td><img src="{{ asset('super_market_photos/'.$item->photo)}}" style="width:50px; height:40px;" alt="Image" class="img-responsive"></td>
+    
+                <td>
+                    <form action="/update-cart/{{$item->id}}" method="get">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$item->id}}" >
+                        <input type="number" name="quantity" style="width:40px;" value="{{ $item->quantity }}" 
+                        class="w-6 text-center bg-gray-300" />
+                        <button type="submit" class="btn-sm btn btn-primary"><i class="fa fa-plus"></i></button>
+                    </form>
+                </td>
+                <td>Ugx:{{ number_format($item['price'])}}</td>
+                <td style="color:black; font-weight:bold;">Ugx: {{ number_format($item['price'] * $item['quantity'])}}</td>
+                <td>
+                    <a href="/remove-from-cart-list/{{$item->id}}" class="text-danger" style="text-align:center;"><i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+                @endforeach
+                <tr>
+                <td colspan="5"  style="color:black; font-weight:bold;">Total Amount</td>
+                <td style="font-weight:bold;"> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
                         <!-- END table-responsive-->
                      </div>
                   </div>

@@ -53,6 +53,7 @@
                                     <form action="/add-my-cart/{{request()->route()->item_id}}" method="get">
                                     @csrf
                                     <input type="hidden" name="item_id" value="{{request()->route()->item_id}}">
+                                    <input type="hidden" value="1" name="quantity">
                                     <div class="panel-body">
                                     <div class="row row-table mb-3">
                                         <div class="col-xs-12">

@@ -57,6 +57,10 @@ Route::get('/get-supermarket-items/{item_id}',[ViewMoreItemsController::Class,'V
 Route::get('/selected-item/{item_id}',[CartController::Class,'ViewCart']);  
 Route::get('/supermarket-account-creation',[CartController::Class,'createAccountForm']);
 Route::get('/subscribe-now',[SubscriptionController::Class,'subscribeUsers']);
+Route::post('/register-account',[CartController::Class,'createAccount']);
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+
+Route::get('/update-cart/{items_id}',[CartController::Class,'updateSelectedItemsQuantity']);
 // Route::middleware(['auth:sanctum', 'verified'])->get('/admin-dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
@@ -96,10 +100,8 @@ Route::middleware(['auth'])->group(function () {
     
    
     
-    Route::post('/register-account',[CartController::Class,'createAccount']);
     Route::get('/add-my-cart/{item_id}',[CartController::Class,'saveItemSelected']);
     Route::get('/view-cart',[CartController::Class,'viewMyShoppingCart']);  
-    Route::get('/update-cart/{items_id}',[CartController::Class,'updateSelectedItemsQuantity']);
     Route::get('/remove-from-cart-list/{items_id}',[CartController::Class,'removeItem']);
 
     Route::get('/all-client-info',[ClientController::Class,'getAdminClientInformation'])->name("Clients");

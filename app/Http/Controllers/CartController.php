@@ -30,6 +30,7 @@ class CartController extends Controller
      * This function creates account for supermarket user
      */
     private function supermarketAccount(){
+        
         $supermarket_client_photo = request()->profile_photo_path;
         $supermarket_client_photo_original_name = $supermarket_client_photo->getClientOriginalName();
         $supermarket_client_photo->move('property_owner_photos/',$supermarket_client_photo_original_name);
@@ -80,18 +81,29 @@ class CartController extends Controller
      * This functions gets the cart list for the items selected
      */
     protected function viewMyShoppingCart(){
-        $my_cart =Cart::join('super_markets','super_markets.id','carts.item_id')
+
+        $cart_details =Cart::join('super_markets','super_markets.id','carts.item_id')
         ->join('users','users.id','carts.user_id')
         ->where('carts.user_id',auth()->user()->id)
-        ->select('super_markets.*','users.name','carts.created_at','carts.id','carts.quantity')->get();
+        ->select('super_markets.*','users.name','carts.created_at','carts.id','carts.quantity')
+        ->get();
+
         $get_supermarket_items =SuperMarket::where('discount',null)->where('status','active')->get(); 
-        return view('frontpages.my_cart_details', compact('my_cart','get_supermarket_items'));
+
+
+        $userId = auth()->user()->id;
+
+        // for a specific user
+        $total = \Cart::session($userId)->getTotal();
+        //$total = \Cart::session($userId)->getTotal(); 
+        return view('frontpages.my_cart_details', compact('get_supermarket_items','cart_details','total'));
         }
     /**
-     * This function updates carts table
+     * This function updates carts quantity
      */
       
     protected function updateSelectedItemsQuantity($items_id){
+        //return request();
         Cart::where('id',$items_id)->update(array(
             'quantity'=>request()->quantity,
         ));
@@ -105,5 +117,17 @@ class CartController extends Controller
         Cart::where('id',$items_id)->delete();
         return Redirect('/view-cart');
 
+    }
+    public function updateCart(Request $request)
+    {
+        \Cart::update(
+            $request->id,
+            [
+                'quantity' => [
+                    'relative' => false,
+                    'value' => $request->quantity
+                ],
+            ]
+        );
     }
 }
