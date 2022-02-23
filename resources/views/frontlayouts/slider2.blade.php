@@ -31,8 +31,8 @@
                     </div>
                     <div class="row row-table">
                         <div class="col-xs-12">
-                            <a href="/selected-item/{{$items->id}}"><span class="btn btn-bloc btn-primary mb-1">Order Now</span></a>
-                            <a href="/get-supermarket-items/{{$items->item_group_id}}"><span class="btn btn-bloc btn-warning">View More</span></a>
+                            <a href="/item-details/{{$items->id}}"><span class="btn btn-bloc btn-primary mb-1">Order Now</span></a>
+                            <a href="/view-more-items/{{$items->item_group_id}}"><span class="btn btn-bloc btn-warning">View More</span></a>
                         </div>
                     </div>
                 </div>

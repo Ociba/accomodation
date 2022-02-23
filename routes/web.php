@@ -25,6 +25,8 @@ use App\Http\Controllers\SuperMarketController;
 use App\Http\Controllers\ViewMoreItemsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\AuthenticatedUserCartController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,9 +60,18 @@ Route::get('/selected-item/{item_id}',[CartController::Class,'ViewCart']);
 Route::get('/supermarket-account-creation',[CartController::Class,'createAccountForm']);
 Route::get('/subscribe-now',[SubscriptionController::Class,'subscribeUsers']);
 Route::post('/register-account',[CartController::Class,'createAccount']);
-Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+//Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 
-Route::get('/update-cart/{items_id}',[CartController::Class,'updateSelectedItemsQuantity']);
+Route::get('/update-cart/{items_id}',[CartController::Class,'updateCart'])->name('cart.update');
+//Route::get('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+
+ //for adding to cart
+ Route::get('/products', [ProductController::class, 'productList'])->name('products.list');
+ Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+ Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+ //Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+ Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 // Route::middleware(['auth:sanctum', 'verified'])->get('/admin-dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
@@ -74,6 +85,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/delete-category/{id}',[CategoryController::Class, 'deleteCategory'])->middleware('can:isAdmin');
 
     Route::get('/subscribers',[SubscriptionController::Class,'getSubscriptions'])->name('Subscribers');
+
+    
+    Route::get('/shopping',[AuthenticatedUserCartController::Class,'authenticatedUserCart']);
+    Route::get('/item-details/{item_id}',[AuthenticatedUserCartController::Class,'viewSelectedItem']);
+    Route::get('/view-shooping-list',[AuthenticatedUserCartController::Class,'shoppingList']);  
+    Route::get('/save-my-cart/{item_id}',[AuthenticatedUserCartController::Class,'saveItemInfo']);
+    //Route::get('update-quantity/{item_id}', [AuthenticatedUserCartController::class, 'updateQuantity'])->name('cart.update');
+    Route::get('/delete-from-cart-list/{item_id}',[AuthenticatedUserCartController::Class,'deleteItem']);
+    Route::get('/view-more-items/{item_id}',[AuthenticatedUserCartController::Class,'viewMore']);
 
     Route::get('/get-property-owners',[OwnerController::Class, 'getPropertyOwners'])->name('Property Owners');
     Route::post('/create-owner',[OwnerController::Class,'validatePropertyOwner']);
@@ -103,6 +123,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/add-my-cart/{item_id}',[CartController::Class,'saveItemSelected']);
     Route::get('/view-cart',[CartController::Class,'viewMyShoppingCart']);  
     Route::get('/remove-from-cart-list/{items_id}',[CartController::Class,'removeItem']);
+
+   
 
     Route::get('/all-client-info',[ClientController::Class,'getAdminClientInformation'])->name("Clients");
     Route::get('/allocate-broker/{client_id}',[ClientController::Class, 'addBrokerToClient'])->name('Allocate Broker');

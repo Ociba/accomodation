@@ -18,7 +18,7 @@ class CartController extends Controller
         ->select('super_markets.*','super_market_item_categories.item_category','users.name')->get();
         //Supermarkets items slider
         $get_supermarket_items =SuperMarket::where('discount',null)->where('status','active')->get(); 
-        return view('frontpages.cart', compact('get_cart_item','get_supermarket_items'));
+        return view('cart', compact('get_cart_item','get_supermarket_items'));
     }
     /**
      * This function gets form for creating supermartket account
@@ -110,15 +110,40 @@ class CartController extends Controller
         return Redirect('/view-cart');
     
     }
-    /** 
-     * This function removes item from cart
-    */
-    protected function removeItem($items_id){
-        Cart::where('id',$items_id)->delete();
-        return Redirect('/view-cart');
+    // /** 
+    //  * This function removes item from cart
+    // */
+    // protected function removeItem($items_id){
+    //     Cart::where('id',$items_id)->delete();
+    //     return Redirect('/view-cart');
 
+    // }
+
+    public function cartList()
+    {
+        $cartItems = \Cart::getContent();
+        // dd($cartItems);
+        return view('cart', compact('cartItems'));
     }
-    public function updateCart(Request $request)
+
+
+    public function addToCart(Request $request)
+    {
+        \Cart::add([
+            'id' => $request->id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantity' => $request->quantity,
+            'attributes' => array(
+                'image' => $request->image,
+            )
+        ]);
+        session()->flash('success', 'Product is Added to Cart Successfully !');
+
+        return redirect()->route('cart.list');
+    }
+
+    public function updateCart(Request $request, $item_id)
     {
         \Cart::update(
             $request->id,
@@ -129,5 +154,26 @@ class CartController extends Controller
                 ],
             ]
         );
+
+        session()->flash('success', 'Item Cart is Updated Successfully !');
+
+        return redirect()->route('cart.list');
+    }
+
+    public function removeCart(Request $request)
+    {
+        \Cart::remove($request->id);
+        session()->flash('success', 'Item Cart Remove Successfully !');
+
+        return redirect()->route('cart.list');
+    }
+
+    public function clearAllCart()
+    {
+        \Cart::clear();
+
+        session()->flash('success', 'All Item Cart Clear Successfully !');
+
+        return redirect()->route('cart.list');
     }
 }

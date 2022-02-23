@@ -111,6 +111,9 @@
                         <a href="/supermarket">
                         <strong>SuperMarket</strong>
                         </a>
+                        <a href="/products">
+                        <strong>Products</strong>
+                        </a>
                     </li>
                      <li class="mr-lg">
                         <a href="/contact">

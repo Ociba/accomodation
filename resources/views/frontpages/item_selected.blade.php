@@ -17,7 +17,7 @@
     <body>
         <!-- START wrapper-->
       
-        @include('frontlayouts.menu')
+        @include('frontlayouts.logged-in-menu')
         <section class="bg-white">
             <div class="container  margintop">
                 <h2 class="section-header">Thank You For Choosing This Item
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="row row-table text-center mt-4">
                                     <div class="col-xs-12">
-                                    <form action="/add-my-cart/{{request()->route()->item_id}}" method="get">
+                                    <form action="/save-my-cart/{{request()->route()->item_id}}" method="get">
                                     @csrf
                                     <input type="hidden" name="item_id" value="{{request()->route()->item_id}}">
                                     <input type="hidden" value="1" name="quantity">
@@ -59,7 +59,7 @@
                                         <div class="col-xs-12">
                                            {{--<a href="/supermarket-account-creation" class="btn btn-success mb-1">Proceed To Login</a>--}}
                                             <button type="submit" class="btn btn-warning mb-1">Add To Cart</button>
-                                            <a href="/view-cart" class="btn btn-primary mb-5 form-contro">View Cart</a>
+                                            <a href="/view-shooping-list" class="btn btn-primary mb-5 form-contro">View Shopping List</a>
                                             
                                         </div>
                                         </div> 
@@ -121,7 +121,7 @@
                 @endforeach
             </div>
         </section>
-        @include('frontlayouts.more-items')
+        @include('frontlayouts.more-items2')
         @include('frontlayouts.testimonial')
         @include('frontlayouts.offer')
         @include('frontlayouts.link')
