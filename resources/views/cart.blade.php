@@ -79,10 +79,9 @@
                           <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
                             <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
+                            <a href="/checkout" class="px-6 py-2 text-white bg-blue-700">Proceed To Checkout</a>
                           </form>
                         </div>
-
-
                       </div>
                     </div>
                   </div>

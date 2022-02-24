@@ -27,6 +27,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\AuthenticatedUserCartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +61,7 @@ Route::get('/selected-item/{item_id}',[CartController::Class,'ViewCart']);
 Route::get('/supermarket-account-creation',[CartController::Class,'createAccountForm']);
 Route::get('/subscribe-now',[SubscriptionController::Class,'subscribeUsers']);
 Route::post('/register-account',[CartController::Class,'createAccount']);
+Route::get('/checkout',[CheckoutController::Class,'checkout']);
 //Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 
 Route::get('/update-cart/{items_id}',[CartController::Class,'updateCart'])->name('cart.update');
