@@ -62,6 +62,7 @@ Route::get('/supermarket-account-creation',[CartController::Class,'createAccount
 Route::get('/subscribe-now',[SubscriptionController::Class,'subscribeUsers']);
 Route::post('/register-account',[CartController::Class,'createAccount']);
 Route::get('/checkout',[CheckoutController::Class,'checkout']);
+Route::get('/save-client-information',[CheckoutController::Class,'createCheckoutOrder']);
 //Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 
 Route::get('/update-cart/{items_id}',[CartController::Class,'updateCart'])->name('cart.update');

@@ -184,7 +184,9 @@
        <section>
        <div class="container">
                 <div class="row">
-                <form action="/save-client-information" method="post" enctype="multipart/form-data">
+                    @include('layouts.messages')
+                <form action="/save-client-information" method="get" enctype="multipart/form-data">
+                  @csrf
                    <div class="text-center">
                         <h2 class="page-header">Discover the most luxurious fruits & vacation rentals in Kampala</h2>
                         <h2>Your Personal Information</2>
@@ -205,7 +207,7 @@
                                  </div>
                                   <div class="col-sm-6">
                                      <label>Email Address</label>
-                                    <input type="text" name="last_name" placeholder="Email" class="form-control" required>
+                                    <input type="email" name="email" placeholder="Email" class="form-control" required>
                                  </div>
                                  
                                  <div class="col-sm-6">
@@ -234,18 +236,16 @@
                         </div>
                     </div>
                     <!-- Carousel wrapper -->
-                    <div class="col-lg-4">
-                       @foreach ($cartItems as $item)
-                        <h2 class="page-header">    
-                        <input type="text" name="item_id" value="{{$item->id}}" class="form-control">
-                        <input type="text" name="name" value="{{$item->name}}" class="form-control">
-                        <input type="text" name="price" value="{{$item->price}}" class="form-control">
-                        <input type="text" name="quantity" value="{{$item->quantity}}" class="form-control">
-                        <input type="text" name="image"    value="{{$item->image}}" class="form-control">
-                        <img src="/super_market_photos/{{ $item->attributes->image }}" style="width:50px; height:50px;" class="w-20 rounded" alt="Thumbnail">
-                        </h2>
-                        <span style="color:blue; font-weight:bold;">Total: Ugx: {{ number_format(Cart::getTotal()) }}</span>
+                    <div class="col-lg-4 text-center">
+                       @foreach ($cartItems as $item)   
+                        <input type="hidden" name="item_id" value="{{$item->id}}" class="form-control">
+                        <input type="hidden" name="name" value="{{$item->name}}" class="form-control">
+                        <input type="hidden" name="price" value="{{$item->price}}" class="form-control">
+                        <input type="hidden" name="quantity" value="{{$item->quantity}}" class="form-control">
+                        {{--<input type="text" name="image"    value="{{$item->attributes->image }}" class="form-control">--}}
+                        
                         @endforeach
+                        <span style="color:blue; font-weight:bold;">Total: Ugx: {{ number_format(Cart::getTotal()) }}</span>
                         <p class="text-md">Present your app information in a simple and easy to understand way. Display any data set with Flot Charts.</p>
                     </div>
                     <div class="col-lg-12 text-center" style="margin-top:8px;">

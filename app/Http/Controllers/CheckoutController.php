@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SuperMarket;
 use DB;
+use App\Models\CustomerInfor;
+use App\Models\Order;
 
 class CheckoutController extends Controller
 {
@@ -80,5 +82,34 @@ class CheckoutController extends Controller
         return view('checkout', compact('cartItems','get_supermarket_items','get_clothes','get_all_the_supermarket_items',
                       'phones','shoes','fruits','vegetables','utensils','beddings','electronics','computers','bags',
                       'saloon_products','scholastic_materials'));
+    }
+    /**
+     * This function creates checkout order
+     */
+    public function createCheckoutOrder(){
+
+        $customer_info_obj =new CustomerInfor;
+        $customer_info_obj ->first_name       =request()->first_name;
+        $customer_info_obj ->last_name        =request()->last_name;
+        $customer_info_obj ->email            =request()->email;
+        $customer_info_obj ->phone_number     =request()->phone_number;
+        $customer_info_obj ->address          =request()->address;
+        $customer_info_obj ->division         =request()->division;
+        $customer_info_obj ->street           =request()->street;
+        $customer_info_obj ->plot_number      =request()->plot_number;
+        $customer_info_obj ->save();
+
+        // $image_photo = request()->image;
+        // $image_photo_original_name = $image_photo->getClientOriginalName();
+        // $image_photo->move('order_item_images/',$image_photo_original_name);
+
+        $order_obj =new Order;
+        $order_obj->phone_number =request()->phone_number;
+        $order_obj->item_id      =request()->item_id;
+        $order_obj->name	     =request()->name;
+        $order_obj->quantity     =request()->quantity;
+       // $order_obj->image        =$image_photo_original_name;
+        $order_obj->save();
+        return redirect()->back()->with('msg', 'You have successfully created property');
     }
 }
