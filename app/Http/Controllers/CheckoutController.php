@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SuperMarket;
 use DB;
-use App\Models\CustomerInfor;
+use App\Models\User;
 use App\Models\Order;
+use Hash;
 
 class CheckoutController extends Controller
 {
@@ -83,33 +84,57 @@ class CheckoutController extends Controller
                       'phones','shoes','fruits','vegetables','utensils','beddings','electronics','computers','bags',
                       'saloon_products','scholastic_materials'));
     }
+
+    /**
+     * This function creates Customers account before making an order
+     */
+    protected function createAccount(){
+
+        $customer_info_obj =new User;
+        $customer_info_obj ->name             =request()->name;
+        $customer_info_obj ->email            =request()->email;
+        $customer_info_obj ->contact          =request()->contact;
+        $customer_info_obj ->address          =request()->address;
+        $customer_info_obj ->town             =request()->town;
+        $customer_info_obj ->division         =request()->division;
+        $customer_info_obj ->street           =request()->street;
+        $customer_info_obj ->plot_number      =request()->plot_number;
+        $customer_info_obj ->password         =Hash::make(request()->password);
+        $customer_info_obj->type              = 'supermarket';
+        $customer_info_obj ->save();
+        return redirect()->back()->with('msg', 'You have successfully created property');
+    }
+    /**
+     * This functions gets order page
+     */
+    protected function placeOrderNow(){
+        $cartItems = \Cart::getContent();
+        return view('place_order', compact('cartItems'));
+    }
     /**
      * This function creates checkout order
      */
     public function createCheckoutOrder(){
-
-        $customer_info_obj =new CustomerInfor;
-        $customer_info_obj ->first_name       =request()->first_name;
-        $customer_info_obj ->last_name        =request()->last_name;
-        $customer_info_obj ->email            =request()->email;
-        $customer_info_obj ->phone_number     =request()->phone_number;
-        $customer_info_obj ->address          =request()->address;
-        $customer_info_obj ->division         =request()->division;
-        $customer_info_obj ->street           =request()->street;
-        $customer_info_obj ->plot_number      =request()->plot_number;
-        $customer_info_obj ->save();
-
-        // $image_photo = request()->image;
-        // $image_photo_original_name = $image_photo->getClientOriginalName();
-        // $image_photo->move('order_item_images/',$image_photo_original_name);
-
-        $order_obj =new Order;
-        $order_obj->phone_number =request()->phone_number;
-        $order_obj->item_id      =request()->item_id;
-        $order_obj->name	     =request()->name;
-        $order_obj->quantity     =request()->quantity;
-       // $order_obj->image        =$image_photo_original_name;
-        $order_obj->save();
-        return redirect()->back()->with('msg', 'You have successfully created property');
+        $cartItems = \Cart::getContent();
+        foreach($cartItems as $item){
+            Order::create([
+                'user_id'      =>auth()->user()->id,
+                'item_id'      =>$item->item_id,
+                'item_name'	   =>$item->name,
+                'quantity'     =>$item->quantity,
+                'price'        =>$item->price,
+            ]);
+        }
+    return redirect()->back()->with('msg', 'You have successfully created property');
+    }
+    /**
+     * This function gets orders from the custommers
+     */
+    protected function getCustomerOrders(){
+        $get_all_orders=DB::table('orders')->join('users','users.id','orders.user_id')
+        ->select('users.*','orders.item_name','orders.quantity','orders.price','orders.id','orders.created_at')
+        ->orderBy('orders.created_at','DESC')
+        ->simplePaginate(10);
+        return view('admin.customers_orders',compact('get_all_orders'));
     }
 }

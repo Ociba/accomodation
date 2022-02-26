@@ -143,7 +143,7 @@ class CartController extends Controller
         return redirect()->route('cart.list');
     }
 
-    public function updateCart(Request $request, $item_id)
+    public function updateCart(Request $request)
     {
         \Cart::update(
             $request->id,
@@ -157,7 +157,8 @@ class CartController extends Controller
 
         session()->flash('success', 'Item Cart is Updated Successfully !');
 
-        return redirect()->route('cart.list');
+        //return redirect()->route('cart.list');
+        return redirect()->back();
     }
 
     public function removeCart(Request $request)

@@ -1,8 +1,13 @@
 @extends('layouts.frontend')
 
-
+<style>
+  .bg-orange-700 {
+    color:#FFA500;
+  }
+</style>
 @section('content')
           <main class="my-8">
+            @include('layouts.messages')
             <div class="container px-6 mx-auto">
                 <div class="flex justify-center my-6">
                     <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
@@ -44,7 +49,7 @@
                                 <div class="h-10 w-28">
                                   <div class="relative flex flex-row w-full h-8">
                                     
-                                    <form action="{{ route('cart.update')}}" method="get">
+                                    <form action="{{ route('cart.update') }}" method="get">
                                       @csrf
                                       <input type="hidden" name="id" value="{{ $item->id}}" >
                                     <input type="number" name="quantity" value="{{ $item->quantity }}" 
@@ -76,10 +81,17 @@
                          Total: Ugx: {{ number_format(Cart::getTotal()) }}
                         </div>
                         <div>
-                          <form action="{{ route('cart.clear') }}" method="POST">
+                          <form action="/save-order" method="get">
                             @csrf
-                            <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
-                            <a href="/checkout" class="px-6 py-2 text-white bg-blue-700">Proceed To Checkout sh.{{ number_format(Cart::getTotal()) }}</a>
+                            <input type="hidden" name="user_id" value="{{auth()->user()->id}}" class="form-control">
+                            @foreach ($cartItems as $item)   
+                            <input type="hidden" name="item_id" value="{{$item->id}}" class="form-control">
+                            <input type="hidden" name="item_name" value="{{$item->name}}" class="form-control">
+                            <input type="hidden" name="price" value="{{$item->price}}" class="form-control">
+                            <input type="hidden" name="quantity" value="{{$item->quantity}}" class="form-control">
+                            @endforeach
+                            <button type="submit" class="px-6 py-2 text-white bg-blue-700 mt-1">Place Order Now</button>
+                            <a href="/logout" class="px-6 py-2 text-white bg-orange-700 mt-1" style="background-color:#FFA500; padding:12px;">Logout</a>
                           </form>
                         </div>
                       </div>

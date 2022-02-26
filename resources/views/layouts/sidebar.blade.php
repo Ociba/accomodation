@@ -128,7 +128,7 @@
             </a>
             <ul class="sidenav-menu">
                 <li class="sidenav-item"><a href="/supermarket-items" class="sidenav-link"><div>Items</div></a></li>
-                <li class="sidenav-item"><a href="hospital-department.html" class="sidenav-link"><div>Department</div></a></li>
+                <li class="sidenav-item"><a href="/customers-sent-orders" class="sidenav-link"><div>Customer Orders</div></a></li>
                 <li class="sidenav-item"><a href="hospital-doctor.html" class="sidenav-link"><div>Doctor</div></a></li>
                 <li class="sidenav-item"><a href="hospital-patient.html" class="sidenav-link"><div>Patient</div></a></li>
                 <li class="sidenav-item"><a href="hospital-nurse.html" class="sidenav-link"><div>Nurse</div></a></li>

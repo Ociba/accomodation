@@ -179,31 +179,33 @@
     </head>
     <body>
         <!-- START wrapper-->
+      
         @include('frontlayouts.menu')
         @include('frontlayouts.social-links')
        <section>
        <div class="container">
                 <div class="row">
                     @include('layouts.messages')
-                <form action="/save-client-information" method="get" enctype="multipart/form-data">
-                  @csrf
                    <div class="text-center">
                         <h2 class="page-header">Discover the most luxurious fruits & vacation rentals in Kampala</h2>
-                        <h2>Your Personal Information</2>
+                       
                     </div>
-                    <div  class="col-lg-8 mb-2">
+                    <div  class="col-lg-7 mb-2">
+                    <h2>Create Your Account</h2>
                         <div class="col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+                        <form action="/save-client-information" method="get" enctype="multipart/form-data">
+                          @csrf
                         <div class="form-group">
                            <div class="col-sm-10">
                                
                               <div class="row">
                                  <div class="col-sm-6">
-                                    <label>First Name <span style="color:red;">*</span></label>
-                                    <input type="text" name="first_name" placeholder="Enter first Name" class="form-control" required>
+                                    <label>Name (Names) <span style="color:red;">*</span></label>
+                                    <input type="text" name="name" placeholder="Enter Name" class="form-control" required>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label>Last Name <span style="color:red;">*</span></label>
-                                    <input type="text"name="last_name" placeholder="Your Last Name" class="form-control" required>
+                                    <label>Town <span style="color:red;">*</span></label>
+                                    <input type="text"name="town" placeholder="Your Curent Town" class="form-control" required>
                                  </div>
                                   <div class="col-sm-6">
                                      <label>Email Address</label>
@@ -212,7 +214,7 @@
                                  
                                  <div class="col-sm-6">
                                  <label>Phone Number <span style="color:red;">*</span></label>
-                                    <input type="text" name="phone_number" placeholder="phone number" class="form-control" required>
+                                    <input type="text" name="contact" placeholder="phone number" class="form-control" required>
                                  </div>
                                  <div class="col-sm-6">
                                     <label>Address</label>
@@ -230,28 +232,69 @@
                                     <label>Plot Number </label>
                                     <input type="text" name="plot_number" placeholder="Plot Number" class="form-control" required>
                                  </div>
+                                 <div class="col-sm-6">
+                                    <label>Password <span style="color:red;">*</span></label>
+                                    <input id ="password" type="password" name="password" placeholder="Street" class="form-control" required>
+                                 </div>
+                                 <div class="col-sm-6">
+                                    <label>Confirm Password </label>
+                                    <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" required>
+                                 </div>
                               </div>
                            </div>
                         </div>
-                        </div>
-                    </div>
-                    <!-- Carousel wrapper -->
-                    <div class="col-lg-4 text-center">
-                       @foreach ($cartItems as $item)   
-                        <input type="hidden" name="item_id" value="{{$item->id}}" class="form-control">
-                        <input type="hidden" name="name" value="{{$item->name}}" class="form-control">
-                        <input type="hidden" name="price" value="{{$item->price}}" class="form-control">
-                        <input type="hidden" name="quantity" value="{{$item->quantity}}" class="form-control">
-                        {{--<input type="text" name="image"    value="{{$item->attributes->image }}" class="form-control">--}}
-                        
-                        @endforeach
-                        <span style="color:blue; font-weight:bold;">Total: Ugx: {{ number_format(Cart::getTotal()) }}</span>
-                        <p class="text-md">Present your app information in a simple and easy to understand way. Display any data set with Flot Charts.</p>
-                    </div>
-                    <div class="col-lg-12 text-center" style="margin-top:8px;">
+                       
+                        <div class="col-lg-8 text-center" style="margin-top:8px;">
                         <button type="submit" class="btn btn-sm btn-primary mt-1">Submit Now</button>
                      </div>
                     </form>
+                        </div>
+                    </div>
+                    <!-- Carousel wrapper -->
+                    <div class="col-lg-5 text-center" style="font-size:20px;">  
+                        <h2><a href="/login" class="text-center">Login</a></h2>
+                        {{--
+                        <form method="POST" action="{{ route('login') }}">
+                         @csrf
+                        <div class="form-group">
+                           <div class="col-sm-10">
+                               
+                              <div class="row">
+                                 <div class="col-sm-12 mb-4">
+                                    <label>Email Address <span style="color:red;">*</span></label>
+                                    <input id="email" type="email" name="email" :value="old('email')" required autofocus  class="form-control mb-4" required>
+                                </div>
+                                 <div class="col-sm-12">
+                                 <label>Password </label>
+                                 <input id="password-field" id="password" class="form-control" type="password" name="password" required autocomplete="current-password">
+                               
+                              </div>
+                                 <div class="col-sm-6">
+                                      <div class="checkbox c-checkbox">
+                                    <label>
+                                       <input type="checkbox" checked="">
+                                       <span class="fa fa-check"></span>Remember me</label>
+                                 </div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox c-checkbox">
+                                    <label>Forgot Password</label>
+                                 </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-8 text-center" style="margin-top:8px;">
+                        <button type="submit" class="btn btn-sm btn-primary mt-1">Login</button>
+                     </div>
+                    </form>
+                    --}}
+
+                    Create your Jumia customer account in just a few clicks! You can register either using your e-mail address or through your Facebook account.
+                    <p>Sell on Jumia</p>
+                    <p>Become a Sales Consultant</p>
+                    <p>Become a Logistics Service Partner</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1088,5 +1131,17 @@
         <script type="text/javascript" src="{{ asset('front/owl-carousel.min.js')}}"></script>
         <script type="text/javascript" src="{{ asset('front/owl-custom.js')}}"></script>
         <!-- END Scripts-->
+        <!-- <script>
+           $(".toggle-password").click(function() {
+
+                $(this).toggleClass("fa-eye fa-eye-slash");
+                var input = $($(this).attr("toggle"));
+                if (input.attr("type") == "password") {
+                input.attr("type", "text");
+                } else {
+                input.attr("type", "password");
+                }
+                });
+        </script> -->
     </body>
 </html>

@@ -31,6 +31,12 @@ class User extends Authenticatable
         'password',
         'amount',
         'payment_date',
+        'contact',
+        'address',
+        'division',
+        'street',
+        'plot_number',
+        'town',
     ];
 
     /**
