@@ -29,6 +29,7 @@
                           <tbody>
                               @foreach ($cartItems as $item)
                             <tr>
+                              <td hidden>{{$item->id}}</td>
                               <td class="hidden pb-4 md:table-cell">
                                 <a href="#">
                                 <img src="/super_market_photos/{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
@@ -56,7 +57,7 @@
                               </td>
                               <td class="hidden text-right md:table-cell">
                                 <span class="text-sm font-medium lg:text-base">
-                                    Ugx: {{ number_format($item->price) }}
+                                    Ugx: {{ number_format($item->price * $item->quantity) }}
                                 </span>
                               </td>
                               <td class="hidden text-right md:table-cell">
@@ -78,8 +79,8 @@
                         <div>
                           <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
-                            <a href="/checkout" class="px-6 py-2 text-white bg-blue-700">Proceed To Checkout sh.{{ number_format(Cart::getTotal()) }}</a>
+                            <button class="btn btn-danger">Remove All Cart</button>
+                            <a href="/checkout" class="btn btn-primary">Proceed To Checkout sh.{{ number_format(Cart::getTotal()) }}</a>
                           </form>
                         </div>
                       </div>

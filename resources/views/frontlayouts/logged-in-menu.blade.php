@@ -108,7 +108,7 @@
                         <!-- END Dropdown menu-->
                     </li>
                     <li class="mr-lg">
-                        <a href="/supermarket">
+                        <a href="/products">
                         <strong>SuperMarket</strong>
                         </a>
                     </li>

@@ -9,8 +9,10 @@ class ProductController extends Controller
 {
     public function productList()
     {
-        $products = SuperMarket::all();
+        $products = SuperMarket::where('discount',null)->where('status','active')->get();
 
-        return view('products', compact('products'));
+        $supermarket_items_with_discount=SuperMarket::where('discount','!=',null)->get();
+
+        return view('products', compact('products','supermarket_items_with_discount'));
     }
 }

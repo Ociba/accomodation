@@ -93,7 +93,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/subscribers',[SubscriptionController::Class,'getSubscriptions'])->name('Subscribers');
     Route::get('/customers-sent-orders',[CheckoutController::Class,'getCustomerOrders']);
-    
+    Route::get('/customer-orders-summary',[CheckoutController::Class,'getCustomerOrdersSummary']);
+    Route::get('/view-orders/{order_id}',[CheckoutController::Class,'getCustomerOrdersInfo']);
+    Route::get('/print',[CheckoutController::Class,'printCustomerOrdersInfo']);
+    Route::get('/print-now/{user_id}',[CheckoutController::Class,'printCustomerOrdersInfoNow']);
+    Route::get('/mark-as-seen/{order_id}',[CheckoutController::Class,'getUnitPrice']);
+
     Route::get('/shopping',[AuthenticatedUserCartController::Class,'authenticatedUserCart']);
     Route::get('/item-details/{item_id}',[AuthenticatedUserCartController::Class,'viewSelectedItem']);
     Route::get('/view-shooping-list',[AuthenticatedUserCartController::Class,'shoppingList']);  

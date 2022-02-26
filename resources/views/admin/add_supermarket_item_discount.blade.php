@@ -51,7 +51,12 @@
                                                             <input type="text" name="discount" class="form-control" id="discount" placeholder="e.g 5,10,15,20" required>
                                                         </div>
                                                     </div>
-                                                    
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="floating-label" for="name">New Price </label>
+                                                            <input type="text" name="new_price" class="form-control" id="new_price" placeholder="New Price" required>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-sm-12 text-center">
                                                         <button type="submit" class="btn btn-primary btn-round">Submit</button>
                                                     </div>

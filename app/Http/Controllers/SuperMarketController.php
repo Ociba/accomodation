@@ -80,7 +80,7 @@ class SuperMarketController extends Controller
         //supermarket items
         $get_supermarket_items =SuperMarket::where('discount',null)->where('status','active')->get(); 
 
-        return view('frontpages.supermarket',compact('phones','get_clothes','shoes','vegetables','get_all_the_supermarket_items','fruits','utensils','beddings',
+        return view('supermarket',compact('phones','get_clothes','shoes','vegetables','get_all_the_supermarket_items','fruits','utensils','beddings',
                     'electronics','computers','bags','saloon_products','scholastic_materials','supermarket_items_with_discount','get_supermarket_items'));
     }
     /**
@@ -166,7 +166,8 @@ class SuperMarketController extends Controller
      */
     public function saveDiscount($item_id){
         SuperMarket::where('id',$item_id)->update(array(
-            'discount'  =>request()->discount
+            'discount'  =>request()->discount,
+            'new_price' =>request()->new_price
         ));
         return redirect('/supermarket-items')->with('msg','Operations Successful');
     }

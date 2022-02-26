@@ -77,6 +77,7 @@
                                                         <th>Description</th>
                                                         <th>Price</th>
                                                         <th>Discount</th>
+                                                        <th>New Price</th>
                                                         <th>Photo</th>
                                                         <th>Status</th>
                                                         <th>Created By</th>
@@ -94,8 +95,9 @@
                                                         <td>{{$items->contact}}</td>
                                                         <td>{{$items->location}}</td>
                                                         <td>{{$items->description}}</td>
-                                                        <td>{{$items->price}}</td>
+                                                        <td>{{ number_format($items->price)}}</td>
                                                         <td>{{$items->discount}}</td>
+                                                        <td>{{number_format($items->new_price)}}</td>
                                                         <td><img style="width:50px; height:40px;" src="{{ asset('super_market_photos/'.$items->photo)}}"></td>
                                                         <td>{{$items->status}}</td>
                                                         <td>{{$items->name}}</td>

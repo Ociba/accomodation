@@ -16,7 +16,7 @@
                               <p class="text-green-800">{{ $message }}</p>
                           </div>
                       @endif
-                        <h3 class="text-3xl text-bold">Cart List</h3>
+                        <h3 class="text-3xl text-bold">Cart List  <span style="color:blue;">{{auth()->user()->name}}</span></h3>
                       <div class="flex-1">
                         <table class="w-full text-sm lg:text-base table-responsive" cellspacing="0">
                           <thead>
@@ -34,6 +34,7 @@
                           <tbody>
                               @foreach ($cartItems as $item)
                             <tr>
+                              <td hidden>{{$item->id}}
                               <td class="hidden pb-4 md:table-cell">
                                 <a href="#">
                                 <img src="/super_market_photos/{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
@@ -90,8 +91,8 @@
                             <input type="hidden" name="price" value="{{$item->price}}" class="form-control">
                             <input type="hidden" name="quantity" value="{{$item->quantity}}" class="form-control">
                             @endforeach
-                            <button type="submit" class="px-6 py-2 text-white bg-blue-700 mt-1">Place Order Now</button>
-                            <a href="/logout" class="px-6 py-2 text-white bg-orange-700 mt-1" style="background-color:#FFA500; padding:12px;">Logout</a>
+                            <button type="submit" class="btn btn-primary mt-1">Place Order Now</button>
+                            <a href="/logout" class="btn btn-danger mt-1" style="padding:10px;">Logout</a>
                           </form>
                         </div>
                       </div>

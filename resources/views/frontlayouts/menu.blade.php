@@ -111,9 +111,11 @@
                         <a href="/supermarket">
                         <strong>SuperMarket</strong>
                         </a>
+                        {{--
                         <a href="/products">
-                        <strong>Products</strong>
+                        <strong>SuperMarket</strong>
                         </a>
+                        --}}
                     </li>
                      <li class="mr-lg">
                         <a href="/contact">
@@ -128,6 +130,12 @@
                     <li class="mr-lg">
                         <a href="{{ route('login') }}">
                         <strong>Login</strong>
+                        </a>
+                    </li>
+                    <li class="mr-lg">
+                        <a href="{{ route('cart.list')}}">
+                        <em class="fa fa-shopping-cart" style="color:#ffffff;"></em>
+                        <div class="label label-warning">{{ Cart::getTotalQuantity()}}</div>
                         </a>
                     </li>
                 </ul>

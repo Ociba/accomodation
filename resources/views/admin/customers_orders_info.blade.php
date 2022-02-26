@@ -64,14 +64,12 @@
                                                         <th>Street</th>
                                                         <th>Plot No.</th>
                                                         <th>Town</th>
-                                                        @can('isAdmin')
-                                                        <th>Options</th>
-                                                        @endcan
+                                                        <th>Option</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                        
-                                                    @foreach($get_all_orders as $i =>$orders)
+                                                    @foreach($get_all_orders_info as $i =>$orders)
                                                     <tr>
                                                         <td>
                                                             {{ $i + 1}}
@@ -80,25 +78,27 @@
                                                         <td>{{$orders->item_name}}</td>
                                                         <td><img style="width:50px; height:40px;" src="{{ asset('super_market_photos/'.$orders->photo)}}"></td>
                                                         <td>{{$orders->quantity}}</td>
-                                                        <td>{{$orders->price}}</td>
+                                                        <td>{{ number_format($orders->price)}}</td>
                                                         <td>{{$orders->contact}}</td>
                                                         <td>{{$orders->address}}</td>
                                                         <td>{{$orders->division}}</td>
                                                         <td>{{$orders->street}}</td>
                                                         <td>{{$orders->plot_number}}</td>
                                                         <td>{{$orders->town}}</td>
-                                                        @can('isAdmin')
                                                         <td>
-                                                            <a href="/edit-orders/{{$orders->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
-                                                            <a href="/mark-as-taken/{{$orders->id}}" class="btn btn-success btn-sm"><i class="feather icon-check"></i>&nbsp;Mark as Taken </a>
-                                                            <a href="/delete-orders/{{$orders->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
+                                                            <form action="/mark-as-seen/{{$orders->id}}" action="get">
+                                                            <input type="hidden" name="user_id" value="{{$orders->user_id}}">
+                                                              <input type="hidden" name="total" class="form-control" required>
+                                                              <button type="submit" class="btn btn-info btn-sm"><i class="feather icon-file"></i>&nbsp;Mark As Seen </button>
+                                                             </form>
                                                         </td>
-                                                        @endcan
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
+                                         <div class="row ml-2 mt-3">
+                                         </div>
                                     </div>
                                 </div>
                             </div>

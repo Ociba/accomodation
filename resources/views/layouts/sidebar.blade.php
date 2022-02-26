@@ -88,6 +88,23 @@
         </li>
         @endcan
         @can('isAdmin')
+        <li class="sidenav-item">
+            <a href="javascript:" class="sidenav-link sidenav-toggle">
+                <i class="sidenav-icon fa fa-cart-plus"></i>
+                <div>Supermarket</div>
+            </a>
+            <ul class="sidenav-menu">
+                <li class="sidenav-item"><a href="/supermarket-items" class="sidenav-link"><div>Items</div></a></li>
+                <li class="sidenav-item"><a href="/customers-sent-orders" class="sidenav-link"><div>Customer Orders</div></a></li>
+                <li class="sidenav-item"><a href="/customer-orders-summary" class="sidenav-link"><div>Orders Summary</div></a></li>
+                <li class="sidenav-item"><a href="hospital-patient.html" class="sidenav-link"><div>Patient</div></a></li>
+                <li class="sidenav-item"><a href="hospital-nurse.html" class="sidenav-link"><div>Nurse</div></a></li>
+                <li class="sidenav-item"><a href="hospital-pharmacist.html" class="sidenav-link"><div>Pharmacist</div></a></li>
+                <li class="sidenav-item"><a href="hospital-laboratorie.html" class="sidenav-link"><div>Laboratory</div></a></li>
+            </ul>
+        </li>
+        @endcan
+        @can('isAdmin')
         <li  @if(\Request::route()->getName() == "Company Broker")class="sidenav-item active" @else class="sidenav-item" @endif>
             <a href="/get-broker" class="sidenav-link">
                 <i class="sidenav-icon feather icon-message-square"></i>
@@ -112,23 +129,6 @@
             <ul class="sidenav-menu">
                 <li class="sidenav-item"><a href="hospital-dashboard.html" class="sidenav-link"><div>Dashboard</div></a></li>
                 <li class="sidenav-item"><a href="hospital-department.html" class="sidenav-link"><div>Department</div></a></li>
-                <li class="sidenav-item"><a href="hospital-doctor.html" class="sidenav-link"><div>Doctor</div></a></li>
-                <li class="sidenav-item"><a href="hospital-patient.html" class="sidenav-link"><div>Patient</div></a></li>
-                <li class="sidenav-item"><a href="hospital-nurse.html" class="sidenav-link"><div>Nurse</div></a></li>
-                <li class="sidenav-item"><a href="hospital-pharmacist.html" class="sidenav-link"><div>Pharmacist</div></a></li>
-                <li class="sidenav-item"><a href="hospital-laboratorie.html" class="sidenav-link"><div>Laboratory</div></a></li>
-            </ul>
-        </li>
-        @endcan
-        @can('isAdmin')
-        <li class="sidenav-item">
-            <a href="javascript:" class="sidenav-link sidenav-toggle">
-                <i class="sidenav-icon fa fa-cart-plus"></i>
-                <div>Supermarket</div>
-            </a>
-            <ul class="sidenav-menu">
-                <li class="sidenav-item"><a href="/supermarket-items" class="sidenav-link"><div>Items</div></a></li>
-                <li class="sidenav-item"><a href="/customers-sent-orders" class="sidenav-link"><div>Customer Orders</div></a></li>
                 <li class="sidenav-item"><a href="hospital-doctor.html" class="sidenav-link"><div>Doctor</div></a></li>
                 <li class="sidenav-item"><a href="hospital-patient.html" class="sidenav-link"><div>Patient</div></a></li>
                 <li class="sidenav-item"><a href="hospital-nurse.html" class="sidenav-link"><div>Nurse</div></a></li>

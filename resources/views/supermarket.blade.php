@@ -195,9 +195,9 @@
                         $original_price =\DB::table('super_markets')->where('id',$discount->id)->value('price');
                         $actual_percentage_discount =($percentage_discount * 0.01);
 
-                        $calculate_discount =$original_price * $actual_percentage_discount;
+                        //$calculate_discount =$original_price * $actual_percentage_discount;
 
-                        $new_price =$original_price-$calculate_discount;
+                        //$new_price =$original_price-$calculate_discount;
 
                         $item_category_id =\DB::table('super_markets')->where('id',$discount->id)->value('discount');
                         @endphp
@@ -220,16 +220,27 @@
                                 <div class="row row-table text-center">
                                     <div class="col-xs-6">
                                         <span class="text-primary"><del>Ugx.{{ number_format($discount->price)}}</del></span>
-                                        <span class="text-warning font-weight-bold"><strong>Ugx:{{ number_format($new_price)}}</strong></span>
+                                        <span class="text-warning font-weight-bold"><strong>Ugx:{{ number_format($discount->new_price)}}</strong></span>
                                     </div>
                                     <div class="col-xs-6">
                                         <span class="text-primar">{{$discount->location}}</span>
                                     </div>
                                 </div>
-                                <div class="row row-table text-center">
-                                    <div class="col-xs-12">
-                                        <a href="/selected-item/{{$discount->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
-                                    </div>
+                                <div class="row row-table">
+                                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" value="{{ $discount->id }}" name="id">
+                                        <input type="hidden" value="{{ $discount->item }}" name="name">
+                                        <input type="hidden" value="{{ $discount->new_price }}" name="price">
+                                        <input type="hidden" value="{{ $discount->photo }}"  name="image">
+                                        <input type="hidden" value="1" name="quantity">
+                                        <div class="col-xs-6">
+                                            <button class="btn btn-bloc btn-primary">Add To Cart</button>
+                                         </div>
+                                        <div class="col-xs-6">
+                                           <a href="/cart" class="btn btn-warning">View Cart</a>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -303,10 +314,19 @@
                                                                 <span class="text-primary">Ugx.{{$all->price}}</span>
                                                             </div>
                                                         </div>
-                                                        <div class="row row-table text-center">
-                                                            <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$all->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
-                                                            </div>
+                                                        <div class="row row-table">
+                                                            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                                @csrf
+                                                                <input type="hidden" value="{{ $all->id }}" name="id">
+                                                                <input type="hidden" value="{{ $all->item }}" name="name">
+                                                                <input type="hidden" value="{{ $all->price }}" name="price">
+                                                                <input type="hidden" value="{{ $all->photo }}"  name="image">
+                                                                <input type="hidden" value="1" name="quantity">
+                                                                <div class="col-xs-12">
+                                                                    <button class="btn btn-primary">Add To Cart</button>
+                                                                    <a href="/cart" class="btn btn-warning">View Cart</a>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -338,10 +358,19 @@
                                                             <span class="text-primary">Ugx.{{$clothes->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $clothes->id }}" name="id">
+                                                            <input type="hidden" value="{{ $clothes->item }}" name="name">
+                                                            <input type="hidden" value="{{ $clothes->price }}" name="price">
+                                                            <input type="hidden" value="{{ $clothes->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$clothes->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -372,10 +401,19 @@
                                                             <span class="text-primary">Ugx:{{$shoe->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $shoe->id }}" name="id">
+                                                            <input type="hidden" value="{{ $shoe->item }}" name="name">
+                                                            <input type="hidden" value="{{ $shoe->price }}" name="price">
+                                                            <input type="hidden" value="{{ $shoe->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$shoe->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -406,10 +444,19 @@
                                                             <span class="text-primary">Ugx:{{$phones->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $phones->id }}" name="id">
+                                                            <input type="hidden" value="{{ $phones->item }}" name="name">
+                                                            <input type="hidden" value="{{ $phones->price }}" name="price">
+                                                            <input type="hidden" value="{{ $phones->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$phones->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -440,10 +487,19 @@
                                                             <span class="text-primary">Ugx:{{$fruit->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $fruit->id }}" name="id">
+                                                            <input type="hidden" value="{{ $fruit->item }}" name="name">
+                                                            <input type="hidden" value="{{ $fruit->price }}" name="price">
+                                                            <input type="hidden" value="{{ $fruit->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$fruit->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -474,10 +530,19 @@
                                                             <span class="text-primary">Ugx:{{$veges->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $veges->id }}" name="id">
+                                                            <input type="hidden" value="{{ $veges->item }}" name="name">
+                                                            <input type="hidden" value="{{ $veges->price }}" name="price">
+                                                            <input type="hidden" value="{{ $veges->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$veges->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -509,10 +574,19 @@
                                                             <span class="text-primary">Ugx:{{$utensil->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $utensil->id }}" name="id">
+                                                            <input type="hidden" value="{{ $utensil->item }}" name="name">
+                                                            <input type="hidden" value="{{ $utensil->price }}" name="price">
+                                                            <input type="hidden" value="{{ $utensil->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$utensil->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -543,10 +617,19 @@
                                                             <span class="text-primary">Ugx:{{$beddings->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $beddings->id }}" name="id">
+                                                            <input type="hidden" value="{{ $beddings->item }}" name="name">
+                                                            <input type="hidden" value="{{ $beddings->price }}" name="price">
+                                                            <input type="hidden" value="{{ $beddings->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$beddings->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -577,10 +660,19 @@
                                                             <span class="text-primary">Ugx:{{$electronic->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $electronic->id }}" name="id">
+                                                            <input type="hidden" value="{{ $electronic->item }}" name="name">
+                                                            <input type="hidden" value="{{ $electronic->price }}" name="price">
+                                                            <input type="hidden" value="{{ $electronic->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$electronic->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -611,10 +703,19 @@
                                                             <span class="text-primary">{{$computer->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $computer->id }}" name="id">
+                                                            <input type="hidden" value="{{ $computer->item }}" name="name">
+                                                            <input type="hidden" value="{{ $computer->price }}" name="price">
+                                                            <input type="hidden" value="{{ $computer->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$computer->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -645,10 +746,19 @@
                                                             <span class="text-primary">{{$bag->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $bag->id }}" name="id">
+                                                            <input type="hidden" value="{{ $bag->item }}" name="name">
+                                                            <input type="hidden" value="{{ $bag->price }}" name="price">
+                                                            <input type="hidden" value="{{ $bag->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$bag->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -679,10 +789,19 @@
                                                             <span class="text-primary">{{$saloon->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $saloon->id }}" name="id">
+                                                            <input type="hidden" value="{{ $saloon->item }}" name="name">
+                                                            <input type="hidden" value="{{ $saloon->price }}" name="price">
+                                                            <input type="hidden" value="{{ $saloon->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$saloon->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -713,10 +832,19 @@
                                                             <span class="text-primary">{{$schools->price}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row row-table text-center">
+                                                    <div class="row row-table">
+                                                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $schools->id }}" name="id">
+                                                            <input type="hidden" value="{{ $schools->item }}" name="name">
+                                                            <input type="hidden" value="{{ $schools->price }}" name="price">
+                                                            <input type="hidden" value="{{ $schools->photo }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                               <a href="/selected-item/{{$schools->id}}"><span class="btn btn-block btn-primary">Order Now</span></a>
+                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

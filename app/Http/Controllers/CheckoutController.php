@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use App\Models\SuperMarket;
 use DB;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Unitprice;
 use Hash;
 
 class CheckoutController extends Controller
@@ -102,7 +104,7 @@ class CheckoutController extends Controller
         $customer_info_obj ->password         =Hash::make(request()->password);
         $customer_info_obj->type              = 'supermarket';
         $customer_info_obj ->save();
-        return redirect()->back()->with('msg', 'You have successfully created property');
+        return redirect('/login')->with('msg', 'You have successfully created property');
     }
     /**
      * This functions gets order page
@@ -119,7 +121,7 @@ class CheckoutController extends Controller
         foreach($cartItems as $item){
             Order::create([
                 'user_id'      =>auth()->user()->id,
-                'item_id'      =>$item->item_id,
+                'item_id'      =>$item->id,
                 'item_name'	   =>$item->name,
                 'quantity'     =>$item->quantity,
                 'price'        =>$item->price,
@@ -132,9 +134,58 @@ class CheckoutController extends Controller
      */
     protected function getCustomerOrders(){
         $get_all_orders=DB::table('orders')->join('users','users.id','orders.user_id')
-        ->select('users.*','orders.item_name','orders.quantity','orders.price','orders.id','orders.created_at')
+        ->join('super_markets','super_markets.id','orders.item_id')
+        ->select('users.*','orders.item_name','orders.quantity','orders.price','orders.id','orders.created_at','super_markets.photo')
         ->orderBy('orders.created_at','DESC')
-        ->simplePaginate(10);
+        ->get();
         return view('admin.customers_orders',compact('get_all_orders'));
     }
+      /**
+     * This function gets orders from the custommers
+     */
+    protected function getCustomerOrdersInfo($order_id){
+        $get_all_orders_info=DB::table('orders')->join('users','users.id','orders.user_id')
+        ->join('super_markets','super_markets.id','orders.item_id')
+        ->where('orders.user_id',$order_id)
+        ->select('users.*','orders.user_id','orders.item_name','orders.quantity','orders.price','orders.id','orders.created_at','super_markets.photo')
+        ->get();
+        return view('admin.customers_orders_info',compact('get_all_orders_info'));
+    }
+      /**
+     * This function gets orders Details for Particular Person
+     */
+    protected function getCustomerOrdersSummary(){
+        $get_all_orders_summary=DB::table('orders')->join('users','users.id','orders.user_id')
+        ->orderBy('orders.created_at','DESC')
+        ->select('users.*','orders.created_at','orders.user_id')
+        ->distinct('name')->get();
+        return view('admin.customers_orders_summary',compact('get_all_orders_summary'));
+    }
+      /**
+     * This function gets orders Details for Particular Person
+     */
+    protected function printCustomerOrdersInfoNow($user_id){
+        $print_orders_info=DB::table('orders')->join('users','users.id','orders.user_id')
+        ->join('super_markets','super_markets.id','orders.item_id')
+        ->where('orders.user_id',$user_id)
+        ->select('users.*','orders.user_id','orders.item_name','orders.quantity','orders.price','orders.id','orders.created_at','super_markets.photo')
+        ->limit(1) ->get();
+        return view('admin.print_now',compact('print_orders_info'));
+    }
+    /**
+     * This function saves the unit Price for customers order
+     */
+    protected function getUnitPrice($order_id){
+        $quantity =Order::where('id',$order_id)->value('quantity');
+        $price =Order::where('id',$order_id)->value('price');
+        $total =$quantity * $price;
+
+
+        $unit_price =new Unitprice;
+        $unit_price->user_id =request()->user_id;
+        $unit_price->total =$total;
+        $unit_price->save();
+        return redirect()->back()->with('msg','Operation Successful');
+    }
+   
 }

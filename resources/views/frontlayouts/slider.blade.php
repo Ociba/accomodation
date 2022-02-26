@@ -30,10 +30,18 @@
                         </div>
                     </div>
                     <div class="row row-table">
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $items->id }}" name="id">
+                        <input type="hidden" value="{{ $items->item }}" name="name">
+                        <input type="hidden" value="{{ $items->price }}" name="price">
+                        <input type="hidden" value="{{ $items->photo }}"  name="image">
+                        <input type="hidden" value="1" name="quantity">
                         <div class="col-xs-12">
-                            <a href="/selected-item/{{$items->id}}"><span class="btn btn-bloc btn-primary mb-1">Order Now</span></a>
-                            <a href="/get-supermarket-items/{{$items->item_group_id}}"><span class="btn btn-bloc btn-warning">View More</span></a>
+                            <button class="btn btn-primary">Add To Cart</button>
+                            <a href="/cart" class="btn btn-warning">View Cart</a>
                         </div>
+                    </form>
                     </div>
                 </div>
           </div>

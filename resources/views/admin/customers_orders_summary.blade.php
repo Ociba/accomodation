@@ -54,16 +54,7 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Customer Name</th>
-                                                        <th>Item Name</th>
-                                                        <th>Photo</th>
-                                                        <th>Quantity</th>
-                                                        <th>Price</th>
-                                                        <th>Contact</th>
-                                                        <th>Address </th>
-                                                        <th>Division</th>
-                                                        <th>Street</th>
-                                                        <th>Plot No.</th>
-                                                        <th>Town</th>
+                                                        <th>Date & Time</th>
                                                         @can('isAdmin')
                                                         <th>Options</th>
                                                         @endcan
@@ -71,26 +62,18 @@
                                                 </thead>
                                                 <tbody>
                                                        
-                                                    @foreach($get_all_orders as $i =>$orders)
+                                                    @foreach($get_all_orders_summary as $i =>$orders)
                                                     <tr>
                                                         <td>
                                                             {{ $i + 1}}
                                                         </td>
                                                         <td>{{$orders->name}}</td>
-                                                        <td>{{$orders->item_name}}</td>
-                                                        <td><img style="width:50px; height:40px;" src="{{ asset('super_market_photos/'.$orders->photo)}}"></td>
-                                                        <td>{{$orders->quantity}}</td>
-                                                        <td>{{$orders->price}}</td>
-                                                        <td>{{$orders->contact}}</td>
-                                                        <td>{{$orders->address}}</td>
-                                                        <td>{{$orders->division}}</td>
-                                                        <td>{{$orders->street}}</td>
-                                                        <td>{{$orders->plot_number}}</td>
-                                                        <td>{{$orders->town}}</td>
+                                                        <td>{{$orders->created_at}}</td>
                                                         @can('isAdmin')
                                                         <td>
-                                                            <a href="/edit-orders/{{$orders->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
-                                                            <a href="/mark-as-taken/{{$orders->id}}" class="btn btn-success btn-sm"><i class="feather icon-check"></i>&nbsp;Mark as Taken </a>
+                                                            <a href="/view-orders/{{$orders->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;View </a>
+                                                            <a href="/print-now/{{$orders->id}}" class="btn btn-secondary btn-sm" target="_blank"><i class="feather icon-printer"></i>&nbsp;Print </a>
+                                                            <a href="/edit-orders/{{$orders->id}}" class="btn btn-success btn-sm"><i class="feather icon-check-square"></i>&nbsp;Delivered </a>
                                                             <a href="/delete-orders/{{$orders->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                         </td>
                                                         @endcan
