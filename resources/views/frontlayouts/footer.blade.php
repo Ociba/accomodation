@@ -83,7 +83,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <p>Copyright 2021 - {{ date('Y')}} | <a href="#">Terms of Service </a>| <a href="#">Privacy Policy</a>
+                <p>Copyright 21-{{ date('Y')}} | <a href="#">Terms of Service </a>| <a href="#">Privacy Policy</a>
                 </p>
             </div>
             <div class="col-lg-4"></div>
