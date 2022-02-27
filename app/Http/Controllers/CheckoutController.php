@@ -135,7 +135,7 @@ class CheckoutController extends Controller
     protected function getCustomerOrders(){
         $get_all_orders=DB::table('orders')->join('users','users.id','orders.user_id')
         ->join('super_markets','super_markets.id','orders.item_id')
-        ->select('users.*','orders.item_name','orders.quantity','orders.price','orders.id','orders.created_at','super_markets.photo')
+        ->select('users.*','orders.item_name','orders.quantity','orders.price','orders.id','orders.user_id','orders.status','orders.created_at','super_markets.photo')
         ->orderBy('orders.created_at','DESC')
         ->get();
         return view('admin.customers_orders',compact('get_all_orders'));
@@ -146,6 +146,7 @@ class CheckoutController extends Controller
     protected function getCustomerOrdersInfo($order_id){
         $get_all_orders_info=DB::table('orders')->join('users','users.id','orders.user_id')
         ->join('super_markets','super_markets.id','orders.item_id')
+        ->where('orders.status','active')
         ->where('orders.user_id',$order_id)
         ->select('users.*','orders.user_id','orders.item_name','orders.quantity','orders.price','orders.id','orders.created_at','super_markets.photo')
         ->get();
@@ -158,7 +159,7 @@ class CheckoutController extends Controller
         $get_all_orders_summary=DB::table('orders')->join('users','users.id','orders.user_id')
         ->orderBy('orders.created_at','DESC')
         ->select('users.*','orders.created_at','orders.user_id')
-        ->distinct('name')->get();
+        ->distinct('name')->where('orders.status','active')->get();
         return view('admin.customers_orders_summary',compact('get_all_orders_summary'));
     }
       /**
@@ -187,5 +188,20 @@ class CheckoutController extends Controller
         $unit_price->save();
         return redirect()->back()->with('msg','Operation Successful');
     }
-   
+   /**
+    * This function marks order as delivered
+    */
+    protected function markOrderAsDelivered($order_id){
+        Order::where('user_id',$order_id)->update(array(
+            'status' =>'delivered'
+        ));
+        return redirect()->back()->with('msg','Operation Successful');
+    }
+     /**
+    * This function marks order as delivered
+    */
+    protected function deleteOrder($order_id){
+        Order::where('user_id',$order_id)->delete();
+        return redirect()->back()->with('msg','Operation Successful');
+    }
 }

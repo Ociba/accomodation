@@ -121,9 +121,10 @@ class CartController extends Controller
 
     public function cartList()
     {
+        $get_supermarket_items =SuperMarket::where('discount',null)->where('status','active')->get();
         $cartItems = \Cart::getContent();
         // dd($cartItems);
-        return view('cart', compact('cartItems'));
+        return view('cart', compact('cartItems','get_supermarket_items'));
     }
 
 

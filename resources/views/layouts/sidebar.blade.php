@@ -3,7 +3,7 @@
         <span class="app-brand-logo demo">
             <img style="border-radius:50%; width:50px; height:50px;" src="{{ asset('admin/assets/img/house.ico')}}" alt="Brand Logo" class="img-fluid">
         </span>
-        <a href="index.html" class="app-brand-text demo sidenav-text font-weight-normal ml-2">JOOME</a>
+        <a href="index.html" class="app-brand-text demo sidenav-text font-weight-normal ml-2">JJOOME</a>
         <a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
             <i class="ion ion-md-menu align-middle"></i>
         </a>
@@ -16,7 +16,7 @@
         <!-- Dashboards -->
         @can('isAdmin')
         <li  @if(\Request::route()->getName() == "Dashboard") class="sidenav-item active" @else class="sidenav-item" @endif>
-            <a href="/home" class="sidenav-link">
+            <a href="/dashboard" class="sidenav-link">
                 <i class="sidenav-icon feather icon-home"></i>
                 <div>Dashboards</div>
             </a>
@@ -29,12 +29,20 @@
                 <div>Category</div>
             </a>
         </li>
-        @endcan
+        @endcan  
         @can('isAdmin')
         <li @if(\Request::route()->getName() == "Subscribers")class="sidenav-item active" @else  class="sidenav-item" @endif>
             <a href="/subscribers" class="sidenav-link">
-                <i class="sidenav-icon feather icon-layers"></i>
+                <i class="sidenav-icon feather icon-user-check"></i>
                 <div>Subscribers</div>
+            </a>
+        </li>
+        @endcan
+        @can('isAdmin')
+        <li @if(\Request::route()->getName() == "All Taken Properties")class="sidenav-item active" @else  class="sidenav-item" @endif>
+            <a href="/all-taken-properties" class="sidenav-link">
+                <i class="sidenav-icon feather icon-edit"></i>
+                <div>All Properties Taken</div>
             </a>
         </li>
         @endcan
@@ -59,10 +67,10 @@
             <a href="/property" class="sidenav-link">
                 <i class="sidenav-icon  feather icon-image"></i>
                 <div>Property Available</div>
-            </a>
+            </a>  
         </li>
         @endcan
-        @canany(['isAdmin','isPropertyOwner'])
+        @can(['isPropertyOwner'])
         <li @if(\Request::route()->getName() == "Property Taken")class="sidenav-item active" @else class="sidenav-item" @endif>
             <a href="/taken-property" class="sidenav-link">
                 <i class="sidenav-icon  feather icon-check-square"></i>

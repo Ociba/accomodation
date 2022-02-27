@@ -36,13 +36,14 @@
                     <div class="container-fluid flex-grow-1 container-p-y">
                         @include('layouts.breadcrumb')
                         <div class="row">
-                            <!-- customar orders  start -->
+                            <!-- customar property  start -->
                             <div class="col-xl-12">
                               @include('layouts.messages')
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row align-items-center m-l-0">
                                             <div class="col-sm-6">
+
                                             </div>
                                             <div class="col-sm-6 text-right">
                                                 
@@ -53,54 +54,38 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Customer Name</th>
-                                                        <td>Status</th>
-                                                        <th>Item Name</th>
-                                                        <th>Photo</th>
-                                                        <th>Quantity</th>
+                                                        <th>Category Name</th>
+                                                        <th>Owner</th>
+                                                        <th>Property Size</th>
+                                                        <th>Bedroom</th>
+                                                        <th>Bathroom</th>
+                                                        <th>Garage</th>
+                                                        <th>Location</th>
+                                                        <th>Description</th>
                                                         <th>Price</th>
-                                                        <th>Contact</th>
-                                                        <th>Address </th>
-                                                        <th>Division</th>
-                                                        <th>Street</th>
-                                                        <th>Plot No.</th>
-                                                        <th>Town</th>
-                                                        @can('isAdmin')
-                                                        <th>Options</th>
-                                                        @endcan
+                                                        <th>Photo</th>
+                                                        <th>Property Status</th>
+                                                        <th>Status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                       
-                                                    @foreach($get_all_orders as $i =>$orders)
+                                                    @foreach($get_all_property_taken as $i =>$property)
                                                     <tr>
                                                         <td>
                                                             {{ $i + 1}}
                                                         </td>
-                                                        <td>{{$orders->name}}</td>
-                                                        <td>
-                                                          @if($orders->status == 'active')
-                                                            <label class="badge badge-pill badge-success">{{$orders->status}}</label>
-                                                            @else(
-                                                            <label class="badge badge-pill badge-danger">{{$orders->status}}</label> 
-                                                            )
-                                                            @endif
-                                                        </td>
-                                                        <td>{{$orders->item_name}}</td>
-                                                        <td><img style="width:50px; height:40px;" src="{{ asset('super_market_photos/'.$orders->photo)}}"></td>
-                                                        <td>{{$orders->quantity}}</td>
-                                                        <td>{{$orders->price}}</td>
-                                                        <td>{{$orders->contact}}</td>
-                                                        <td>{{$orders->address}}</td>
-                                                        <td>{{$orders->division}}</td>
-                                                        <td>{{$orders->street}}</td>
-                                                        <td>{{$orders->plot_number}}</td>
-                                                        <td>{{$orders->town}}</td>
-                                                        @can('isAdmin')
-                                                        <td>
-                                                            <a href="/delete-order/{{$orders->user_id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
-                                                        </td>
-                                                        @endcan
+                                                        <td>{{$property->category_name}}</td>
+                                                        <td>{{$property->name}}</td>
+                                                        <td>{{$property->property_size}}</td>
+                                                        <td>{{$property->bedroom}}</td>
+                                                        <td>{{$property->bathroom}}</td>
+                                                        <td>{{$property->garage}}</td>
+                                                        <td>{{$property->location}}</td>
+                                                        <td>{{$property->description}}</td>
+                                                        <td>{{$property->price}}</td>
+                                                        <td><img style="width:50px; height:40px;" src="{{ asset('property_photos/'.$property->photo)}}"></td>
+                                                        <td>{{$property->property_status}}</td>
+                                                        <td>{{$property->status}}</td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -109,7 +94,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- customar orders  end -->
+                            <!-- customar property  end -->
                         </div>
                     </div>
                     <!-- [ content ] End -->
@@ -152,4 +137,5 @@
         // DataTable end
     </script>
 </body>
+
 </html>

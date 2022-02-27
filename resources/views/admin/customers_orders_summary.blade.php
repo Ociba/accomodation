@@ -73,8 +73,7 @@
                                                         <td>
                                                             <a href="/view-orders/{{$orders->id}}" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;View </a>
                                                             <a href="/print-now/{{$orders->id}}" class="btn btn-secondary btn-sm" target="_blank"><i class="feather icon-printer"></i>&nbsp;Print </a>
-                                                            <a href="/edit-orders/{{$orders->id}}" class="btn btn-success btn-sm"><i class="feather icon-check-square"></i>&nbsp;Delivered </a>
-                                                            <a href="/delete-orders/{{$orders->id}}" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
+                                                            <a href="/mark-as-order-delivered/{{$orders->id}}" class="btn btn-success btn-sm"><i class="feather icon-check-square"></i>&nbsp;Delivered </a>
                                                         </td>
                                                         @endcan
                                                     </tr>

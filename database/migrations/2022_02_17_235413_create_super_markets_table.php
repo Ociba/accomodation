@@ -22,7 +22,7 @@ class CreateSuperMarketsTable extends Migration
             $table->string('price');
             $table->string('photo');
             $table->string('discount')->nullable();
-            $table->enum('status',['active','out of stock'])->default('active');
+            $table->enum('status',['active','out of stock','delivered'])->default('active');
             $table->timestamps();
         });
     }

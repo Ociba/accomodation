@@ -75,4 +75,18 @@ class User extends Authenticatable
         $get_all_the_property =DB::table('properties')->where('status','pending')->orderBy('created_at',"Desc")->get();
         return $get_all_the_property;
     }
+    /**
+     * This function counts clients requests
+     * its should be less than 3 hours from the time it was sent
+     */
+    public function countAllPropertyClientsRequests(){
+        return DB::table('clients')->whereDate('created_at','>', now()->subDay())->count();
+    }
+     /**
+     * This function counts supermarket clients requests
+     * its should be less than 3 hours from the time it was sent
+     */
+    public function countAllOrders(){
+        return DB::table('orders')->whereDate('created_at','>', now()->subDay())->count();
+    }
 }

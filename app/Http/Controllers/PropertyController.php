@@ -48,9 +48,20 @@ class PropertyController extends Controller
         ->select('properties.*','users.name','categories.category_name')
         ->where('properties.user_id',auth()->user()->id)
         ->where('properties.status','taken')
-        //->orwhere('users.type',"!=","admin")
         ->get();
         return view('admin.taken_property', compact('get_property_taken'));
+    }
+    /**
+     * This function fetches all the property  already taken details 
+     */
+    protected function getAllropertyTaken(){
+        $get_all_property_taken =DB::table('properties')
+        ->join('users','properties.user_id','users.id')
+        ->join('categories','properties.category_id','categories.id')
+        ->select('properties.*','users.name','categories.category_name')
+        ->where('properties.status','taken')
+        ->get();
+        return view('admin.all_taken_property', compact('get_all_property_taken'));
     }
     /**
      * This function creates property

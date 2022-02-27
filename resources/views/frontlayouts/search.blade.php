@@ -1,6 +1,6 @@
-<div class="panel panel-default" style="margin-top:-50px;">
-   <div class="panel-heading text-center">@include('layouts.messages')</div>
-    <div class="panel-heading text-center">Search Your Property</div>
+<div class="panel panel-default bg-inverse" style="margin-top:-50px;">
+   <div class="panel-heading text-center bg-inverse">@include('layouts.messages')</div>
+    <div class="panel-headin text-center bg-inverse">Search Your Property</div>
     <div class="panel-body text-center">
         <form role="form" class="form-inline" action="/search-property" method="get">
             <div class="form-group">

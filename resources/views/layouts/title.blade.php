@@ -1,1 +1,1 @@
-<title>JOOME | Accomadation Company ltd</title>
+<title>JJOOME | Accomadation Company ltd</title>

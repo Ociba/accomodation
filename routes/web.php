@@ -62,6 +62,7 @@ Route::get('/get-supermarket-items/{item_id}',[ViewMoreItemsController::Class,'V
 Route::get('/selected-item/{item_id}',[CartController::Class,'ViewCart']);  
 Route::get('/supermarket-account-creation',[CartController::Class,'createAccountForm']);
 Route::get('/subscribe-now',[SubscriptionController::Class,'subscribeUsers']);
+Route::get('/delete-subscriber/{subscriber_id}',[SubscriptionController::Class,'deleteSubscription']);
 Route::post('/register-account',[CartController::Class,'createAccount']);
 Route::get('/checkout',[CheckoutController::Class,'checkout']);
 Route::get('/save-client-information',[CheckoutController::Class,'createAccount']);
@@ -99,6 +100,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/print',[CheckoutController::Class,'printCustomerOrdersInfo']);
     Route::get('/print-now/{user_id}',[CheckoutController::Class,'printCustomerOrdersInfoNow']);
     Route::get('/mark-as-seen/{order_id}',[CheckoutController::Class,'getUnitPrice']);
+    Route::get('/mark-as-order-delivered/{order_id}',[CheckoutController::Class,'markOrderAsDelivered']);
+    Route::get('/delete-order/{order_id}',[CheckoutController::Class,'deleteOrder']);
 
     Route::get('/shopping',[AuthenticatedUserCartController::Class,'authenticatedUserCart']);
     Route::get('/item-details/{item_id}',[AuthenticatedUserCartController::Class,'viewSelectedItem']);
@@ -123,6 +126,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/properties-available',[PropertyController::Class, 'getPropertyForAdmin'])->name('Properties Available');
     Route::get('/add-property-discount-form/{property_id}',[PropertyController::Class, 'addDiscountForm'])->name('Discount Form');
     Route::get('/add-discount/{property_id}',[PropertyController::Class, 'saveDiscount']); 
+    Route::get('/all-taken-properties',[PropertyController::Class, 'getAllropertyTaken'])->name('All Taken Properties');
    
     
     Route::get('/supermarket-items',[SuperMarketController::Class,'superMarketItems'])->name('Supermarket Items');

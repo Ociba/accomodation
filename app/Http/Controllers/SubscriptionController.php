@@ -20,4 +20,11 @@ class SubscriptionController extends Controller
         $get_subscriptions =Subscription::orderBy('created_at')->get();
         return view('admin.subscribers',compact('get_subscriptions'));
     }
+    /**
+     * This function deletes subscriptions emails permanently
+     */
+    protected function deleteSubscription($subscriber_id){
+        Subscription::where('id',$subscriber_id)->delete();
+        return Redirect()->back()->with('msg','Operation Successfull');
+    }
 }

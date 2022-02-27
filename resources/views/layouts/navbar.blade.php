@@ -32,8 +32,8 @@
         <div class="navbar-nav align-items-lg-center ml-auto">
             <div class="demo-navbar-notifications nav-item dropdown mr-lg-3">
                 <a class="nav-link dropdown-toggle hide-arrow" href="#" data-toggle="dropdown">
-                    <i class="feather icon-bell navbar-icon align-middle"></i>
-                    <span class="badge badge-danger badge-dot indicator"></span>
+                    <i class="feather icon-bell navbar-icon align-middle"></i> 
+                    <span class="badge badge-danger badge-dot indicator">shop</span> {{auth()->user()->countAllOrders()}}
                     <span class="d-lg-none align-middle">&nbsp; Notifications</span>
                 </a>
                 {{--<div class="dropdown-menu dropdown-menu-right">
@@ -62,7 +62,7 @@
             <div class="demo-navbar-messages nav-item dropdown mr-lg-3">
                 <a class="nav-link dropdown-toggle hide-arrow" href="#" data-toggle="dropdown">
                     <i class="feather icon-mail navbar-icon align-middle"></i>
-                    <span class="badge badge-success badge-dot indicator"></span>
+                    <span class="badge badge-success badge-dot indicator">property</span>  {{auth()->user()->countAllPropertyClientsRequests()}}
                     <span class="d-lg-none align-middle">&nbsp; Messages</span>
                 </a>
                 {{--<div class="dropdown-menu dropdown-menu-right">

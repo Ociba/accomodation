@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('item_name');
             $table->string('quantity');
             $table->string('price');
+            $table->enum('status',['active','out of stock','delivered'])->default('active');
             $table->timestamps();
         });
     }
