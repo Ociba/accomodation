@@ -29,6 +29,7 @@ use App\Http\Controllers\AuthenticatedUserCartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\SearchPropertyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,7 +67,7 @@ Route::get('/checkout',[CheckoutController::Class,'checkout']);
 Route::get('/save-client-information',[CheckoutController::Class,'createAccount']);
 Route::get('/save-order',[CheckoutController::Class,'createCheckoutOrder']);
 Route::get('/mail',[MailController::Class,'sendEmail']);
-
+Route::get('/search-property',[SearchPropertyController::Class,'searchProperty']);
 //Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 
 //Route::get('/update-cart/{items_id}',[CartController::Class,'updateCart'])->name('cart.update');
