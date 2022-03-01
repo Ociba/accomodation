@@ -1,4 +1,9 @@
 @extends('layouts.frontend')
+<style>
+ .mb-1 {
+   margin-bottom:4px;
+ }
+ </style>
 @section('content')
 
     <div class="container px-6 mx-auto">
@@ -19,7 +24,7 @@
                         <input type="hidden" value="{{ $product->price }}" name="price">
                         <input type="hidden" value="{{ $product->photo }}"  name="image">
                         <input type="hidden" value="1" name="quantity">
-                        <button class="px-4 py-2 text-white bg-blue-800 rounded">Add To Cart</button>
+                        <button class="px-4 py-2 text-white bg-blue-800 rounded mb-1">Add To Cart</button>
                         <a href="/cart" class="px-4 py-2 text-white bg-orange-800 rounded">View Cart</a>
                     </form>
                 </div>

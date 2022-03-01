@@ -175,6 +175,9 @@
             40%,70% { transform: translateX(-600px); }
             80%,100% { transform: translateX(-1200px); }
             }
+            .mb-1 {
+            margin-bottom:4px;
+            }
         </style>
     </head>
     <body>

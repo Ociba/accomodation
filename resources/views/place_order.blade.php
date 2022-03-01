@@ -4,6 +4,9 @@
   .bg-orange-700 {
     color:#FFA500;
   }
+ .mb-1 {
+   margin-bottom:4px;
+   }
 </style>
 @section('content')
           <main class="my-8">
@@ -27,7 +30,7 @@
                                 <span class="lg:hidden" title="Quantity">Qtd</span>
                                 <span class="hidden lg:inline">Quantity</span>
                               </th>
-                              <th class="hidden text-right md:table-cell"> price</th>
+                              {{--<th class="hidden text-right md:table-cell"> price</th>--}}
                               <th class="hidden text-right md:table-cell"> Remove </th>
                             </tr>
                           </thead>
@@ -53,18 +56,18 @@
                                     <form action="{{ route('cart.update') }}" method="get">
                                       @csrf
                                       <input type="hidden" name="id" value="{{ $item->id}}" >
-                                    <input type="number" name="quantity" value="{{ $item->quantity }}" 
+                                    <input type="text" name="quantity" value="{{ $item->quantity }}" 
                                     class="w-6 text-center bg-gray-300" />
-                                    <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">update</button>
+                                    {{--<button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">update</button>--}}
                                     </form>
                                   </div>
                                 </div>
                               </td>
-                              <td class="hidden text-right md:table-cell">
+                              {{--<td class="hidden text-right md:table-cell">
                                 <span class="text-sm font-medium lg:text-base">
                                     Ugx: {{ number_format($item->price) }}
                                 </span>
-                              </td>
+                              </td>--}}
                               <td class="hidden text-right md:table-cell">
                                 <form action="{{ route('cart.remove') }}" method="POST">
                                   @csrf
@@ -91,7 +94,7 @@
                             <input type="hidden" name="price" value="{{$item->price}}" class="form-control">
                             <input type="hidden" name="quantity" value="{{$item->quantity}}" class="form-control">
                             @endforeach
-                            <button type="submit" class="btn btn-primary mt-1">Place Order Now</button>
+                            <button type="submit" class="btn btn-primary mt-1 mb-1">Place Order Now</button>
                             <a href="/logout" class="btn btn-danger mt-1" style="padding:10px;">Logout</a>
                           </form>
                         </div>

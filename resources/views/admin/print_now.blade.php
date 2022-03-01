@@ -153,7 +153,9 @@
                         @php
                         $user_id=request()->user_id;
                         $items_ordered = \DB::table('orders')->join('super_markets','super_markets.id','orders.item_id')
-                        ->where('user_id',$user_id)->get();
+                        ->where('user_id',$user_id)
+                        ->whereDate('orders.created_at' , '=',\Carbon\Carbon::today())
+                        ->whereTime('orders.created_at' , '>',\Carbon\Carbon::now()->subHours(1))->get();
                         @endphp
                         @foreach($items_ordered as $items)
                     <tr>

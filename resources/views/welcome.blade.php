@@ -103,14 +103,12 @@
                         </div>
                         <div class="col-xs-12 col-lg-6 align-middle">
                             <div class="side-presentation">
-                                <div class="h2 header-title">Better &amp; Affordable Accomodation & Supermarket</div>
+                                <div class="h2 header-title" style="font-size:20px; color:#000066; font-weight:bold;">Better &amp; Affordable Accomodation & Supermarket</div>
                                 <br>
                                 <p class="header-subtitle">Get your Accomodation now comfortable, Affordable , Standard Space both Rooms & Parking and self contained.</p>
-                                <br>
+                                
                                 <div class="header-button">
-                                    <a href="#" class="btn btn-primary btn-lg btn-fw">
-                                    <strong>Discover Now</strong>
-                                    </a>
+                                <img src="{{ asset('advert/banner.png')}}"  alt="">
                                 </div>
                                 <br>
                                 <br>

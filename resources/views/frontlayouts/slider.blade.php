@@ -38,7 +38,7 @@
                         <input type="hidden" value="{{ $items->photo }}"  name="image">
                         <input type="hidden" value="1" name="quantity">
                         <div class="col-xs-12">
-                            <button class="btn btn-primary">Add To Cart</button>
+                            <button class="btn btn-primary mb-1">Add To Cart</button>
                             <a href="/cart" class="btn btn-warning">View Cart</a>
                         </div>
                     </form>

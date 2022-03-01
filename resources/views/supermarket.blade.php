@@ -175,6 +175,9 @@
             40%,70% { transform: translateX(-600px); }
             80%,100% { transform: translateX(-1200px); }
             }
+                .mb-1 {
+                margin-bottom:4px;
+                }
         </style>
     </head>
     <body>
@@ -323,7 +326,7 @@
                                                                 <input type="hidden" value="{{ $all->photo }}"  name="image">
                                                                 <input type="hidden" value="1" name="quantity">
                                                                 <div class="col-xs-12">
-                                                                    <button class="btn btn-primary">Add To Cart</button>
+                                                                    <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                     <a href="/cart" class="btn btn-warning">View Cart</a>
                                                                 </div>
                                                             </form>
@@ -367,7 +370,7 @@
                                                             <input type="hidden" value="{{ $clothes->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -410,7 +413,7 @@
                                                             <input type="hidden" value="{{ $shoe->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -453,7 +456,7 @@
                                                             <input type="hidden" value="{{ $phones->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -496,7 +499,7 @@
                                                             <input type="hidden" value="{{ $fruit->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -539,7 +542,7 @@
                                                             <input type="hidden" value="{{ $veges->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -583,7 +586,7 @@
                                                             <input type="hidden" value="{{ $utensil->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -626,7 +629,7 @@
                                                             <input type="hidden" value="{{ $beddings->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -669,7 +672,7 @@
                                                             <input type="hidden" value="{{ $electronic->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -712,7 +715,7 @@
                                                             <input type="hidden" value="{{ $computer->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -755,7 +758,7 @@
                                                             <input type="hidden" value="{{ $bag->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -798,7 +801,7 @@
                                                             <input type="hidden" value="{{ $saloon->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>
@@ -841,7 +844,7 @@
                                                             <input type="hidden" value="{{ $schools->photo }}"  name="image">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-primary">Add To Cart</button>
+                                                                <button class="btn btn-primary mb-1">Add To Cart</button>
                                                                 <a href="/cart" class="btn btn-warning">View Cart</a>
                                                             </div>
                                                         </form>

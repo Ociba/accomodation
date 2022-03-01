@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Unitprice;
 use Hash;
+use Carbon\Carbon;
 
 class CheckoutController extends Controller
 {
@@ -147,6 +148,8 @@ class CheckoutController extends Controller
         $get_all_orders_info=DB::table('orders')->join('users','users.id','orders.user_id')
         ->join('super_markets','super_markets.id','orders.item_id')
         ->where('orders.status','active')
+        ->whereDate('orders.created_at' , '=',Carbon::today())
+        ->whereTime('orders.created_at' , '>',Carbon::now()->subHours(1))
         ->where('orders.user_id',$order_id)
         ->select('users.*','orders.user_id','orders.item_name','orders.quantity','orders.price','orders.id','orders.created_at','super_markets.photo')
         ->get();
@@ -169,6 +172,8 @@ class CheckoutController extends Controller
         $print_orders_info=DB::table('orders')->join('users','users.id','orders.user_id')
         ->join('super_markets','super_markets.id','orders.item_id')
         ->where('orders.user_id',$user_id)
+        ->whereDate('orders.created_at' , '=',Carbon::today())
+        ->whereTime('orders.created_at' , '>',Carbon::now()->subHours(1))
         ->select('users.*','orders.user_id','orders.item_name','orders.quantity','orders.price','orders.id','orders.created_at','super_markets.photo')
         ->limit(1) ->get();
         return view('admin.print_now',compact('print_orders_info'));

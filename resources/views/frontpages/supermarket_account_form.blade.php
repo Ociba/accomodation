@@ -36,7 +36,7 @@
                   <img src="{{ asset('admin/assets/img/house.ico')}}" alt="Image" class="block-center img-rounded"> <br>JJOOME
                </a>--}}
                <p class="text-center mt-lg" style="height:10px;">
-                  <strong>ENTER YOUR CREDENTIALS</strong>
+                  <strong>ENTER YOUR DETAILS</strong>
                </p>
             </div>
             <div class="panel-body">

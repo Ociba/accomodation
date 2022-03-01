@@ -14,6 +14,9 @@
          border-color: #ffbf00;
          color: #ffffff;
       }
+      .mb-1 {
+        margin-bottom:4px;
+      }
   </style>
 @section('content')
           <main class="my-8">
@@ -93,7 +96,7 @@
                         <div>
                           <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button class="btn btn-danger">Remove All Cart</button>
+                            <button class="btn btn-danger mb-1">Remove All Cart</button>
                             <a href="/checkout" class="btn btn-primary">Proceed To Checkout sh.{{ number_format(Cart::getTotal()) }}</a>
                           </form>
                         </div>
@@ -126,7 +129,7 @@
                           <input type="hidden" value="{{ $items->photo }}"  name="image">
                           <input type="hidden" value="1" name="quantity">
                           <div class="col-xs-12">
-                              <button class="btn btn-primary" style="padding:8px;">Add To Cart</button>
+                              <button class="btn btn-primary mb-1" style="padding:8px;">Add To Cart</button>
                               <a href="/cart" class="btn btn-warning" style="padding:10px;">View Cart</a>
                           </div>
                       </form>

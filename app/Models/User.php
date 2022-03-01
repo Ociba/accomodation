@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use DB;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -80,13 +81,15 @@ class User extends Authenticatable
      * its should be less than 3 hours from the time it was sent
      */
     public function countAllPropertyClientsRequests(){
-        return DB::table('clients')->whereDate('created_at','>', now()->subDay())->count();
+        return DB::table('clients')->whereDate('created_at' , '=',Carbon::today())
+        ->whereTime('created_at' , '>',Carbon::now()->subHours(3))->count();
     }
      /**
      * This function counts supermarket clients requests
      * its should be less than 3 hours from the time it was sent
      */
     public function countAllOrders(){
-        return DB::table('orders')->whereDate('created_at','>', now()->subDay())->count();
+        return DB::table('orders')->whereDate('created_at' , '=',Carbon::today())
+        ->whereTime('created_at' , '>',Carbon::now()->subHours(3))->count();
     }
 }
